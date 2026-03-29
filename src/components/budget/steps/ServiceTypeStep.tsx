@@ -1,4 +1,3 @@
-import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Home, Building2, Hammer, Droplet, Shield, Mountain } from "lucide-react";
 import type { UseFormRegister, FieldErrors, UseFormWatch, UseFormSetValue } from "react-hook-form";
@@ -90,8 +89,8 @@ export function ServiceTypeStep({ register, errors, watch, setValue }: ServiceTy
 
       <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
         <p className="text-sm text-blue-800">
-          💡 <strong>Consejo:</strong> Si no estás seguro del tipo de servicio, selecciona "Otro" y
-          descríbenos tu proyecto en el siguiente paso.
+          💡 <strong>Consejo:</strong> Si no estás seguro del tipo de servicio, selecciona &quot;Otro&quot; y
+          describenos tu proyecto en el siguiente paso.
         </p>
       </div>
     </div>

@@ -1,5 +1,3 @@
-// Tipos globales para el proyecto
-
 export interface Service {
   id: string;
   title: string;
@@ -7,6 +5,13 @@ export interface Service {
   icon: string;
   features: string[];
 }
+
+export type ProjectCategory =
+  | "reformas"
+  | "albanileria"
+  | "restauracion"
+  | "construccion"
+  | "otros";
 
 export interface Project {
   id: string;
@@ -17,13 +22,6 @@ export interface Project {
   date: string;
   location?: string;
 }
-
-export type ProjectCategory =
-  | "reformas"
-  | "albañileria"
-  | "restauracion"
-  | "construccion"
-  | "otros";
 
 export interface Testimonial {
   id: string;

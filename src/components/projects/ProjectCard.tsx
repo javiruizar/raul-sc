@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 import type { Project } from "@/types";
 
-const categoryLabels = {
+const categoryLabels: Record<string, string> = {
   reformas: "Reformas",
-  albañileria: "Albañilería",
+  albanileria: "Albañilería", // Corregido: clave sin 'ñ' para coincidir con el tipo
   restauracion: "Restauración",
   construccion: "Construcción",
   otros: "Otros",
@@ -16,7 +17,6 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
-  // Formatear fecha
   const formattedDate = new Date(project.date).toLocaleDateString("es-ES", {
     year: "numeric",
     month: "long",
@@ -27,14 +27,21 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={onClick}
       className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
     >
-      {/* Imagen placeholder */}
-      <div className="relative h-64 bg-gradient-to-br from-neutral-200 to-neutral-300 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
-          <div className="text-center">
-            <div className="text-6xl mb-2">🏗️</div>
-            <p className="text-sm">Imagen del proyecto</p>
+      {/* Contenedor de la imagen */}
+      <div className="relative h-64 bg-neutral-200 overflow-hidden">
+        {project.images && project.images.length > 0 ? (
+          <Image
+            src={project.images[0]}
+            alt={`Imagen principal del proyecto: ${project.title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
+            <span className="text-sm">Sin imagen</span>
           </div>
-        </div>
+        )}
         
         {/* Overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -44,9 +51,9 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         </div>
 
         {/* Badge de categoría */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 z-10">
           <Badge className="bg-primary hover:bg-primary-dark">
-            {categoryLabels[project.category]}
+            {categoryLabels[project.category] || "Proyecto"}
           </Badge>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -49,12 +49,12 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a
-              href="tel:+34600000000"
-              className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
-            >
-              <Phone className="h-4 w-4" />
-              <span>600 000 000</span>
-            </a>
+  href="tel:+34647684443" 
+  className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
+>
+  <Phone className="h-4 w-4" />
+  <span>647 684 443</span> {/* Ej: 611 222 333 */}
+</a>
             <Button asChild>
               <Link href="/presupuesto">Solicitar Presupuesto</Link>
             </Button>
@@ -82,12 +82,12 @@ export function Header() {
                 ))}
                 <div className="pt-4 border-t">
                   <a
-                    href="tel:+34600000000"
-                    className="flex items-center space-x-2 text-neutral-800 hover:text-primary mb-4"
-                  >
-                    <Phone className="h-5 w-5" />
-                    <span>600 000 000</span>
-                  </a>
+  href="tel:+34647684443" 
+  className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
+>
+  <Phone className="h-4 w-4" />
+  <span>647684443</span> 
+</a>
                   <a
                     href="mailto:contacto@raulalbanil.com"
                     className="flex items-center space-x-2 text-neutral-800 hover:text-primary mb-4"

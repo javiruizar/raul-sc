@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -65,24 +65,27 @@ export function BudgetForm() {
     }
   };
 
-  const onSubmit = async (data: BudgetFormData) => {
+const onSubmit = async (data: BudgetFormData) => {
     setIsSubmitting(true);
 
     try {
-      // TODO: Implementar llamada a API route
-      // const response = await fetch("/api/presupuesto", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(data),
-      // });
+      const response = await fetch("/api/presupuesto", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(data),
+      });
 
-      // Simulación de envío
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
 
       setSubmitSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       console.error("Error al enviar:", error);
+      alert("Hubo un problema al enviar el formulario. Revisa la consola para más detalles.");
     } finally {
       setIsSubmitting(false);
     }
@@ -126,12 +129,14 @@ export function BudgetForm() {
             </ul>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild>
-              <a href="/">Volver al Inicio</a>
-            </Button>
-            <Button asChild variant="outline">
-              <a href="/proyectos">Ver Proyectos</a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+  <Button asChild>
+    <Link href="/">Volver al Inicio</Link>
+  </Button>
+  <Button asChild variant="outline">
+    <Link href="/proyectos">Ver Proyectos</Link>
+  </Button>
+</div>
           </div>
         </CardContent>
       </Card>

@@ -120,10 +120,10 @@ export default function ProyectosPage() {
                 ))}
               </div>
               <blockquote className="text-xl md:text-2xl text-neutral-800 italic leading-relaxed mb-6">
-                "Raúl restauró nuestra casa rural del siglo XIX con un cuidado
-                excepcional. Respetó cada detalle original mientras modernizaba
-                las instalaciones. Un trabajo impecable."
-              </blockquote>
+  &quot;Raúl restauró nuestra casa rural del siglo XIX con un cuidado
+  excepcional. Respetó cada detalle original mientras modernizaba
+  las instalaciones. Un trabajo impecable.&quot;
+</blockquote>
               <div>
                 <p className="font-semibold text-secondary">María González</p>
                 <p className="text-sm text-neutral-800/60">Propietaria Casa Rural</p>

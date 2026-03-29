@@ -23,9 +23,9 @@ const navigation = {
 };
 
 const socialLinks = [
-  { name: "Facebook", href: "#", icon: Facebook },
-  { name: "Instagram", href: "#", icon: Instagram },
-  { name: "LinkedIn", href: "#", icon: Linkedin },
+  { name: "Facebook", href: "https://facebook.com/[TU_PERFIL]", icon: Facebook },
+  { name: "Instagram", href: "https://instagram.com/[TU_PERFIL]", icon: Instagram },
+  { name: "LinkedIn", href: "https://linkedin.com/in/[TU_PERFIL]", icon: Linkedin },
 ];
 
 export function Footer() {

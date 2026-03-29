@@ -18,9 +18,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Raúl Albañil - Especialista en Reformas de Casas Antiguas",
+  metadataBase: new URL("https://www.raulsanchez.javierruiz.org"),
+  title: "Raúl Albañil - Reformas y Albañilería en Los Pedroches",
   description:
-    "Servicios profesionales de albañilería y reformas. Especialistas en restauración de casas antiguas con más de 20 años de experiencia.",
+    "Servicios profesionales de albañilería y reformas integrales en Los Pedroches. Especialistas en restauración de casas antiguas con más de 20 años de experiencia.",
   keywords: [
     "albañil",
     "reformas",
@@ -28,7 +29,31 @@ export const metadata: Metadata = {
     "restauración",
     "construcción",
     "albañilería",
+    "Los Pedroches",
+    "Pozoblanco",
+    "Córdoba"
   ],
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
+  openGraph: {
+    title: "Raúl Sanchez - Reformas y Construcción",
+    description: "Servicios profesionales de albañilería y reformas integrales en Los Pedroches.",
+    url: "https://www.raulsanchez.javierruiz.org",
+    siteName: "Raúl Sanchez - Reformas y Construcción",
+    locale: "es_ES",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg", // Debes crear esta imagen en la carpeta public/images
+        width: 1200,
+        height: 630,
+        alt: "Proyectos de reformas de Raúl Sánchez",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

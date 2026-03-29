@@ -3,27 +3,27 @@ import { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: "reforma-casa-rural-1",
-    title: "Restauración Casa Rural del S.XIX",
+    title: "Restauración Casa Señorial del S.XX",
     description:
-      "Restauración completa de una casa rural del siglo XIX, manteniendo los elementos originales y mejorando las instalaciones.",
+      "Restauración completa de una casa de bovedas de 1950, manteniendo los elementos originales y mejorando y modernizando las instalaciones.",
     category: "restauracion",
     images: [
-      "/images/projects/casa-rural-1.jpg",
-      "/images/projects/casa-rural-2.jpg",
-      "/images/projects/casa-rural-3.jpg",
+      "/images/projects/IMG_5112.webp",
+      "/images/projects/IMG_5113.webp",
+      "/images/projects/IMG_9591.webp",
     ],
     date: "2024-03",
-    location: "Pueblo de la Sierra",
+    location: "Pozoblanco",
   },
   {
-    id: "reforma-bano-moderno",
-    title: "Reforma Baño Moderno",
+    id: "reforma-patio",
+    title: "Reforma de patio",
     description:
-      "Transformación completa de un baño antiguo en un espacio moderno y funcional.",
+      "Transformación completa de patio antiguo",
     category: "reformas",
     images: [
-      "/images/projects/bano-1.jpg",
-      "/images/projects/bano-2.jpg",
+      "/images/projects/IMG_5113.webp",
+      "/images/projects/bano-2.webp",
     ],
     date: "2024-02",
   },
@@ -32,50 +32,12 @@ export const projects: Project[] = [
     title: "Muro de Piedra en Jardín",
     description:
       "Construcción de muro de contención en piedra natural para jardín en desnivel.",
-    category: "albañileria",
+    category: "albanileria",
     images: [
-      "/images/projects/muro-piedra-1.jpg",
-      "/images/projects/muro-piedra-2.jpg",
+      "/images/projects/IMG_9591.webp",
+     
     ],
     date: "2024-01",
   },
-  {
-    id: "reforma-cocina-rustica",
-    title: "Cocina Rústica con Encanto",
-    description:
-      "Reforma de cocina combinando estilo rústico con comodidades modernas.",
-    category: "reformas",
-    images: [
-      "/images/projects/cocina-1.jpg",
-      "/images/projects/cocina-2.jpg",
-      "/images/projects/cocina-3.jpg",
-    ],
-    date: "2023-12",
-  },
-  {
-    id: "fachada-rehabilitacion",
-    title: "Rehabilitación de Fachada",
-    description:
-      "Rehabilitación completa de fachada con aislamiento térmico y acabado tradicional.",
-    category: "construccion",
-    images: [
-      "/images/projects/fachada-1.jpg",
-      "/images/projects/fachada-2.jpg",
-    ],
-    date: "2023-11",
-  },
-  {
-    id: "restauracion-bodega",
-    title: "Restauración de Bodega Antigua",
-    description:
-      "Recuperación de bodega subterránea del siglo XVIII con técnicas tradicionales.",
-    category: "restauracion",
-    images: [
-      "/images/projects/bodega-1.jpg",
-      "/images/projects/bodega-2.jpg",
-      "/images/projects/bodega-3.jpg",
-    ],
-    date: "2023-10",
-    location: "Zona Vinícola",
-  },
+
 ];

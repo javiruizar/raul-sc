@@ -10,12 +10,12 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, ChevronRight, MapPin, Calendar, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
 import type { Project } from "@/types";
 
 const categoryLabels = {
   reformas: "Reformas",
-  albañileria: "Albañilería",
+  albanileria: "Albañilería",
   restauracion: "Restauración",
   construccion: "Construcción",
   otros: "Otros",

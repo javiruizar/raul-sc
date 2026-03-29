@@ -23,7 +23,7 @@ export function ContactForm() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+const onSubmit = async () => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -43,8 +43,8 @@ export function ContactForm() {
 
       // Reset status después de 5 segundos
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch (error) {
-      setSubmitStatus("error");
+      } catch {
+        setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
       setIsSubmitting(false);

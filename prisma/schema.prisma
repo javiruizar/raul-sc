@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model BudgetRequest {
+  id            String   @id @default(cuid())
+  serviceType   String
+  description   String
+  name          String
+  email         String
+  phone         String
+  address       String?
+  preferredDate String?
+  status        String   @default("PENDIENTE") // Estados: PENDIENTE, REVISADO, CONTACTADO
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

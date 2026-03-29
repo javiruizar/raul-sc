@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+#gemini
+/gemini
+
 # testing
 /coverage
 
@@ -43,3 +46,5 @@ next-env.d.ts
 # IDE
 .vscode
 .idea
+
+/src/generated/prisma

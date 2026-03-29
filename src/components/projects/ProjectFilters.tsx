@@ -7,7 +7,7 @@ import type { ProjectCategory } from "@/types";
 const categories: { value: ProjectCategory | "all"; label: string }[] = [
   { value: "all", label: "Todos" },
   { value: "reformas", label: "Reformas" },
-  { value: "albañileria", label: "Albañilería" },
+  { value: "albanileria", label: "Albañilería" },
   { value: "restauracion", label: "Restauración" },
   { value: "construccion", label: "Construcción" },
   { value: "otros", label: "Otros" },

@@ -1,6 +1,5 @@
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Award, Users, TrendingUp, Heart } from "lucide-react";
-
+import { Award, Users } from "lucide-react";
 export function StorySection() {
   return (
     <section className="section-padding bg-white">
