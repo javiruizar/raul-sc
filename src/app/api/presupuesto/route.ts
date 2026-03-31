@@ -91,6 +91,7 @@ export async function POST(request: Request) {
       validatedData.address || "N/A",
       validatedData.description,
       uploadedFilePaths.join(", "),
+      validatedData.preferredDate || "N/A",
       newRequest.createdAt.toISOString(),
     ];
 

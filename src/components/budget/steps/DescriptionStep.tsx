@@ -3,7 +3,7 @@ import { BudgetFormData } from "@/lib/validations";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Upload, FileText, X } from "lucide-react";
+import { Upload, FileText, X, Calendar } from "lucide-react"; // Añadido Calendar
 
 interface DescriptionStepProps {
   register: UseFormRegister<BudgetFormData>;
@@ -37,6 +37,7 @@ export function DescriptionStep({ register, errors, watch, setValue }: Descripti
 
   return (
     <div className="space-y-6">
+      {/* SECCIÓN: DESCRIPCIÓN */}
       <div>
         <h3 className="text-lg font-medium mb-4">Cuéntanos más sobre tu proyecto</h3>
         <div className="space-y-2">
@@ -55,6 +56,26 @@ export function DescriptionStep({ register, errors, watch, setValue }: Descripti
         </div>
       </div>
 
+      {/* NUEVA SECCIÓN: FECHA PREFERIDA */}
+      <div className="space-y-2 pt-4 border-t">
+        <Label htmlFor="preferredDate" className={errors.preferredDate ? "text-red-600" : ""}>
+          ¿Cuándo te gustaría empezar? (Opcional)
+        </Label>
+        <div className="relative">
+          <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+          <Input
+            id="preferredDate"
+            type="date"
+            className={`pl-10 ${errors.preferredDate ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}`}
+            {...register("preferredDate")}
+          />
+        </div>
+        {errors.preferredDate && (
+          <p className="text-sm font-medium text-red-500">{errors.preferredDate.message as string}</p>
+        )}
+      </div>
+
+      {/* SECCIÓN: ARCHIVOS */}
       <div className="space-y-4 pt-4 border-t">
         <Label>Adjuntar fotos o planos (opcional)</Label>
         <div className="flex flex-col w-full">

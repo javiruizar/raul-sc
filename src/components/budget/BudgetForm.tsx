@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react"; // Añadido useRef
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,9 @@ export function BudgetForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitWarning, setSubmitWarning] = useState<string | null>(null);
 
+  // Referencia para el scroll preciso
+  const scrollAnchorRef = useRef<HTMLDivElement>(null);
+
   const {
     register,
     handleSubmit,
@@ -42,6 +45,13 @@ export function BudgetForm() {
   });
 
   const formData = watch();
+
+  // Función auxiliar para scroll al inicio del formulario
+  const scrollToFormTop = () => {
+    if (scrollAnchorRef.current) {
+      scrollAnchorRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const nextStep = async () => {
     let fieldsToValidate: (keyof BudgetFormData)[] = [];
@@ -58,14 +68,14 @@ export function BudgetForm() {
 
     if (isValid && currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollToFormTop(); // Cambio de window.scrollTo a scroll relativo
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      scrollToFormTop(); // Cambio de window.scrollTo a scroll relativo
     }
   };
 
@@ -73,8 +83,7 @@ export function BudgetForm() {
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitWarning(null);
-    // Desplazamos la vista hacia arriba para que el usuario vea la tarjeta de carga
-    window.scrollTo({ top: 5, behavior: "smooth" });
+    scrollToFormTop(); // Desplazamiento al inicio del formulario para ver el loading
 
     try {
       const payloadFormData = new FormData();
@@ -102,15 +111,14 @@ export function BudgetForm() {
         throw new Error(result.error || "Error en el servidor");
       }
 
-      // Si hay advertencia, la guardamos en el estado
       if (result.warning) {
         setSubmitWarning(result.warning);
       }
 
-      // Avanza al paso final de éxito
       setCurrentStep(4);
       setSubmissionId(result.id);
       setSubmitSuccess(true);
+      scrollToFormTop(); // Aseguramos ver el mensaje de éxito desde arriba
     } catch (error: unknown) {
       console.error("Error al enviar:", error);
       const errorMessage = error instanceof Error 
@@ -126,10 +134,9 @@ export function BudgetForm() {
   const progress = (currentStep / steps.length) * 100;
   const CurrentStepComponent = steps[currentStep - 1].component;
 
-  // 1. Estado de Procesamiento (Loading a pantalla completa)
   if (isSubmitting) {
     return (
-      <Card className="max-w-2xl mx-auto">
+      <Card ref={scrollAnchorRef} className="max-w-2xl mx-auto scroll-mt-10">
         <CardContent className="p-12 text-center min-h-[400px] flex flex-col items-center justify-center">
           <div className="flex justify-center mb-6">
             <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
@@ -147,10 +154,9 @@ export function BudgetForm() {
     );
   }
 
-  // 2. Respuesta de Éxito (Success)
   if (submitSuccess) {
     return (
-      <Card className="max-w-2xl mx-auto">
+      <Card ref={scrollAnchorRef} className="max-w-2xl mx-auto scroll-mt-10">
         <CardContent className="p-12 text-center">
           <div className="flex justify-center mb-6">
             <div className="h-20 w-20 rounded-full bg-green-100 flex items-center justify-center">
@@ -207,9 +213,8 @@ export function BudgetForm() {
     );
   }
 
-  // Formulario principal
   return (
-    <div className="max-w-3xl mx-auto">
+    <div ref={scrollAnchorRef} className="max-w-3xl mx-auto scroll-mt-10">
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
@@ -277,7 +282,6 @@ export function BudgetForm() {
           </CardContent>
         </Card>
 
-        {/* 3. Gestión de Errores */}
         {submitError && (
           <div className="mt-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
             {submitError}
