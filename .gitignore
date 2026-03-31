@@ -15,6 +15,9 @@
 
 #users uploads
 /uploads
+
+#deplloyment
+/deployment
 # testing
 /coverage
 
