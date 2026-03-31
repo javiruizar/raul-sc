@@ -1,15 +1,26 @@
 version: '3.8'
 
 services:
+  web:
+    image: raul-albanil-web
+    container_name: raul-albanil-web
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    volumes:
+      - /ruta/en/tu/nas/uploads:/app/public/uploads
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
   postgres:
     image: postgres:16-alpine
     container_name: raul-albanil-db
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password123
-      POSTGRES_DB: presupuestos_db
+    env_file:
+      - .env
     ports:
-      - "5433:5432" #ponemos el 5433 ya que el 5432 lo tengo ocupado por planeta viaje
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped

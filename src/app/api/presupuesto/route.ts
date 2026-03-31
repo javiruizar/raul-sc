@@ -3,18 +3,71 @@ import { budgetFormSchema } from "@/lib/validations";
 import prisma from "@/lib/prisma";
 import { appendToSheet } from "@/lib/google-sheets";
 import { z } from "zod";
+import { writeFile, mkdir, readdir, stat } from "fs/promises"; // Añadidos readdir y stat
+import path from "path";
 
 export async function POST(request: Request) {
   try {
-    // 1. Obtener y parsear el cuerpo de la petición
-    const body = await request.json();
+    const formData = await request.formData();
 
-    // 2. Validar los datos con Zod (seguridad en servidor)
-    const validatedData = budgetFormSchema.parse(body);
+    // Extraer y validar campos de texto
+    const rawData = {
+      serviceType: formData.get("serviceType"),
+      description: formData.get("description"),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      // Añadir || undefined a los campos opcionales
+      address: formData.get("address") || undefined, 
+      preferredDate: formData.get("preferredDate") || undefined,
+    };
 
-    // 3. Guardar el registro en PostgreSQL vía Prisma
+    const validatedData = budgetFormSchema.parse(rawData);
+
+// 2. Procesar archivos
+    const files = formData.getAll("files") as File[];
+    const uploadedFilePaths: string[] = [];
+    const MAX_FILE_SIZE = 60 * 1024 * 1024;
+    const MAX_SERVER_STORAGE = 100 * 1024 * 1024;
+    let uploadWarning: string | null = null; // Variable para la advertencia
+
+    if (files.length > 0 && files[0].name !== "undefined") {
+      const uploadDir = path.join(process.cwd(), "public/uploads");
+      const currentStorageSize = await getDirectorySize(uploadDir);
+      const incomingSize = files.reduce((acc, file) => acc + file.size, 0);
+
+      if (currentStorageSize + incomingSize > MAX_SERVER_STORAGE) {
+        // Asignamos la advertencia y saltamos el guardado físico de archivos
+        uploadWarning = "No hemos podido guardar los archivos adjuntos. Por favor, envíelos por email indicando el código de referencia facilitado.";
+      } else {
+        try { await mkdir(uploadDir, { recursive: true }); } catch (e) {
+          console.error("Error al crear el directorio de uploads:", e);
+        }
+
+        for (const file of files) {
+          if (file.size === 0) continue;
+          
+          if (file.size > MAX_FILE_SIZE) {
+            return NextResponse.json(
+              { error: `El archivo ${file.name} supera el límite de 60MB` },
+              { status: 400 }
+            );
+          }
+
+          const bytes = await file.arrayBuffer();
+          const buffer = Buffer.from(bytes);
+          const fileName = `${Date.now()}-${file.name.replaceAll(" ", "_")}`;
+          const filePath = path.join(uploadDir, fileName);
+          
+          await writeFile(filePath, buffer);
+          uploadedFilePaths.push(`/uploads/${fileName}`);
+        }
+      }
+    }
+
+    // 3. Guardar en PostgreSQL
     const newRequest = await prisma.budgetRequest.create({
-      data: {
+     data: {
         serviceType: validatedData.serviceType,
         description: validatedData.description,
         name: validatedData.name,
@@ -22,52 +75,60 @@ export async function POST(request: Request) {
         phone: validatedData.phone,
         address: validatedData.address || null,
         preferredDate: validatedData.preferredDate || null,
+        fileUrls: uploadedFilePaths,
         status: "PENDIENTE",
       },
     });
 
-    // 4. Preparar el array posicional y guardar en Google Sheets
-    // El orden debe coincidir exactamente con las columnas A-H de tu documento
+    // 4. Guardar en Google Sheets
     const sheetData = [
-      newRequest.id, // Columna A: ID generado por Postgres
-      new Date().toLocaleDateString("es-ES"), // Columna B: Fecha
-      validatedData.serviceType, // Columna C: Servicio
-      validatedData.name, // Columna D: Nombre
-      validatedData.email, // Columna E: Email
-      validatedData.phone, // Columna F: Teléfono
-      validatedData.address || "N/A", // Columna G: Dirección
-      validatedData.description, // Columna H: Descripción
+     newRequest.id,
+      validatedData.preferredDate || "N/A",
+      validatedData.serviceType,
+      validatedData.name,
+      validatedData.email,
+      validatedData.phone,
+      validatedData.address || "N/A",
+      validatedData.description,
+      uploadedFilePaths.join(", "),
+      newRequest.createdAt.toISOString(),
     ];
 
     await appendToSheet(sheetData);
 
-    // 5. Devolver código 200 OK al cliente
     return NextResponse.json(
       { 
-        message: "Presupuesto recibido y procesado correctamente",
-        id: newRequest.id 
+        message: "Presupuesto recibido y procesado correctamente", 
+        id: newRequest.id,
+        warning: uploadWarning // Se envía al frontend
       },
       { status: 200 }
     );
 
- } catch (error) {
+  } catch (error) {
     console.error("Error en el endpoint POST /api/presupuesto:", error);
-
     if (error instanceof z.ZodError) {
-      // Usamos el método .flatten() o .errors de Zod directamente 
-      // para obtener los errores sin necesidad de usar 'any'
-      return NextResponse.json(
-        { 
-          error: "Datos de entrada inválidos", 
-          details: error.issues // 'issues' es la propiedad interna de ZodError con los detalles
-        },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Datos de entrada inválidos", details: error.issues }, { status: 400 });
     }
+    return NextResponse.json({ error: "Error interno del servidor al procesar la solicitud" }, { status: 500 });
+  }
+}
 
-    return NextResponse.json(
-      { error: "Error interno del servidor al procesar la solicitud" },
-      { status: 500 }
-    );
+async function getDirectorySize(dirPath: string): Promise<number> {
+  try {
+    let totalSize = 0;
+    const files = await readdir(dirPath);
+    for (const file of files) {
+      const filePath = path.join(dirPath, file);
+      const fileStat = await stat(filePath);
+      if (fileStat.isFile()) {
+        totalSize += fileStat.size;
+      }
+    }
+    return totalSize;
+  } catch (error: unknown) {
+    const fsError = error as NodeJS.ErrnoException;
+    if (fsError.code === 'ENOENT') return 0;
+    throw error;
   }
 }

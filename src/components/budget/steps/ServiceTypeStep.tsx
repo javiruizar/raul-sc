@@ -45,6 +45,8 @@ export function ServiceTypeStep({ register, errors, watch, setValue }: ServiceTy
               className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
                 isSelected
                   ? "border-primary border-2 bg-primary/5"
+                  : errors.serviceType
+                  ? "border-red-500 bg-red-50"
                   : "border-neutral-200 hover:border-primary/50"
               }`}
               onClick={() => setValue("serviceType", service.id)}
@@ -84,7 +86,7 @@ export function ServiceTypeStep({ register, errors, watch, setValue }: ServiceTy
       </div>
 
       {errors.serviceType && (
-        <p className="text-sm text-destructive">{errors.serviceType.message}</p>
+        <p className="text-sm font-medium text-red-500 mt-2">{errors.serviceType.message as string}</p>
       )}
 
       <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">

@@ -13,6 +13,8 @@
 #gemini
 /gemini
 
+#users uploads
+/uploads
 # testing
 /coverage
 

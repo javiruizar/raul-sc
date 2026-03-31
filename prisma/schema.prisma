@@ -15,7 +15,9 @@ model BudgetRequest {
   phone         String
   address       String?
   preferredDate String?
-  status        String   @default("PENDIENTE") // Estados: PENDIENTE, REVISADO, CONTACTADO
+  status        String   @default("PENDIENTE")
+  fileUrls      String[] @default([])
+  // Columnas de auditoría
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }

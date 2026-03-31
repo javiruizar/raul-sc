@@ -20,7 +20,7 @@ export async function appendToSheet(data: string[]) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Presupuestos!A:H', // Apunta a la pestaña "Presupuestos"
+      range: 'Presupuestos!A:I', // Apunta a la pestaña "Presupuestos"
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [data],

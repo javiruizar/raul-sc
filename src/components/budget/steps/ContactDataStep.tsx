@@ -20,56 +20,53 @@ export function ContactDataStep({ register, errors }: ContactDataStepProps) {
         </p>
       </div>
 
-      {/* Nombre */}
       <div className="space-y-2">
-        <Label htmlFor="name">
-          Nombre completo <span className="text-destructive">*</span>
+        <Label htmlFor="name" className={errors.name ? "text-red-600" : ""}>
+          Nombre completo <span className="text-red-500">*</span>
         </Label>
         <Input
           id="name"
           {...register("name")}
           placeholder="Juan Pérez García"
-          className={errors.name ? "border-destructive" : ""}
+          className={errors.name ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.name && (
-          <p className="text-sm text-destructive">{errors.name.message}</p>
+          <p className="text-sm font-medium text-red-500">{errors.name.message as string}</p>
         )}
       </div>
 
-      {/* Email */}
       <div className="space-y-2">
-        <Label htmlFor="email">
-          Email <span className="text-destructive">*</span>
+        <Label htmlFor="email" className={errors.email ? "text-red-600" : ""}>
+          Email <span className="text-red-500">*</span>
         </Label>
         <Input
           id="email"
           type="email"
           {...register("email")}
           placeholder="juan@ejemplo.com"
-          className={errors.email ? "border-destructive" : ""}
+          className={errors.email ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.email && (
-          <p className="text-sm text-destructive">{errors.email.message}</p>
+          <p className="text-sm font-medium text-red-500">{errors.email.message as string}</p>
         )}
         <p className="text-xs text-neutral-800/60">
           Te enviaremos el presupuesto a este email
         </p>
       </div>
 
-      {/* Teléfono */}
       <div className="space-y-2">
-        <Label htmlFor="phone">
-          Teléfono <span className="text-destructive">*</span>
+        <Label htmlFor="phone" className={errors.phone ? "text-red-600" : ""}>
+          Teléfono <span className="text-red-500">*</span>
         </Label>
         <Input
           id="phone"
           type="tel"
           {...register("phone")}
           placeholder="600 000 000"
-          className={errors.phone ? "border-destructive" : ""}
+          className={errors.phone ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.phone && (
-          <p className="text-sm text-destructive">{errors.phone.message}</p>
+          <p className="text-sm font-medium text-red-500">{errors.phone.message as string}</p>
         )}
         <p className="text-xs text-neutral-800/60">
           Preferiblemente con WhatsApp para una comunicación más rápida
