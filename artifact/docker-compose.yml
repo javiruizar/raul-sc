@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    image: raul-albanil-web:${IMAGE_TAG:-latest}
+    container_name: raul-albanil-web
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    volumes:
+      - /home/javi/web-projects/raul-albanil/uploads:/app/public/uploads
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: raul-albanil-db
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

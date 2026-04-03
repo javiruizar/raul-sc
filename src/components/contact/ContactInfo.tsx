@@ -21,8 +21,8 @@ const contactMethods = [
   {
     icon: MapPin,
     title: "Ubicación",
-    primary: "Madrid y alrededores",
-    secondary: "Radio de 50km",
+    primary: "Los Pedroches y Alrededores",
+    secondary: "Radio de 50km, pregunta sin compromiso",
     link: null,
     color: "text-red-600",
   },

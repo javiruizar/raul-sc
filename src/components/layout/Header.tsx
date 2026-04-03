@@ -24,7 +24,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-              <span className="text-xl font-bold text-white">RA</span>
+              <span className="text-xl font-bold text-white">RS</span>
             </div>
             <div className="hidden sm:block">
               <span className="font-heading text-xl font-bold text-secondary">
@@ -68,8 +68,7 @@ export function Header() {
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-4 mt-8">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-neutral-100 border-l border-neutral-200 shadow-2xl overflow-y-auto">              <nav className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}

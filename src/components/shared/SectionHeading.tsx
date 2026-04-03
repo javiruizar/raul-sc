@@ -19,7 +19,7 @@ export function SectionHeading({
     <div
       className={cn(
         "space-y-4",
-        centered && "text-center mx-auto max-w-3xl",
+        centered && "text-center mx-auto flex flex-col items-center", // Añadido flex y centrado de items
         className
       )}
     >
@@ -32,7 +32,10 @@ export function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className="text-lg text-neutral-800/80 max-w-2xl">
+        <p className={cn(
+          "text-lg text-neutral-800/80 max-w-2xl",
+          centered && "mx-auto text-center" // Asegura que la caja y el texto se centren
+        )}>
           {description}
         </p>
       )}

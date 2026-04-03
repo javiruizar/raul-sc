@@ -2,8 +2,8 @@
 
 # Configuración de variables
 IMAGE_NAME="raul-albanil-web"
-VERSION=0.0.1 
-DEPLOY_DIR="deployment"
+VERSION=$1 
+DEPLOY_DIR="artifact"
 # Definimos el nombre del archivo tar con la versión para evitar confusiones
 TAR_FILENAME="$IMAGE_NAME-$VERSION.tar"
 TAR_PATH="$DEPLOY_DIR/$TAR_FILENAME"

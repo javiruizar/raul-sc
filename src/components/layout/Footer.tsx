@@ -39,10 +39,10 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="text-xl font-bold text-white">RA</span>
+                <span className="text-xl font-bold text-white">RS</span>
               </div>
               <span className="font-heading text-xl font-bold">
-                Raúl Albañil
+                Raúl Sanchez Calero
               </span>
             </div>
             <p className="text-sm text-neutral-100/80">

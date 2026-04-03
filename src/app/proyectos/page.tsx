@@ -27,8 +27,7 @@ export default function ProyectosPage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-28">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <Badge className="mb-6 bg-primary hover:bg-primary-dark">
+          <div className="max-w-3xl mx-auto flex flex-col items-center text-center">            <Badge className="mb-6 bg-primary hover:bg-primary-dark">
               Nuestros Trabajos
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
