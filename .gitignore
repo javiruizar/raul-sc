@@ -16,8 +16,8 @@
 #users uploads
 /uploads
 
-#deplloyment
-/deployment
+#deployment
+/artifact
 # testing
 /coverage
 
