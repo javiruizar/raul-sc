@@ -18,42 +18,42 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  // Asegúrate de que esta URL sea la definitiva de tu web
   metadataBase: new URL("https://www.raulsanchez.javierruiz.org"),
   title: "Raúl Albañil - Reformas y Albañilería en Los Pedroches",
   description:
     "Servicios profesionales de albañilería y reformas integrales en Los Pedroches. Especialistas en restauración de casas antiguas con más de 20 años de experiencia.",
-  keywords: [
-    "albañil",
-    "reformas",
-    "casas antiguas",
-    "restauración",
-    "construcción",
-    "albañilería",
-    "Los Pedroches",
-    "Pozoblanco",
-    "Córdoba"
-  ],
-  formatDetection: {
-    telephone: true,
-    email: true,
-    address: true,
-  },
+  
+  // 2. OPEN GRAPH (Para WhatsApp, Facebook, LinkedIn)
   openGraph: {
-    title: "Raúl Sanchez - Reformas y Construcción",
+    title: "Raúl Sánchez - Reformas y Construcción",
     description: "Servicios profesionales de albañilería y reformas integrales en Los Pedroches.",
     url: "https://www.raulsanchez.javierruiz.org",
-    siteName: "Raúl Sanchez - Reformas y Construcción",
+    siteName: "Raúl Sánchez",
     locale: "es_ES",
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg", // Debes crear esta imagen en la carpeta public/images
+        url: "/og-image.png", // WhatsApp busca esta imagen en la raíz de public/
         width: 1200,
         height: 630,
-        alt: "Proyectos de reformas de Raúl Sánchez",
+        alt: "Raúl Sánchez - Reformas y Construcción en Los Pedroches",
       },
     ],
   },
+
+  // 3. TWITTER CARD (Para X/Twitter y previsualizaciones modernas)
+  twitter: {
+    card: "summary_large_image",
+    title: "Raúl Sánchez - Reformas y Construcción",
+    description: "Especialistas en restauración de casas antiguas y reformas integrales.",
+    images: ["/og-image.png"],
+  },
+
+  keywords: [
+    "albañil", "reformas", "casas antiguas", "restauración", "construcción", 
+    "albañilería", "Los Pedroches", "Pozoblanco", "Córdoba"
+  ],
 };
 
 export default function RootLayout({

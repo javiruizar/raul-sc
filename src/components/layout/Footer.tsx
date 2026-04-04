@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"; // Importado para el logo
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -37,9 +38,16 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Columna 1: Información de la empresa */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="text-xl font-bold text-white">RS</span>
+            <div className="flex items-center space-x-3">
+              {/* Logo con el favicon sobre fondo blanco */}
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white overflow-hidden p-1.5 shadow-sm">
+                <Image 
+                  src="/favicon.ico" 
+                  alt="Logo Raúl Sánchez" 
+                  width={32} 
+                  height={32} 
+                  className="object-contain"
+                />
               </div>
               <span className="font-heading text-xl font-bold">
                 Raúl Sanchez Calero
@@ -51,11 +59,11 @@ export function Footer() {
             </p>
             <div className="space-y-2">
               <a
-                href="tel:+34600000000"
+                href="tel:+34647684443"
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>600 000 000</span>
+                <span>647 684 443</span> {/* Teléfono actualizado */}
               </a>
               <a
                 href="mailto:contacto@raulalbanil.com"
@@ -66,7 +74,7 @@ export function Footer() {
               </a>
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin className="h-4 w-4" />
-                <span>Madrid y alrededores</span>
+                <span>Pozoblanco y Los Pedroches</span> {/* Ubicación actualizada */}
               </div>
             </div>
           </div>
