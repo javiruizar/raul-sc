@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png", // WhatsApp busca esta imagen en la raíz de public/
+        url: "/icons/favicon.ico", // WhatsApp busca esta imagen en la raíz de public/
         width: 1200,
         height: 630,
         alt: "Raúl Sánchez - Reformas y Construcción en Los Pedroches",

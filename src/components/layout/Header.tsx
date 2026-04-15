@@ -26,7 +26,7 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-3">
             <div className="relative h-12 w-12 overflow-hidden rounded-lg">
               <Image
-                src="/favicon.ico"
+                src="/icons/favicon.ico"
                 alt="Logo Raúl Sánchez"
                 fill
                 className="object-contain"

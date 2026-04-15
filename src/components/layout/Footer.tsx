@@ -42,7 +42,7 @@ export function Footer() {
               {/* Logo con el favicon sobre fondo blanco */}
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white overflow-hidden p-1.5 shadow-sm">
                 <Image 
-                  src="/favicon.ico" 
+                  src="/icons/favicon.ico" 
                   alt="Logo Raúl Sánchez" 
                   width={32} 
                   height={32} 
