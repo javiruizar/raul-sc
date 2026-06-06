@@ -3,9 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { BudgetForm } from "@/components/budget/BudgetForm";
 import { Clock, CheckCircle2, FileText, Shield } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Solicitar Presupuesto | Raúl Albañil",
+  title: "Solicitar Presupuesto",
   description:
     "Solicita un presupuesto gratuito y sin compromiso para tu proyecto de albañilería o reforma. Respuesta en 24-48h.",
   keywords: [
@@ -16,11 +17,56 @@ export const metadata: Metadata = {
     "albañilería",
     "sin compromiso",
   ],
+  openGraph: {
+    title: "Solicitar Presupuesto Gratuito | Raúl Sánchez Construcciones",
+    description: "Solicita un presupuesto gratuito y sin compromiso para tu proyecto de albañilería o reforma.",
+    url: "https://raul.javierruiz.org/presupuesto",
+  },
 };
 
 export default function PresupuestoPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "¿Cuánto tarda en llegar el presupuesto?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Normalmente enviamos los presupuestos en 24-48 horas laborables. Para proyectos más complejos podría tardar un poco más, pero siempre te mantendremos informado."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "¿El presupuesto es realmente gratuito?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sí, completamente gratuito y sin compromiso. Incluye visita a domicilio para valoración si es necesario."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "¿Puedo modificar el presupuesto después?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Por supuesto. El presupuesto es flexible y podemos ajustarlo según tus necesidades y preferencias."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "¿Qué incluye el presupuesto?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Incluye desglose de materiales, mano de obra, gestión de residuos, limpieza, plazos estimados e IVA. Todo detallado y transparente."
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-28">
         <div className="container-custom">
@@ -121,7 +167,7 @@ export default function PresupuestoPage() {
                       </h3>
                       <p className="text-sm text-neutral-800/70">
                         Te respondemos en 24-48 horas laborables. Si es urgente,
-                        llámanos al 600 000 000.
+                        llámanos al 647 684 443.
                       </p>
                     </div>
                   </div>

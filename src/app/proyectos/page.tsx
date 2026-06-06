@@ -8,7 +8,7 @@ import { ArrowRight, Award, CheckCircle2, Users } from "lucide-react";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Proyectos Realizados | Raúl Albañil",
+  title: "Proyectos Realizados",
   description:
     "Descubre nuestra galería de proyectos completados: reformas integrales, restauración de casas antiguas, trabajos de albañilería y más. Calidad garantizada.",
   keywords: [
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     "restauración casas",
     "antes y después",
   ],
+  openGraph: {
+    title: "Proyectos Realizados | Raúl Sánchez Construcciones",
+    description: "Descubre nuestra galería de proyectos completados: reformas integrales y restauración de casas.",
+    url: "https://raul.javierruiz.org/proyectos",
+  },
 };
 
 export default function ProyectosPage() {

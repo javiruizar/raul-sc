@@ -9,17 +9,23 @@ import { CoverageSection } from "@/components/about/CoverageSection";
 import { ArrowRight, Award, Target, Handshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros | Raúl Albañil",
+  title: "Sobre Nosotros",
   description:
-    "Conoce nuestra historia, valores y compromiso. Más de 20 años especializados en reformas y restauración de casas antiguas en Madrid.",
+    "Conoce nuestra historia, valores y compromiso. Más de 20 años especializados en reformas y restauración de casas antiguas en Pozoblanco y Los Pedroches.",
   keywords: [
     "sobre nosotros",
     "historia",
-    "albañil Madrid",
-    "empresa reformas",
+    "albañil Pozoblanco",
+    "albañil Los Pedroches",
+    "empresa reformas Córdoba",
     "valores",
     "experiencia",
   ],
+  openGraph: {
+    title: "Sobre Nosotros | Raúl Sánchez Construcciones",
+    description: "Conoce nuestra historia y compromiso con más de 20 años en el sector de las reformas.",
+    url: "https://raul.javierruiz.org/sobre-nosotros",
+  },
 };
 
 export default function SobreNosotrosPage() {

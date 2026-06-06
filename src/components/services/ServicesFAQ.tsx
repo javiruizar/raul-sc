@@ -55,13 +55,29 @@ const faqs = [
   {
     question: "¿Qué zona de trabajo cubren?",
     answer:
-      "Trabajamos principalmente en Madrid y alrededores, con un radio de cobertura de aproximadamente 50km. Para proyectos especiales podemos valorar distancias mayores.",
+      "Trabajamos principalmente en Pozoblanco y la comarca de Los Pedroches. Para proyectos especiales podemos valorar desplazamientos a otras zonas de Córdoba.",
   },
 ];
 
+import { JsonLd } from "@/components/seo/JsonLd";
+
 export function ServicesFAQ() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <section className="section-padding bg-white">
+      <JsonLd data={faqSchema} />
       <div className="container-custom">
         <SectionHeading
           subtitle="Preguntas Frecuentes"

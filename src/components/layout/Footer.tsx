@@ -57,7 +57,7 @@ export function Footer() {
               Especialistas en reformas y restauración de casas antiguas. Más de
               20 años de experiencia transformando hogares.
             </p>
-            <div className="space-y-2">
+            <address className="space-y-2 not-italic">
               <a
                 href="tel:+34647684443"
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
@@ -76,7 +76,7 @@ export function Footer() {
                 <MapPin className="h-4 w-4" />
                 <span>Pozoblanco y Los Pedroches</span> {/* Ubicación actualizada */}
               </div>
-            </div>
+            </address>
           </div>
 
           {/* Columna 2: Servicios */}
@@ -84,35 +84,39 @@ export function Footer() {
             <h3 className="font-heading text-lg font-semibold mb-4">
               Servicios
             </h3>
-            <ul className="space-y-2">
-              {navigation.servicios.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-neutral-100/80 hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Navegación de servicios">
+              <ul className="space-y-2">
+                {navigation.servicios.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-neutral-100/80 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Columna 3: Empresa */}
           <div>
             <h3 className="font-heading text-lg font-semibold mb-4">Empresa</h3>
-            <ul className="space-y-2">
-              {navigation.empresa.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-neutral-100/80 hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Navegación de empresa">
+              <ul className="space-y-2">
+                {navigation.empresa.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-neutral-100/80 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
 
           {/* Columna 4: Horario y Redes Sociales */}

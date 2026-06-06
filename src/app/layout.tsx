@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   // Asegúrate de que esta URL sea la definitiva de tu web
   metadataBase: new URL("https://raul.javierruiz.org"),
-  title: "Raúl Albañil - Reformas y Albañilería en Los Pedroches",
+  title: {
+    default: "Raúl Sánchez · Reformas y Construcción en Los Pedroches",
+    template: "%s | Raúl Sánchez Construcciones",
+  },
   verification: {
     google: "rb8aGSb9nqhSL_M_GfiV29-R-CirCWfU0Am9kyhiV_4",
   },
@@ -64,9 +68,53 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Raúl Sánchez Construcciones",
+    "url": "https://raul.javierruiz.org"
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Raúl Sánchez Construcciones",
+    "image": "https://raul.javierruiz.org/og-image.png",
+    "url": "https://raul.javierruiz.org",
+    "telephone": "+34647684443",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pozoblanco",
+      "addressRegion": "Córdoba",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "5"
+    }
+  };
+
   return (
     <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased flex min-h-screen flex-col">
+        <JsonLd data={websiteSchema} />
+        <JsonLd data={localBusinessSchema} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

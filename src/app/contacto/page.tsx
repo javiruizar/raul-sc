@@ -5,8 +5,13 @@ import { BudgetForm } from "@/components/budget/BudgetForm";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Contacto y Presupuestos | Raúl Albañil",
+  title: "Contacto y Presupuestos",
   description: "Contacta con nosotros directamente o solicita tu presupuesto detallado para tu próxima reforma en Los Pedroches.",
+  openGraph: {
+    title: "Contacto y Presupuestos | Raúl Sánchez Construcciones",
+    description: "Contacta con nosotros directamente o solicita tu presupuesto detallado para tu próxima reforma.",
+    url: "https://raul.javierruiz.org/contacto",
+  },
 };
 
 export default function ContactoPage() {

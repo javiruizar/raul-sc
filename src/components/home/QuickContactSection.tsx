@@ -68,10 +68,10 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Teléfono</h3>
                     <a
-                      href="tel:+34600000000"
+                      href="tel:+34647684443"
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      600 000 000
+                      647 684 443
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
                       Lun - Vie: 8:00 - 18:00
@@ -107,9 +107,9 @@ export function QuickContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Ubicación</h3>
-                    <p className="text-neutral-800/70">Madrid y alrededores</p>
+                    <p className="text-neutral-800/70">Pozoblanco y Los Pedroches</p>
                     <p className="text-sm text-neutral-800/60 mt-1">
-                      Zona de cobertura: 50km
+                      Zona de cobertura: Valle de los Pedroches
                     </p>
                   </div>
                 </CardContent>
@@ -156,7 +156,7 @@ export function QuickContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="600 000 000"
+                    placeholder="647 684 443"
                     required
                   />
                 </div>

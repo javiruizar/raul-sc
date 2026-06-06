@@ -41,7 +41,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:space-x-6">
+          <nav aria-label="Navegación principal" className="hidden md:flex md:items-center md:space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}

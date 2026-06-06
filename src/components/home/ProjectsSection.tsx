@@ -19,10 +19,11 @@ export function ProjectsSection() {
   const recentProjects = projects.slice(0, 3);
 
   return (
-    <section className="section-padding bg-neutral-50">
+    <section aria-labelledby="projects-heading" className="section-padding bg-neutral-50">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <SectionHeading
+            id="projects-heading"
             subtitle="Nuestro Trabajo"
             title="Proyectos Destacados"
             description="Explora algunos de nuestros últimos trabajos de reforma y restauración"
@@ -31,7 +32,7 @@ export function ProjectsSection() {
           <Button asChild variant="outline" className="shrink-0 border-neutral-300 text-neutral-700 hover:bg-neutral-100">
             <Link href="/proyectos">
               Ver Todos los Proyectos
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight aria-hidden="true" className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>
@@ -45,7 +46,7 @@ export function ProjectsSection() {
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 shrink-0">
                 <Image
                   src={project.images[0]}
-                  alt={project.title}
+                  alt={`${project.title} - Reforma en ${project.location || 'Los Pedroches'}`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -80,7 +81,7 @@ export function ProjectsSection() {
                     onClick={() => setSelectedProject(project)}
                   >
                     Ver Detalles
-                    <ChevronRight className="ml-2 h-4 w-4" />
+                    <ChevronRight aria-hidden="true" className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </div>

@@ -10,7 +10,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Servicios de Albañilería y Reformas | Raúl Albañil",
+  title: "Servicios de Albañilería y Reformas",
   description:
     "Ofrecemos servicios completos de albañilería, reformas integrales, restauración de casas antiguas, reformas de baños y cocinas, y mucho más.",
   keywords: [
@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     "fachadas",
     "trabajos piedra",
   ],
+  openGraph: {
+    title: "Servicios de Albañilería y Reformas | Raúl Sánchez Construcciones",
+    description: "Ofrecemos servicios completos de albañilería, reformas integrales y restauración de casas antiguas.",
+    url: "https://raul.javierruiz.org/servicios",
+  },
 };
 
 export default function ServiciosPage() {
@@ -56,7 +61,7 @@ export default function ServiciosPage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-lg bg-white hover:bg-white/90">
-                <a href="tel:+34600000000">
+                <a href="tel:+34647684443">
                   <Phone className="mr-2 h-5 w-5" />
                   Llamar Ahora
                 </a>
