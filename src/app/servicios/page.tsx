@@ -25,8 +25,11 @@ export const metadata: Metadata = {
 };
 
 export default function ServiciosPage() {
-  // Destacar el servicio de restauración (índice 1)
-  const featuredServiceId = "restauracion-casas-antiguas";
+  const featuredServiceIds = [
+    "reformas-integrales",
+    "restauracion-casas-antiguas",
+    "albanileria-general"
+  ];
 
   return (
     <>
@@ -79,7 +82,8 @@ export default function ServiciosPage() {
               <ServiceCard
                 key={service.id}
                 service={service}
-                featured={service.id === featuredServiceId}
+                // Ahora verificamos si el ID está en el array de destacados
+                featured={featuredServiceIds.includes(service.id)}
               />
             ))}
           </div>
