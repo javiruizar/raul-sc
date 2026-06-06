@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   description?: string;
   centered?: boolean;
   className?: string;
+  id?: string;
 }
 
 export function SectionHeading({
@@ -14,9 +15,11 @@ export function SectionHeading({
   description,
   centered = false,
   className,
+  id,
 }: SectionHeadingProps) {
   return (
     <div
+      id={id}
       className={cn(
         "space-y-4",
         centered && "text-center mx-auto flex flex-col items-center", // Añadido flex y centrado de items

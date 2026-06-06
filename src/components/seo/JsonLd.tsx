@@ -1,4 +1,4 @@
-export function JsonLd<T extends Record<string, any>>({ data }: { data: T | T[] }) {
+export function JsonLd<T extends Record<string, unknown>>({ data }: { data: T | T[] }) {
   return (
     <script
       type="application/ld+json"

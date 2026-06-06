@@ -22,7 +22,7 @@ export default function AvisoLegalPage() {
           <p>El acceso y/o uso de este portal atribuye la condición de USUARIO, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas.</p>
 
           <h2 className="text-xl font-semibold text-secondary mt-8 mb-2">3. Uso del portal</h2>
-          <p>Esta página web proporciona el acceso a multitud de informaciones, servicios o datos (en adelante, "los contenidos") en Internet pertenecientes a Raúl Sánchez Construcciones a los que el USUARIO pueda tener acceso.</p>
+          <p>Esta página web proporciona el acceso a multitud de informaciones, servicios o datos (en adelante, &quot;los contenidos&quot;) en Internet pertenecientes a Raúl Sánchez Construcciones a los que el USUARIO pueda tener acceso.</p>
           
           <h2 className="text-xl font-semibold text-secondary mt-8 mb-2">4. Propiedad intelectual e industrial</h2>
           <p>Raúl Sánchez Construcciones es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, etc.). Todos los derechos reservados.</p>
