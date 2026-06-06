@@ -19,8 +19,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   // Asegúrate de que esta URL sea la definitiva de tu web
-  metadataBase: new URL("https://www.raulsanchez.javierruiz.org"),
+  metadataBase: new URL("https://raul.javierruiz.org"),
   title: "Raúl Albañil - Reformas y Albañilería en Los Pedroches",
+  verification: {
+    google: "rb8aGSb9nqhSL_M_GfiV29-R-CirCWfU0Am9kyhiV_4",
+  },
   description:
     "Servicios profesionales de albañilería y reformas integrales en Los Pedroches. Especialistas en restauración de casas antiguas con más de 20 años de experiencia.",
   
@@ -28,13 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Raúl Sánchez - Reformas y Construcción",
     description: "Servicios profesionales de albañilería y reformas integrales en Los Pedroches.",
-    url: "https://www.raulsanchez.javierruiz.org",
+    url: "https://raul.javierruiz.org",
     siteName: "Raúl Sánchez",
     locale: "es_ES",
     type: "website",
     images: [
       {
-        url: "/icons/favicon.ico", // WhatsApp busca esta imagen en la raíz de public/
+        url: "/og-image.png", // WhatsApp busca esta imagen en la raíz de public/
         width: 1200,
         height: 630,
         alt: "Raúl Sánchez - Reformas y Construcción en Los Pedroches",
