@@ -7,7 +7,7 @@ echo "Comprobando si la versión $VERSION ya existe en el NAS..."
 # Comprobar si la imagen con ese tag ya existe
 if ! docker image inspect "$IMAGE_FULL_NAME" > /dev/null 2>&1; then
     echo "Versión nueva detectada. Importando imagen..."
-    docker load -i "raul-albanil-web-0.0.2.tar"
+    docker load -i "raul-albanil-web-1.0.0.tar"
 else
     echo "La versión $VERSION ya está instalada. Saltando carga de imagen."
 fi
@@ -25,7 +25,7 @@ echo "Esperando a que la base de datos esté lista..."
 sleep 10
 
 echo "Ejecutando migraciones de base de datos..."
-docker exec raul-albanil-web npx prisma migrate deploy
+docker exec raul-albanil-web pnpm exec prisma migrate deploy
 
 echo "------------------------------------------------"
 echo "¡Despliegue de la v$VERSION completado con éxito!"

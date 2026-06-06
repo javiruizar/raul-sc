@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.raulsanchez.javierruiz.org/sitemap.xml",
+    sitemap: "https://raul.javierruiz.org/sitemap.xml",
   };
 }

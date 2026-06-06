@@ -23,7 +23,6 @@ export const projects: Project[] = [
     category: "reformas",
     images: [
       "/images/projects/IMG_5113.webp",
-      "/images/projects/bano-2.webp",
     ],
     date: "2024-02",
   },

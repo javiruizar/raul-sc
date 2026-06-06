@@ -54,7 +54,7 @@ echo "Esperando a que la base de datos esté lista..."
 sleep 10
 
 echo "Ejecutando migraciones de base de datos..."
-docker exec raul-albanil-web npx prisma migrate deploy
+docker exec raul-albanil-web pnpm exec prisma migrate deploy
 
 echo "------------------------------------------------"
 echo "¡Despliegue de la v\$VERSION completado con éxito!"
