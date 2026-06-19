@@ -59,11 +59,11 @@ export function Footer() {
             </p>
             <address className="space-y-2 not-italic">
               <a
-                href="tel:+34647684443"
+                href="tel:+34617847211"
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>647 684 443</span> {/* Teléfono actualizado */}
+                <span>617 847 211</span> {/* Teléfono actualizado */}
               </a>
               <a
                 href="mailto:contacto@raulalbanil.com"

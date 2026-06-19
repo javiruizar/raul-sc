@@ -97,11 +97,11 @@ export function CoverageSection() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+34647684443"
+                    href="tel:+34617847211"
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
-                    647 684 443
+                    617 847 211
                   </a>
                   <a
                     href="mailto:contacto@raulalbanil.com"

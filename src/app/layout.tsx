@@ -102,7 +102,7 @@ export default function RootLayout({
     "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",
     "image": "https://raul.javierruiz.org/og-image.png",
     "url": "https://raul.javierruiz.org",
-    "telephone": "+34647684443",
+    "telephone": "+34617847211",
     "email": "contacto@raulalbanil.com",
     "address": {
       "@type": "PostalAddress",

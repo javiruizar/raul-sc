@@ -5,9 +5,9 @@ const contactMethods = [
   {
     icon: Phone,
     title: "Teléfono",
-    primary: "600 000 000",
+    primary: "617 847 211",
     secondary: "Llamadas y WhatsApp",
-    link: "tel:+34600000000",
+    link: "tel:+34617847211",
     color: "text-green-600",
   },
   {
@@ -103,7 +103,7 @@ export function ContactInfo() {
                 Escríbenos directamente y te responderemos lo antes posible.
               </p>
               <a
-                href="https://wa.me/34600000000"
+                href="https://wa.me/34617847211"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 transition-colors"

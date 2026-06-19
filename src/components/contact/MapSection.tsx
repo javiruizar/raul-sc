@@ -92,10 +92,10 @@ export function MapSection() {
                 Contáctanos y te confirmaremos si podemos trabajar en tu ubicación.
               </p>
               <a
-                href="tel:+34647684443"
+                href="tel:+34617847211"
                 className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
               >
-                Llamar ahora: 647 684 443 →
+                Llamar ahora: 617 847 211 →
               </a>
             </div>
           </div>

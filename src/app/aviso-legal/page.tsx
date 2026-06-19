@@ -16,7 +16,7 @@ export default function AvisoLegalPage() {
           <h2 className="text-xl font-semibold text-secondary mt-8 mb-2">1. Datos identificativos</h2>
           <p>La empresa titular de esta página web es Raúl Sánchez Construcciones, con domicilio en Pozoblanco (Córdoba), España.</p>
           <p>Correo electrónico de contacto: contacto@raulalbanil.com</p>
-          <p>Teléfono: 647 684 443</p>
+          <p>Teléfono: 617 847 211</p>
 
           <h2 className="text-xl font-semibold text-secondary mt-8 mb-2">2. Usuarios</h2>
           <p>El acceso y/o uso de este portal atribuye la condición de USUARIO, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas.</p>

@@ -56,11 +56,11 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a
-              href="tel:+34647684443"
+              href="tel:+34617847211"
               className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
             >
               <Phone className="h-4 w-4" />
-              <span>647 684 443</span> {/* Ej: 611 222 333 */}
+              <span>617 847 211</span> {/* Ej: 611 222 333 */}
             </a>
             <Button asChild>
               <Link href="/presupuesto">Solicitar Presupuesto</Link>
@@ -88,11 +88,11 @@ export function Header() {
               ))}
               <div className="pt-4 border-t">
                 <a
-                  href="tel:+34647684443"
+                  href="tel:+34617847211"
                   className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
                 >
                   <Phone className="h-4 w-4" />
-                  <span>647684443</span>
+                  <span>617 847 211</span>
                 </a>
                 <a
                   href="mailto:contacto@raulalbanil.com"

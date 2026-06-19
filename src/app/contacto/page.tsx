@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Albañil",
-  description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito sin compromiso para tu reforma en Los Pedroches. Respuesta en 24-48h. Llama al 647 684 443.",
+  description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito sin compromiso para tu reforma en Los Pedroches. Respuesta en 24-48h. Llama al 617 847 211.",
   keywords: [
     "contactar albañil Pozoblanco",
     "pedir presupuesto reforma Pozoblanco",

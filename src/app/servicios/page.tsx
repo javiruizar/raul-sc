@@ -67,7 +67,7 @@ export default function ServiciosPage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-lg bg-white hover:bg-white/90">
-                <a href="tel:+34647684443">
+                <a href="tel:+34617847211">
                   <Phone className="mr-2 h-5 w-5" />
                   Llamar Ahora
                 </a>

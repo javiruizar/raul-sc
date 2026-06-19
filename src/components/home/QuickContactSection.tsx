@@ -68,10 +68,10 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Teléfono</h3>
                     <a
-                      href="tel:+34647684443"
+                      href="tel:+34617847211"
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      647 684 443
+                      617 847 211
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
                       Lun - Vie: 8:00 - 18:00
@@ -156,7 +156,7 @@ export function QuickContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="647 684 443"
+                    placeholder="617 847 211"
                     required
                   />
                 </div>

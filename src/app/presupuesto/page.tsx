@@ -170,7 +170,7 @@ export default function PresupuestoPage() {
                       </h3>
                       <p className="text-sm text-neutral-800/70">
                         Te respondemos en 24-48 horas laborables. Si es urgente,
-                        llámanos al 647 684 443.
+                        llámanos al 617 847 211.
                       </p>
                     </div>
                   </div>

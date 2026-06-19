@@ -62,7 +62,7 @@ export function ContactDataStep({ register, errors }: ContactDataStepProps) {
           id="phone"
           type="tel"
           {...register("phone")}
-          placeholder="600 000 000"
+          placeholder="617 847 211"
           className={errors.phone ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.phone && (
