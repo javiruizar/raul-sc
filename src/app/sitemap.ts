@@ -2,43 +2,44 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://raul.javierruiz.org";
+  const lastUpdated = new Date("2025-10-01");
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/proyectos`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/servicios`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/presupuesto`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contacto`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/proyectos`,
+      lastModified: lastUpdated,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/sobre-nosotros`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: "yearly",
-      priority: 0.6,
+      priority: 0.7,
     },
   ];
 }

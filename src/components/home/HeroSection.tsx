@@ -9,15 +9,16 @@ export function HeroSection() {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto text-center text-white">
           <Badge className="mb-6 bg-primary hover:bg-primary-dark">
-            Expertos en Rehabilitación Integral
+            Tu Albañil de Confianza en Pozoblanco
           </Badge>
           <h1 id="hero-heading" className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6">
-            Reformas Integrales de Casas Antiguas
+            Reformas y Construcción en Pozoblanco y Los Pedroches
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Ejecutamos proyectos de alta complejidad estructural en propiedades a reformar. 
-            Implementamos sistemas constructivos modernos y eficientes preservando la 
-            arquitectura tradicional de la vivienda.
+            Más de 20 años reformando viviendas en la comarca de Los Pedroches.
+            Especialistas en restauración de casas antiguas, reformas integrales
+            y construcción tradicional en Pozoblanco, Villanueva de Córdoba,
+            Hinojosa del Duque y toda la comarca.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="text-lg">

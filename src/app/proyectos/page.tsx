@@ -8,20 +8,22 @@ import { ArrowRight, Award, CheckCircle2, Users } from "lucide-react";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Proyectos Realizados",
+  title: "Proyectos de Reformas Realizados en Los Pedroches y Pozoblanco | Raúl Sánchez",
   description:
-    "Descubre nuestra galería de proyectos completados: reformas integrales, restauración de casas antiguas, trabajos de albañilería y más. Calidad garantizada.",
+    "Galería de obras y reformas realizadas en Pozoblanco, Villanueva de Córdoba, Hinojosa del Duque y toda la comarca de Los Pedroches. Reformas integrales, restauración de casas antiguas, fachadas y más.",
   keywords: [
-    "proyectos albañilería",
-    "reformas realizadas",
-    "galería proyectos",
-    "trabajos completados",
-    "restauración casas",
-    "antes y después",
+    "proyectos albañilería Pozoblanco",
+    "reformas realizadas Pozoblanco",
+    "obras realizadas Los Pedroches",
+    "galería proyectos reformas Pozoblanco",
+    "trabajos completados Los Pedroches",
+    "restauración casas Pozoblanco antes y después",
+    "reformas ejecutadas Villanueva de Córdoba",
+    "reformas ejecutadas Hinojosa del Duque",
   ],
   openGraph: {
-    title: "Proyectos Realizados | Raúl Sánchez Construcciones",
-    description: "Descubre nuestra galería de proyectos completados: reformas integrales y restauración de casas.",
+    title: "Proyectos de Reformas Realizados en Pozoblanco y Los Pedroches | Raúl Sánchez Construcciones",
+    description: "Descubre nuestra galería de reformas completadas en Pozoblanco y Los Pedroches: reformas integrales, restauración de casas antiguas y más.",
     url: "https://raul.javierruiz.org/proyectos",
   },
 };

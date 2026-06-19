@@ -6,20 +6,21 @@ import { Clock, CheckCircle2, FileText, Shield } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Solicitar Presupuesto",
+  title: "Presupuesto Gratuito de Reformas en Pozoblanco | Sin Compromiso · Raúl Sánchez",
   description:
-    "Solicita un presupuesto gratuito y sin compromiso para tu proyecto de albañilería o reforma. Respuesta en 24-48h.",
+    "Solicita tu presupuesto gratuito y sin compromiso para tu reforma o construcción en Pozoblanco y Los Pedroches. Respuesta en 24-48h. Albañil en Pozoblanco con más de 20 años de experiencia.",
   keywords: [
-    "presupuesto",
-    "presupuesto gratuito",
-    "solicitar presupuesto",
-    "reformas",
-    "albañilería",
-    "sin compromiso",
+    "presupuesto reformas Pozoblanco",
+    "presupuesto albañil Los Pedroches",
+    "presupuesto gratis reforma Pozoblanco",
+    "presupuesto reformas Hinojosa del Duque",
+    "presupuesto reformas Villanueva de Córdoba",
+    "solicitar presupuesto albañilería Pozoblanco",
+    "reforma sin compromiso Pozoblanco",
   ],
   openGraph: {
-    title: "Solicitar Presupuesto Gratuito | Raúl Sánchez Construcciones",
-    description: "Solicita un presupuesto gratuito y sin compromiso para tu proyecto de albañilería o reforma.",
+    title: "Presupuesto Gratuito de Reformas en Pozoblanco | Raúl Sánchez Construcciones",
+    description: "Solicita un presupuesto gratuito y sin compromiso para tu reforma en Pozoblanco y Los Pedroches. Respuesta en 24-48h.",
     url: "https://raul.javierruiz.org/presupuesto",
   },
 };
@@ -75,11 +76,13 @@ export default function PresupuestoPage() {
               Presupuesto Gratuito
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Solicita Tu Presupuesto Sin Compromiso
+              Presupuesto Gratuito en Pozoblanco y Los Pedroches
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Completa el formulario y te enviaremos un presupuesto detallado en
-              24-48 horas. Es gratis y sin ningún tipo de compromiso.
+              ¿Necesitas reforma o construcción en Pozoblanco, Villanueva de
+              Córdoba, Hinojosa del Duque o municipios cercanos? Completa el
+              formulario y te enviamos un presupuesto detallado en 24-48 horas.
+              Gratis y sin compromiso.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-white">
               <div className="flex items-center">

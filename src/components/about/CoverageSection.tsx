@@ -5,16 +5,21 @@ import { Phone, Mail, Clock, Navigation } from "lucide-react";
 const coverageAreas = [
   "Pozoblanco",
   "Villanueva de Córdoba",
+  "Hinojosa del Duque",
   "Alcaracejos",
   "Añora",
   "Dos Torres",
   "Pedroche",
   "El Viso",
   "Villaralto",
-  "Hinojosa del Duque",
   "Belalcázar",
   "Cardeña",
-  "Santa Eufemia"
+  "Santa Eufemia",
+  "Torrecampo",
+  "Fuente la Lancha",
+  "Guijo",
+  "Conquista",
+  "Venta del Charco",
 ];
 
 export function CoverageSection() {
@@ -55,12 +60,15 @@ export function CoverageSection() {
           {/* Información */}
           <div>
             <h3 className="font-heading text-2xl font-bold text-secondary mb-4">
-              Principales Áreas de Servicio
+              Albañilería y Reformas en toda la Comarca de Los Pedroches
             </h3>
             <p className="text-neutral-800/80 mb-6">
-              Trabajamos principalmente en Pozoblanco y municipios cercanos, con un
-              radio de cobertura de aproximadamente 30 kilómetros. Para
-              proyectos especiales, podemos valorar distancias mayores.
+              Trabajamos como albañiles y constructores en Pozoblanco y todos los
+              municipios de la comarca de Los Pedroches. Si buscas reformas en
+              Villanueva de Córdoba, un albañil en Hinojosa del Duque o
+              construcción en Alcaracejos, aquí estamos. Cubrimos un radio de
+              aproximadamente 30 kilómetros desde Pozoblanco y, para proyectos
+              especiales, valoramos distancias mayores.
             </p>
 
             {/* Lista de áreas */}

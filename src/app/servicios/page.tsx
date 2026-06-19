@@ -10,21 +10,26 @@ import { ArrowRight, Phone } from "lucide-react";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Servicios de Albañilería y Reformas",
+  title: "Servicios de Albañilería y Reformas en Pozoblanco y Los Pedroches",
   description:
-    "Ofrecemos servicios completos de albañilería, reformas integrales, restauración de casas antiguas, reformas de baños y cocinas, y mucho más.",
+    "Albañilería, reformas integrales, restauración de casas antiguas, reformas de baños y cocinas en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia. Presupuesto gratuito.",
   keywords: [
-    "servicios albañilería",
-    "reformas integrales",
-    "restauración casas antiguas",
-    "reformas baños",
-    "reformas cocinas",
-    "fachadas",
-    "trabajos piedra",
+    "servicios albañilería Pozoblanco",
+    "reformas integrales Pozoblanco",
+    "reformas integrales Los Pedroches",
+    "restauración casas antiguas Pozoblanco",
+    "reformas baños Pozoblanco",
+    "reformas cocinas Pozoblanco",
+    "reformas baños Los Pedroches",
+    "fachadas Pozoblanco",
+    "trabajos piedra Los Pedroches",
+    "rehabilitación vivienda Pozoblanco",
+    "reformas Villanueva de Córdoba",
+    "reformas Hinojosa del Duque",
   ],
   openGraph: {
-    title: "Servicios de Albañilería y Reformas | Raúl Sánchez Construcciones",
-    description: "Ofrecemos servicios completos de albañilería, reformas integrales y restauración de casas antiguas.",
+    title: "Servicios de Albañilería y Reformas en Pozoblanco | Raúl Sánchez Construcciones",
+    description: "Servicios completos de albañilería, reformas integrales y restauración de casas antiguas en Pozoblanco y Los Pedroches. Presupuesto gratis.",
     url: "https://raul.javierruiz.org/servicios",
   },
 };
@@ -46,12 +51,13 @@ export default function ServiciosPage() {
               Servicios Profesionales
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Nuestros Servicios de Albañilería y Reformas
+              Albañilería y Reformas en Pozoblanco y Los Pedroches
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Soluciones completas para todo tipo de proyectos de construcción,
-              reforma y restauración. Calidad garantizada y más de 20 años de
-              experiencia.
+              Soluciones completas de construcción, reforma y restauración para
+              toda la comarca de Los Pedroches. Atendemos en Pozoblanco,
+              Villanueva de Córdoba, Hinojosa del Duque y municipios cercanos.
+              Calidad garantizada y más de 20 años de experiencia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" variant="secondary" className="text-lg">

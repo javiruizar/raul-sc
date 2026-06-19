@@ -19,47 +19,61 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  // Asegúrate de que esta URL sea la definitiva de tu web
   metadataBase: new URL("https://raul.javierruiz.org"),
   title: {
-    default: "Raúl Sánchez · Reformas y Construcción en Los Pedroches",
+    default: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches | Raúl Sánchez",
     template: "%s | Raúl Sánchez Construcciones",
   },
   verification: {
     google: "rb8aGSb9nqhSL_M_GfiV29-R-CirCWfU0Am9kyhiV_4",
   },
   description:
-    "Servicios profesionales de albañilería y reformas integrales en Los Pedroches. Especialistas en restauración de casas antiguas con más de 20 años de experiencia.",
-  
+    "Albañil en Pozoblanco con más de 20 años de experiencia. Reformas integrales, restauración de casas antiguas y construcción en Los Pedroches, Villanueva de Córdoba, Hinojosa del Duque y toda la comarca. Presupuesto gratis.",
+
   // 2. OPEN GRAPH (Para WhatsApp, Facebook, LinkedIn)
   openGraph: {
-    title: "Raúl Sánchez - Reformas y Construcción",
-    description: "Servicios profesionales de albañilería y reformas integrales en Los Pedroches.",
+    title: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches",
+    description: "Albañil profesional en Pozoblanco y Los Pedroches. Reformas integrales, restauración de casas antiguas y construcción. Presupuesto gratuito y sin compromiso.",
     url: "https://raul.javierruiz.org",
-    siteName: "Raúl Sánchez",
+    siteName: "Raúl Sánchez Construcciones",
     locale: "es_ES",
     type: "website",
     images: [
       {
-        url: "/og-image.png", // WhatsApp busca esta imagen en la raíz de public/
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Raúl Sánchez - Reformas y Construcción en Los Pedroches",
+        alt: "Raúl Sánchez - Albañil y Reformas en Pozoblanco, Los Pedroches (Córdoba)",
       },
     ],
   },
 
-  // 3. TWITTER CARD (Para X/Twitter y previsualizaciones modernas)
+  // 3. TWITTER CARD
   twitter: {
     card: "summary_large_image",
-    title: "Raúl Sánchez - Reformas y Construcción",
-    description: "Especialistas en restauración de casas antiguas y reformas integrales.",
+    title: "Albañil en Pozoblanco · Reformas en Los Pedroches | Raúl Sánchez",
+    description: "Reformas integrales, restauración de casas antiguas y albañilería en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia.",
     images: ["/og-image.png"],
   },
 
   keywords: [
-    "albañil", "reformas", "casas antiguas", "restauración", "construcción", 
-    "albañilería", "Los Pedroches", "Pozoblanco", "Córdoba"
+    // Búsquedas por oficio + localidad
+    "albañil Pozoblanco", "albañil Los Pedroches", "albañil Villanueva de Córdoba",
+    "albañil Hinojosa del Duque", "albañil Córdoba",
+    // Búsquedas por servicio + localidad
+    "reformas Pozoblanco", "reformas integrales Los Pedroches",
+    "reformas Villanueva de Córdoba", "reformas Hinojosa del Duque",
+    "reformas Alcaracejos", "reformas Añora", "reformas Dos Torres",
+    // Constructor
+    "constructor Pozoblanco", "empresa construcción Pozoblanco",
+    "empresa reformas Los Pedroches", "empresa construcción Los Pedroches",
+    // Servicios específicos
+    "restauración casas antiguas Pozoblanco", "rehabilitación vivienda Los Pedroches",
+    "reformas cocinas Pozoblanco", "reformas baños Pozoblanco",
+    "trabajos piedra Los Pedroches", "fachadas Pozoblanco",
+    // Intención transaccional
+    "presupuesto reformas Pozoblanco", "presupuesto albañil Los Pedroches",
+    "presupuesto gratis reforma Córdoba",
   ],
 };
 
@@ -72,22 +86,77 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Raúl Sánchez Construcciones",
-    "url": "https://raul.javierruiz.org"
+    "url": "https://raul.javierruiz.org",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://raul.javierruiz.org/servicios",
+      "query-input": "required name=search_term_string"
+    }
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Raúl Sánchez Construcciones",
+    "alternateName": "Raúl Albañil Pozoblanco",
+    "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",
     "image": "https://raul.javierruiz.org/og-image.png",
     "url": "https://raul.javierruiz.org",
     "telephone": "+34647684443",
+    "email": "contacto@raulalbanil.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Pozoblanco",
       "addressLocality": "Pozoblanco",
       "addressRegion": "Córdoba",
+      "postalCode": "14400",
       "addressCountry": "ES"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "38.1855",
+      "longitude": "-4.8495"
+    },
+    "hasMap": "https://maps.google.com/maps?q=Pozoblanco,Cordoba,Spain",
+    "areaServed": [
+      { "@type": "City", "name": "Pozoblanco" },
+      { "@type": "City", "name": "Villanueva de Córdoba" },
+      { "@type": "City", "name": "Hinojosa del Duque" },
+      { "@type": "City", "name": "Alcaracejos" },
+      { "@type": "City", "name": "Añora" },
+      { "@type": "City", "name": "Dos Torres" },
+      { "@type": "City", "name": "Pedroche" },
+      { "@type": "City", "name": "El Viso" },
+      { "@type": "City", "name": "Villaralto" },
+      { "@type": "City", "name": "Belalcázar" },
+      { "@type": "City", "name": "Cardeña" },
+      { "@type": "City", "name": "Santa Eufemia" },
+      { "@type": "City", "name": "Torrecampo" },
+      { "@type": "City", "name": "Fuente la Lancha" },
+      { "@type": "City", "name": "Guijo" },
+      { "@type": "City", "name": "Conquista" },
+      { "@type": "City", "name": "Venta del Charco" }
+    ],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "38.1855",
+        "longitude": "-4.8495"
+      },
+      "geoRadius": "30000"
+    },
+    "knowsAbout": [
+      "Reformas integrales en Pozoblanco",
+      "Restauración de casas antiguas en Los Pedroches",
+      "Albañilería general en Córdoba",
+      "Rehabilitación de viviendas en Los Pedroches",
+      "Reformas de baños en Pozoblanco",
+      "Reformas de cocinas en Pozoblanco",
+      "Trabajos de piedra en Los Pedroches",
+      "Fachadas y revocos en Pozoblanco",
+      "Construcción en Los Pedroches"
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -103,6 +172,8 @@ export default function RootLayout({
       }
     ],
     "priceRange": "$$",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Bank Transfer",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
