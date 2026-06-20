@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Verificar si se ha pasado el directorio por parámetro
-if [ -z "$1" ]; then
-    echo "Error: Debes especificar un directorio."
-    echo "Uso: $0 /ruta/al/directorio"
-    exit 1
-fi
-
-TARGET_DIR="$1"
+# Establecer directorio objetivo: parámetro $1 o ../public por defecto
+TARGET_DIR="${1:-../public}"
 
 # Verificar si el directorio existe
 if [ ! -d "$TARGET_DIR" ]; then
@@ -24,27 +18,37 @@ fi
 echo "Iniciando la conversión de imágenes a WebP en: $TARGET_DIR"
 echo "--------------------------------------------------------"
 
-# Contador de archivos procesados
-count=0
+# Contadores
+count_procesados=0
+count_omitidos=0
 
-# Buscar archivos de forma recursiva ignorando mayúsculas/minúsculas
-# Filtra extensiones comunes que se benefician de la conversión a WebP
-find "$TARGET_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.tiff" -o -iname "*.bmp" \) | while read -r img_path; do
+# Bucle con sustitución de procesos para evitar subshells y mantener los contadores
+while read -r img_path; do
     
     # Extraer la ruta sin la extensión original
     base_path="${img_path%.*}"
     output_webp="${base_path}.webp"
+    
+    # Comprobar si el archivo WebP ya existe
+    if [ -f "$output_webp" ]; then
+        echo "Omitiendo: $img_path (ya existe)"
+        ((count_omitidos++))
+        continue
+    fi
     
     echo "Procesando: $img_path"
     
     # Ejecutar la conversión con calidad 80
     if cwebp -q 80 "$img_path" -o "$output_webp" -quiet; then
         echo " -> Creado: $output_webp"
-        ((count++))
+        ((count_procesados++))
     else
         echo " -> [ERROR] Falló la conversión de: $img_path"
     fi
-done
+
+done < <(find "$TARGET_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.tiff" -o -iname "*.bmp" \))
 
 echo "--------------------------------------------------------"
 echo "Proceso finalizado."
+echo "Imágenes convertidas: $count_procesados"
+echo "Imágenes omitidas: $count_omitidos"
