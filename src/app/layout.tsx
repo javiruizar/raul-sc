@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Raúl Sánchez - Albañil y Reformas en Pozoblanco, Los Pedroches (Córdoba)",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Albañil en Pozoblanco · Reformas en Los Pedroches | Raúl Sánchez",
     description: "Reformas integrales, restauración de casas antiguas y albañilería en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia.",
-    images: ["/og-image.png"],
+    images: ["/og-image.webp"],
   },
 
   keywords: [
@@ -100,7 +100,7 @@ export default function RootLayout({
     "name": "Raúl Sánchez Construcciones",
     "alternateName": "Raúl Albañil Pozoblanco",
     "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",
-    "image": "https://raul.javierruiz.org/og-image.png",
+    "image": "https://raul.javierruiz.org/og-image.webp",
     "url": "https://raul.javierruiz.org",
     "telephone": "+34617847211",
     "email": "contacto@raulalbanil.com",

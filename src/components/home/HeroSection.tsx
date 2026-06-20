@@ -5,9 +5,12 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section aria-labelledby="hero-heading" className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-32">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center text-white">
+    <section aria-labelledby="hero-heading" className="relative flex items-center min-h-[80vh] py-20 md:py-32 bg-[url('/images/hero-image.webp')] bg-cover bg-center bg-no-repeat lg:bg-fixed">
+      {/* Overlay oscuro para contraste profesional */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-black/80" />
+      
+      <div className="container-custom relative z-10">
+        <div className="max-w-4xl mx-auto text-center text-white drop-shadow-sm">
           <Badge className="mb-6 bg-primary hover:bg-primary-dark">
             Tu Albañil de Confianza en Pozoblanco
           </Badge>
