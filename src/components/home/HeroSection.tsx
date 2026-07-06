@@ -5,10 +5,10 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section aria-labelledby="hero-heading" className="relative flex items-center min-h-[80vh] py-20 md:py-32 bg-[url('/images/hero-image-pool.webp')] bg-cover bg-center bg-no-repeat lg:bg-fixed">
+    <section aria-labelledby="hero-heading" className="relative flex items-center min-h-[80vh] py-20 md:py-32 bg-[url('/images/hero-image.webp')] lg:bg-[url('/images/hero-image-pool.webp')] bg-cover bg-center bg-no-repeat lg:bg-fixed">
       {/* Overlay oscuro para contraste profesional */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-black/80" />
-      
+
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white drop-shadow-sm">
           <Badge className="mb-6 bg-primary hover:bg-primary-dark">

@@ -13,20 +13,9 @@ export const metadata: Metadata = {
   title: "Servicios de Albañilería y Reformas en Pozoblanco y Los Pedroches",
   description:
     "Albañilería, reformas integrales, restauración de casas antiguas, reformas de baños y cocinas en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia. Presupuesto gratuito.",
-  keywords: [
-    "servicios albañilería Pozoblanco",
-    "reformas integrales Pozoblanco",
-    "reformas integrales Los Pedroches",
-    "restauración casas antiguas Pozoblanco",
-    "reformas baños Pozoblanco",
-    "reformas cocinas Pozoblanco",
-    "reformas baños Los Pedroches",
-    "fachadas Pozoblanco",
-    "trabajos piedra Los Pedroches",
-    "rehabilitación vivienda Pozoblanco",
-    "reformas Villanueva de Córdoba",
-    "reformas Hinojosa del Duque",
-  ],
+  alternates: {
+    canonical: "https://raul.javierruiz.org/servicios",
+  },
   openGraph: {
     title: "Servicios de Albañilería y Reformas en Pozoblanco | Raúl Sánchez Construcciones",
     description: "Servicios completos de albañilería, reformas integrales y restauración de casas antiguas en Pozoblanco y Los Pedroches. Presupuesto gratis.",

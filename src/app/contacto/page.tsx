@@ -7,14 +7,9 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 export const metadata: Metadata = {
   title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Albañil",
   description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito sin compromiso para tu reforma en Los Pedroches. Respuesta en 24-48h. Llama al 617 847 211.",
-  keywords: [
-    "contactar albañil Pozoblanco",
-    "pedir presupuesto reforma Pozoblanco",
-    "presupuesto reforma Los Pedroches",
-    "teléfono albañil Pozoblanco",
-    "presupuesto gratis reformas Córdoba",
-    "contacto empresa reformas Pozoblanco",
-  ],
+  alternates: {
+    canonical: "https://raul.javierruiz.org/contacto",
+  },
   openGraph: {
     title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Construcciones",
     description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito para tu reforma en Los Pedroches.",

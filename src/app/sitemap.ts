@@ -2,8 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://raul.javierruiz.org";
-  const lastUpdated = new Date("2025-10-01");
-
+  const lastUpdated = new Date();
   return [
     {
       url: baseUrl,

@@ -12,16 +12,9 @@ export const metadata: Metadata = {
   title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez",
   description:
     "Conoce a Raúl Sánchez, albañil profesional en Pozoblanco y Los Pedroches con más de 20 años de experiencia. Especialista en reformas, restauración de casas antiguas y construcción tradicional en la comarca de Córdoba.",
-  keywords: [
-    "albañil Pozoblanco",
-    "albañil profesional Los Pedroches",
-    "empresa reformas Pozoblanco",
-    "empresa construcción Pozoblanco",
-    "empresa reformas Córdoba",
-    "albañil experiencia Los Pedroches",
-    "construcción tradicional Pozoblanco",
-    "historia empresa reformas Pozoblanco",
-  ],
+  alternates: {
+    canonical: "https://raul.javierruiz.org/sobre-nosotros",
+  },
   openGraph: {
     title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez Construcciones",
     description: "Raúl Sánchez, albañil en Pozoblanco y Los Pedroches con más de 20 años de experiencia en reformas y restauración de casas antiguas.",

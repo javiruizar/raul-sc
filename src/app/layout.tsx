@@ -56,25 +56,7 @@ export const metadata: Metadata = {
     images: ["/og-image.webp"],
   },
 
-  keywords: [
-    // Búsquedas por oficio + localidad
-    "albañil Pozoblanco", "albañil Los Pedroches", "albañil Villanueva de Córdoba",
-    "albañil Hinojosa del Duque", "albañil Córdoba",
-    // Búsquedas por servicio + localidad
-    "reformas Pozoblanco", "reformas integrales Los Pedroches",
-    "reformas Villanueva de Córdoba", "reformas Hinojosa del Duque",
-    "reformas Alcaracejos", "reformas Añora", "reformas Dos Torres",
-    // Constructor
-    "constructor Pozoblanco", "empresa construcción Pozoblanco",
-    "empresa reformas Los Pedroches", "empresa construcción Los Pedroches",
-    // Servicios específicos
-    "restauración casas antiguas Pozoblanco", "rehabilitación vivienda Los Pedroches",
-    "reformas cocinas Pozoblanco", "reformas baños Pozoblanco",
-    "trabajos piedra Los Pedroches", "fachadas Pozoblanco",
-    // Intención transaccional
-    "presupuesto reformas Pozoblanco", "presupuesto albañil Los Pedroches",
-    "presupuesto gratis reforma Córdoba",
-  ],
+
 };
 
 export default function RootLayout({

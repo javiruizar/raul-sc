@@ -11,16 +11,9 @@ export const metadata: Metadata = {
   title: "Proyectos de Reformas Realizados en Los Pedroches y Pozoblanco | Raúl Sánchez",
   description:
     "Galería de obras y reformas realizadas en Pozoblanco, Villanueva de Córdoba, Hinojosa del Duque y toda la comarca de Los Pedroches. Reformas integrales, restauración de casas antiguas, fachadas y más.",
-  keywords: [
-    "proyectos albañilería Pozoblanco",
-    "reformas realizadas Pozoblanco",
-    "obras realizadas Los Pedroches",
-    "galería proyectos reformas Pozoblanco",
-    "trabajos completados Los Pedroches",
-    "restauración casas Pozoblanco antes y después",
-    "reformas ejecutadas Villanueva de Córdoba",
-    "reformas ejecutadas Hinojosa del Duque",
-  ],
+  alternates: {
+    canonical: "https://raul.javierruiz.org/proyectos",
+  },
   openGraph: {
     title: "Proyectos de Reformas Realizados en Pozoblanco y Los Pedroches | Raúl Sánchez Construcciones",
     description: "Descubre nuestra galería de reformas completadas en Pozoblanco y Los Pedroches: reformas integrales, restauración de casas antiguas y más.",

@@ -9,15 +9,9 @@ export const metadata: Metadata = {
   title: "Presupuesto Gratuito de Reformas en Pozoblanco | Sin Compromiso · Raúl Sánchez",
   description:
     "Solicita tu presupuesto gratuito y sin compromiso para tu reforma o construcción en Pozoblanco y Los Pedroches. Respuesta en 24-48h. Albañil en Pozoblanco con más de 20 años de experiencia.",
-  keywords: [
-    "presupuesto reformas Pozoblanco",
-    "presupuesto albañil Los Pedroches",
-    "presupuesto gratis reforma Pozoblanco",
-    "presupuesto reformas Hinojosa del Duque",
-    "presupuesto reformas Villanueva de Córdoba",
-    "solicitar presupuesto albañilería Pozoblanco",
-    "reforma sin compromiso Pozoblanco",
-  ],
+  alternates: {
+    canonical: "https://raul.javierruiz.org/presupuesto",
+  },
   openGraph: {
     title: "Presupuesto Gratuito de Reformas en Pozoblanco | Raúl Sánchez Construcciones",
     description: "Solicita un presupuesto gratuito y sin compromiso para tu reforma en Pozoblanco y Los Pedroches. Respuesta en 24-48h.",
