@@ -17,6 +17,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/servicios/reformas-integrales`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/restauracion-casas-antiguas`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/albanileria-general`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/reformas-banos-cocinas`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/fachadas-tejados`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/trabajos-piedra`,
+      lastModified: lastUpdated,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/presupuesto`,
       lastModified: lastUpdated,
       changeFrequency: "monthly",

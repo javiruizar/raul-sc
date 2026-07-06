@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Home, Building2, Hammer, Droplet, Shield, Mountain, CheckCircle2 } from "lucide-react";
 import type { Service } from "@/types";
+import Link from "next/link";
 
 const iconMap = {
   home: Home,
@@ -50,6 +51,13 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="pt-4 flex justify-end">
+          <Link href={`/servicios/${service.id}`} className="text-primary font-medium hover:underline inline-flex items-center text-sm">
+            Saber más
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </Link>
         </div>
       </CardContent>
     </Card>
