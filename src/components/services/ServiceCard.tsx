@@ -22,7 +22,8 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
   const Icon = iconMap[service.icon as keyof typeof iconMap] || Hammer;
 
   return (
-    <Card className={`group hover:shadow-xl transition-all duration-300 ${featured ? 'border-primary border-2' : ''}`}>
+    <Link href={`/servicios/${service.id}`} className="block h-full">
+      <Card className={`h-full group hover:shadow-xl transition-all duration-300 ${featured ? 'border-primary border-2' : ''}`}>
       <CardHeader>
         <div className="flex items-start justify-between mb-4">
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -54,12 +55,13 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
         </div>
 
         <div className="pt-4 flex justify-end">
-          <Link href={`/servicios/${service.id}`} className="text-primary font-medium hover:underline inline-flex items-center text-sm">
+          <span className="text-primary font-medium group-hover:underline inline-flex items-center text-sm">
             Saber más
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </Link>
+          </span>
         </div>
       </CardContent>
     </Card>
+    </Link>
   );
 }

@@ -34,7 +34,8 @@ export function ServicesSection() {
             const Icon = iconMap[service.icon as keyof typeof iconMap] || Hammer;
             
             return (
-              <Card key={service.id} className="group hover:shadow-lg transition-shadow duration-300">
+              <Link href={`/servicios/${service.id}`} key={service.id} className="block h-full">
+                <Card className="h-full group hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
                   <div className="flex items-center space-x-3 mb-2">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -47,7 +48,7 @@ export function ServicesSection() {
                   <CardDescription className="text-base mb-4">
                     {service.description}
                   </CardDescription>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-4">
                     {service.features.slice(0, 3).map((feature, index) => (
                       <li key={index} className="flex items-start text-sm text-neutral-800/70">
                         <span className="mr-2 text-primary">✓</span>
@@ -55,8 +56,15 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
+                  <div className="pt-4 border-t flex justify-end">
+                    <span className="text-primary font-medium group-hover:underline inline-flex items-center text-sm">
+                      Saber más
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </span>
+                  </div>
                 </CardContent>
-              </Card>
+                </Card>
+              </Link>
             );
           })}
         </div>
