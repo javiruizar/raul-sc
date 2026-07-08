@@ -28,9 +28,4 @@ export default function PrivacidadPage() {
     </section>
   );
 }
-mail}.</p>
-        </div>
-      </div>
-    </section>
-  );
-}
+
