@@ -46,7 +46,7 @@ export function CoverageSection() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mapa de cobertura en Pozoblanco"
               ></iframe>
-              
+
               {/* Etiqueta flotante */}
               <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md pointer-events-none z-10 border border-neutral-100">
                 <div className="flex items-center text-sm">
@@ -104,11 +104,11 @@ export function CoverageSection() {
                     617 847 211
                   </a>
                   <a
-                    href="mailto:contacto@raulalbanil.com"
+                    href="mailto:javiruizar@gmail.com"
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Mail className="h-4 w-4 mr-2" />
-                    contacto@raulalbanil.com
+                    javiruizar@gmail.com
                   </a>
                   <div className="flex items-center text-sm text-neutral-800/60">
                     <Clock className="h-4 w-4 mr-2" />

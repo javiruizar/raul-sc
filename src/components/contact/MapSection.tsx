@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Navigation } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export function MapSection() {
   return (
@@ -92,10 +93,10 @@ export function MapSection() {
                 Contáctanos y te confirmaremos si podemos trabajar en tu ubicación.
               </p>
               <a
-                href="tel:+34617847211"
+                href={`tel:${siteConfig.contact.phoneLink}`}
                 className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
               >
-                Llamar ahora: 617 847 211 →
+                Llamar ahora: {siteConfig.contact.phoneDisplay} →
               </a>
             </div>
           </div>

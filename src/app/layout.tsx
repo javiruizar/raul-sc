@@ -85,7 +85,7 @@ export default function RootLayout({
     "image": "https://raul.javierruiz.org/og-image.webp",
     "url": "https://raul.javierruiz.org",
     "telephone": "+34617847211",
-    "email": "contacto@raulalbanil.com",
+    "email": "javiruizar@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Pozoblanco",

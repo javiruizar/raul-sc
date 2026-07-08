@@ -6,6 +6,7 @@ import { Menu, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { siteConfig } from "@/config/site";
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -92,11 +93,11 @@ export function Header() {
           {/* Desktop CTA */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a
-              href="tel:+34617847211"
+              href={`tel:${siteConfig.contact.phoneLink}`}
               className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
             >
               <Phone className="h-4 w-4" />
-              <span>617 847 211</span> {/* Ej: 611 222 333 */}
+              <span>{siteConfig.contact.phoneDisplay}</span> {/* Ej: 611 222 333 */}
             </a>
             <Button asChild>
               <Link href="/presupuesto">Solicitar Presupuesto</Link>
@@ -151,18 +152,18 @@ export function Header() {
               })}
               <div className="pt-4 border-t">
                 <a
-                  href="tel:+34617847211"
+                  href={`tel:${siteConfig.contact.phoneLink}`}
                   className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
                 >
                   <Phone className="h-4 w-4" />
-                  <span>617 847 211</span>
+                  <span>{siteConfig.contact.phoneDisplay}</span>
                 </a>
                 <a
-                  href="mailto:javiruizar@gmail.com"
+                  href={`mailto:${siteConfig.contact.email}`}
                   className="flex items-center space-x-2 text-neutral-800 hover:text-primary mb-4"
                 >
                   <Mail className="h-5 w-5" />
-                  <span>javiruizar@gmail.com</span>
+                  <span>{siteConfig.contact.email}</span>
                 </a>
                 <Button asChild className="w-full">
                   <Link href="/presupuesto" onClick={() => setIsOpen(false)}>

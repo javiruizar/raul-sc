@@ -21,13 +21,13 @@ export function QuickContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simular envío (implementar API route más adelante)
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus("success");
       setFormData({ name: "", phone: "", message: "" });
-      
+
       // Reset status después de 3 segundos
       setTimeout(() => setSubmitStatus("idle"), 3000);
     }, 1000);
@@ -88,10 +88,10 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Email</h3>
                     <a
-                      href="mailto:contacto@raulalbanil.com"
+                      href="mailto:javiruizar@gmail.com"
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      contacto@raulalbanil.com
+                      javiruizar@gmail.com
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
                       Respuesta en 24-48h

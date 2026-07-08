@@ -8,6 +8,7 @@ import { ProcessTimeline } from "@/components/services/ProcessTimeline";
 import { ServicesFAQ } from "@/components/services/ServicesFAQ";
 import { ArrowRight, Phone } from "lucide-react";
 import { services } from "@/data/services";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Servicios de Albañilería y Reformas en Pozoblanco y Los Pedroches",
@@ -56,7 +57,7 @@ export default function ServiciosPage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-lg bg-white hover:bg-white/90">
-                <a href="tel:+34617847211">
+                <a href={`tel:${siteConfig.contact.phoneLink}`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Llamar Ahora
                 </a>

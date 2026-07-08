@@ -1,21 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const contactMethods = [
   {
     icon: Phone,
     title: "Teléfono",
-    primary: "617 847 211",
+    primary: siteConfig.contact.phoneDisplay,
     secondary: "Llamadas y WhatsApp",
-    link: "tel:+34617847211",
+    link: `tel:${siteConfig.contact.phoneLink}`,
     color: "text-green-600",
   },
   {
     icon: Mail,
     title: "Email",
-    primary: "contacto@raulalbanil.com",
+    primary: siteConfig.contact.email,
     secondary: "Respuesta en 24-48h",
-    link: "mailto:contacto@raulalbanil.com",
+    link: `mailto:${siteConfig.contact.email}`,
     color: "text-blue-600",
   },
   {
@@ -103,7 +104,7 @@ export function ContactInfo() {
                 Escríbenos directamente y te responderemos lo antes posible.
               </p>
               <a
-                href="https://wa.me/34617847211"
+                href={siteConfig.socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 transition-colors"

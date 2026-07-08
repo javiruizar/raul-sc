@@ -2,6 +2,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import type { UseFormRegister, FieldErrors } from "react-hook-form";
 import type { BudgetFormData } from "@/lib/validations";
+import { siteConfig } from "@/config/site";
 
 interface ContactDataStepProps {
   register: UseFormRegister<BudgetFormData>;
@@ -43,7 +44,7 @@ export function ContactDataStep({ register, errors }: ContactDataStepProps) {
           id="email"
           type="email"
           {...register("email")}
-          placeholder="juan@ejemplo.com"
+          placeholder={siteConfig.contact.email}
           className={errors.email ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.email && (
@@ -62,7 +63,7 @@ export function ContactDataStep({ register, errors }: ContactDataStepProps) {
           id="phone"
           type="tel"
           {...register("phone")}
-          placeholder="617 847 211"
+          placeholder={siteConfig.contact.phoneDisplay}
           className={errors.phone ? "border-red-500 bg-red-50 focus-visible:ring-red-500" : ""}
         />
         {errors.phone && (

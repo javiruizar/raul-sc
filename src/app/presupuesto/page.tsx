@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BudgetForm } from "@/components/budget/BudgetForm";
 import { Clock, CheckCircle2, FileText, Shield } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Presupuesto Gratuito de Reformas en Pozoblanco | Sin Compromiso · Raúl Sánchez",
@@ -164,7 +165,7 @@ export default function PresupuestoPage() {
                       </h3>
                       <p className="text-sm text-neutral-800/70">
                         Te respondemos en 24-48 horas laborables. Si es urgente,
-                        llámanos al 617 847 211.
+                        llámanos al {siteConfig.contact.phoneDisplay}.
                       </p>
                     </div>
                   </div>
