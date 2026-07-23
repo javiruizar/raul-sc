@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "Arreglo de Fachadas y Tejados en Pozoblanco | Raúl Sánchez",
@@ -14,8 +15,28 @@ export const metadata: Metadata = {
 };
 
 export default function FachadasTejadosPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Fachadas y Tejados",
+    serviceType: "Rehabilitación de Fachadas y Tejados",
+    description:
+      "Reparación de goteras, rehabilitación de tejados e impermeabilización de fachadas en Pozoblanco y Los Pedroches. Especialistas en altura.",
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      name: "Raúl Sánchez Construcciones",
+      url: "https://raul.javierruiz.org",
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Los Pedroches, Córdoba",
+    },
+    url: "https://raul.javierruiz.org/servicios/fachadas-tejados",
+  };
+
   return (
     <>
+      <JsonLd data={serviceSchema} />
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-28">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center">

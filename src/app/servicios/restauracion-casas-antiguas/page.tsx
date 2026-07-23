@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "Restauración de Casas Antiguas en Los Pedroches | Raúl Sánchez",
@@ -14,8 +15,28 @@ export const metadata: Metadata = {
 };
 
 export default function RestauracionCasasPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Restauración de Casas Antiguas",
+    serviceType: "Restauración y Rehabilitación de Edificaciones Históricas",
+    description:
+      "Expertos en restauración y rehabilitación de casas antiguas y rústicas en Los Pedroches. Conservamos bóvedas, muros de piedra y el encanto original.",
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      name: "Raúl Sánchez Construcciones",
+      url: "https://raul.javierruiz.org",
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Los Pedroches, Córdoba",
+    },
+    url: "https://raul.javierruiz.org/servicios/restauracion-casas-antiguas",
+  };
+
   return (
     <>
+      <JsonLd data={serviceSchema} />
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-28">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center">

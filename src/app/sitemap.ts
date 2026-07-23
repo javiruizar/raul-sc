@@ -1,80 +1,71 @@
 import { MetadataRoute } from "next";
+import { projects } from "@/data/projects";
+import { services } from "@/data/services";
+
+const BASE_URL = "https://raul.javierruiz.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://raul.javierruiz.org";
-  const lastUpdated = new Date();
-  return [
+  // Rutas estáticas principales
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: lastUpdated,
+      url: BASE_URL,
+      lastModified: new Date("2025-01-01"),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/servicios`,
-      lastModified: lastUpdated,
+      url: `${BASE_URL}/servicios`,
+      lastModified: new Date("2025-01-01"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/servicios/reformas-integrales`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/restauracion-casas-antiguas`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/albanileria-general`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/reformas-banos-cocinas`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/fachadas-tejados`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/servicios/trabajos-piedra`,
-      lastModified: lastUpdated,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/presupuesto`,
-      lastModified: lastUpdated,
+      url: `${BASE_URL}/presupuesto`,
+      lastModified: new Date("2025-01-01"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/contacto`,
-      lastModified: lastUpdated,
+      url: `${BASE_URL}/contacto`,
+      lastModified: new Date("2025-01-01"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/proyectos`,
-      lastModified: lastUpdated,
+      url: `${BASE_URL}/proyectos`,
+      lastModified: new Date(
+        // lastModified del índice = fecha del proyecto más reciente
+        projects
+          .map((p) => new Date(p.date + "-01").getTime())
+          .reduce((a, b) => Math.max(a, b), 0)
+      ),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/sobre-nosotros`,
-      lastModified: lastUpdated,
+      url: `${BASE_URL}/sobre-nosotros`,
+      lastModified: new Date("2025-01-01"),
       changeFrequency: "yearly",
       priority: 0.7,
     },
   ];
+
+  // Rutas dinámicas de servicios — generadas desde services.ts (DRY)
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${BASE_URL}/servicios/${service.id}`,
+    lastModified: new Date("2025-01-01"),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  // Rutas dinámicas de proyectos individuales
+  // date tiene formato "YYYY-MM" → parseamos como primer día del mes (ISO válido)
+  const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `${BASE_URL}/proyectos/${project.id}`,
+    lastModified: new Date(project.date + "-01"),
+    changeFrequency: "yearly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }
