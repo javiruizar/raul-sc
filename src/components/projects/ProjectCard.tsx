@@ -32,7 +32,10 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         {project.images && project.images.length > 0 ? (
           <Image
             src={project.images[0]}
-            alt={`Imagen principal del proyecto: ${project.title}`}
+            alt={project.location
+              ? `${project.title} en ${project.location} - Raúl Sánchez Construcciones`
+              : `${project.title} - Albañilería y Reformas en Los Pedroches`
+            }
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

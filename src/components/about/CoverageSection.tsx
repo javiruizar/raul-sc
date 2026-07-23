@@ -5,16 +5,21 @@ import { Phone, Mail, Clock, Navigation } from "lucide-react";
 const coverageAreas = [
   "Pozoblanco",
   "Villanueva de Córdoba",
+  "Hinojosa del Duque",
   "Alcaracejos",
   "Añora",
   "Dos Torres",
   "Pedroche",
   "El Viso",
   "Villaralto",
-  "Hinojosa del Duque",
   "Belalcázar",
   "Cardeña",
-  "Santa Eufemia"
+  "Santa Eufemia",
+  "Torrecampo",
+  "Fuente la Lancha",
+  "Guijo",
+  "Conquista",
+  "Venta del Charco",
 ];
 
 export function CoverageSection() {
@@ -41,7 +46,7 @@ export function CoverageSection() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Mapa de cobertura en Pozoblanco"
               ></iframe>
-              
+
               {/* Etiqueta flotante */}
               <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md pointer-events-none z-10 border border-neutral-100">
                 <div className="flex items-center text-sm">
@@ -55,12 +60,15 @@ export function CoverageSection() {
           {/* Información */}
           <div>
             <h3 className="font-heading text-2xl font-bold text-secondary mb-4">
-              Principales Áreas de Servicio
+              Albañilería y Reformas en toda la Comarca de Los Pedroches
             </h3>
             <p className="text-neutral-800/80 mb-6">
-              Trabajamos principalmente en Pozoblanco y municipios cercanos, con un
-              radio de cobertura de aproximadamente 30 kilómetros. Para
-              proyectos especiales, podemos valorar distancias mayores.
+              Trabajamos como albañiles y constructores en Pozoblanco y todos los
+              municipios de la comarca de Los Pedroches. Si buscas reformas en
+              Villanueva de Córdoba, un albañil en Hinojosa del Duque o
+              construcción en Alcaracejos, aquí estamos. Cubrimos un radio de
+              aproximadamente 30 kilómetros desde Pozoblanco y, para proyectos
+              especiales, valoramos distancias mayores.
             </p>
 
             {/* Lista de áreas */}
@@ -89,18 +97,18 @@ export function CoverageSection() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+34647684443"
+                    href="tel:+34617847211"
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
-                    647 684 443
+                    617 847 211
                   </a>
                   <a
-                    href="mailto:contacto@raulalbanil.com"
+                    href="mailto:javiruizar@gmail.com"
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Mail className="h-4 w-4 mr-2" />
-                    contacto@raulalbanil.com
+                    javiruizar@gmail.com
                   </a>
                   <div className="flex items-center text-sm text-neutral-800/60">
                     <Clock className="h-4 w-4 mr-2" />

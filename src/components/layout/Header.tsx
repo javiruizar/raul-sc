@@ -1,11 +1,9 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, Phone, Mail } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { siteConfig } from "@/config/site";
+import { MobileMenu } from "./MobileMenu";
 
 const navigation = [
   { name: "Inicio", href: "/" },
@@ -15,15 +13,22 @@ const navigation = [
   { name: "Contacto", href: "/contacto" },
 ];
 
-export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+const servicesMenu = [
+  { name: "Reformas Integrales", href: "/servicios/reformas-integrales" },
+  { name: "Restauración Casas", href: "/servicios/restauracion-casas-antiguas" },
+  { name: "Albañilería General", href: "/servicios/albanileria-general" },
+  { name: "Baños y Cocinas", href: "/servicios/reformas-banos-cocinas" },
+  { name: "Fachadas y Tejados", href: "/servicios/fachadas-tejados" },
+  { name: "Trabajos en Piedra", href: "/servicios/trabajos-piedra" },
+];
 
+export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3" aria-label="Ir a la página de inicio de Construcciones y Reformas Raúl Sánchez">
             <div className="relative h-12 w-12 overflow-hidden rounded-lg">
               <Image
                 src="/icons/favicon.ico"
@@ -41,75 +46,62 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Navegación principal" className="hidden md:flex md:items-center md:space-x-6">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-neutral-800 transition-colors hover:text-primary"
-              >
-                {item.name}
-              </Link>
-            ))}
+          <nav aria-label="Navegación principal de escritorio" className="hidden md:flex md:items-center md:space-x-6">
+            {navigation.map((item) => {
+              if (item.name === "Servicios") {
+                return (
+                  <div key={item.name} className="relative group">
+                    <Link
+                      href={item.href}
+                      className="text-sm font-medium text-neutral-800 transition-colors hover:text-primary py-4 flex items-center"
+                    >
+                      {item.name}
+                    </Link>
+                    <div className="absolute top-full left-0 mt-0 w-56 bg-white border border-neutral-200 shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div className="py-2">
+                        {servicesMenu.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-primary transition-colors"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-neutral-800 transition-colors hover:text-primary"
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a
-              href="tel:+34647684443"
+              href={`tel:${siteConfig.contact.phoneLink}`}
               className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
+              aria-label="Llamar por teléfono"
             >
               <Phone className="h-4 w-4" />
-              <span>647 684 443</span> {/* Ej: 611 222 333 */}
+              <span>{siteConfig.contact.phoneDisplay}</span> {/* Ej: 611 222 333 */}
             </a>
             <Button asChild>
               <Link href="/presupuesto">Solicitar Presupuesto</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Abrir menú</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-neutral-100 border-l border-neutral-200 shadow-2xl overflow-y-auto">              <nav className="flex flex-col space-y-4 mt-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-neutral-800 transition-colors hover:text-primary"
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t">
-                <a
-                  href="tel:+34647684443"
-                  className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span>647684443</span>
-                </a>
-                <a
-                  href="mailto:contacto@raulalbanil.com"
-                  className="flex items-center space-x-2 text-neutral-800 hover:text-primary mb-4"
-                >
-                  <Mail className="h-5 w-5" />
-                  <span>contacto@raulalbanil.com</span>
-                </a>
-                <Button asChild className="w-full">
-                  <Link href="/presupuesto" onClick={() => setIsOpen(false)}>
-                    Solicitar Presupuesto
-                  </Link>
-                </Button>
-              </div>
-            </nav>
-            </SheetContent>
-          </Sheet>
+          {/* Mobile Menu Component */}
+          <MobileMenu navigation={navigation} servicesMenu={servicesMenu} />
         </div>
       </div>
     </header>

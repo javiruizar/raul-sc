@@ -41,11 +41,11 @@ export function Footer() {
             <div className="flex items-center space-x-3">
               {/* Logo con el favicon sobre fondo blanco */}
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white overflow-hidden p-1.5 shadow-sm">
-                <Image 
-                  src="/icons/favicon.ico" 
-                  alt="Logo Raúl Sánchez" 
-                  width={32} 
-                  height={32} 
+                <Image
+                  src="/icons/favicon.ico"
+                  alt="Logo Raúl Sánchez"
+                  width={32}
+                  height={32}
                   className="object-contain"
                 />
               </div>
@@ -59,18 +59,18 @@ export function Footer() {
             </p>
             <address className="space-y-2 not-italic">
               <a
-                href="tel:+34647684443"
+                href="tel:+34617847211"
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>647 684 443</span> {/* Teléfono actualizado */}
+                <span>617 847 211</span> {/* Teléfono actualizado */}
               </a>
               <a
-                href="mailto:contacto@raulalbanil.com"
+                href="mailto:javiruizar@gmail.com"
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>contacto@raulalbanil.com</span>
+                <span>javiruizar@gmail.com</span>
               </a>
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin className="h-4 w-4" />

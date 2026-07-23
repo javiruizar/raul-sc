@@ -21,13 +21,13 @@ export function QuickContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simular envío (implementar API route más adelante)
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus("success");
       setFormData({ name: "", phone: "", message: "" });
-      
+
       // Reset status después de 3 segundos
       setTimeout(() => setSubmitStatus("idle"), 3000);
     }, 1000);
@@ -68,10 +68,10 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Teléfono</h3>
                     <a
-                      href="tel:+34647684443"
+                      href="tel:+34617847211"
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      647 684 443
+                      617 847 211
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
                       Lun - Vie: 8:00 - 18:00
@@ -88,10 +88,10 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Email</h3>
                     <a
-                      href="mailto:contacto@raulalbanil.com"
+                      href="mailto:javiruizar@gmail.com"
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      contacto@raulalbanil.com
+                      javiruizar@gmail.com
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
                       Respuesta en 24-48h
@@ -156,7 +156,7 @@ export function QuickContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="647 684 443"
+                    placeholder="617 847 211"
                     required
                   />
                 </div>

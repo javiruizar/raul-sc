@@ -32,25 +32,29 @@ export function StorySection() {
             
             <div className="space-y-4 text-neutral-800/80 leading-relaxed">
               <p>
-                Raúl Albañil nació de una pasión por la construcción y el respeto
-                por la arquitectura tradicional. Desde hace más de dos décadas,
-                nos dedicamos a transformar casas y espacios, especializándonos
-                en la restauración de edificaciones antiguas.
+                Raúl Sánchez nació en Pozoblanco y creó su empresa de
+                construcción y reformas con una pasión genuina por la
+                arquitectura tradicional de Los Pedroches. Desde hace más de
+                dos décadas, transforma casas y espacios en la comarca,
+                especializándose en la restauración de edificaciones antiguas
+                propias de esta tierra.
               </p>
               
               <p>
-                Lo que comenzó como un pequeño taller familiar se ha convertido
-                en un referente en reformas y restauración. Cada proyecto es
-                único y lo abordamos con el mismo cuidado y dedicación,
-                independientemente de su tamaño.
+                Lo que comenzó como un pequeño taller familiar en Pozoblanco
+                se ha convertido en un referente de reformas y restauración
+                en toda la comarca de Los Pedroches. Cada proyecto, desde
+                Villanueva de Córdoba hasta Hinojosa del Duque, se aborda
+                con el mismo cuidado y dedicación.
               </p>
               
               <p>
-                Nuestra filosofía es simple: combinar técnicas tradicionales con
-                las mejores prácticas modernas, siempre respetando la esencia
-                original de cada construcción. Creemos que cada casa tiene una
-                historia que contar, y nuestro trabajo es preservarla mientras
-                la adaptamos a las necesidades actuales.
+                Nuestra filosofía es simple: combinar técnicas tradicionales
+                de construcción de Los Pedroches con las mejores prácticas
+                modernas, respetando siempre la esencia original de cada
+                vivienda. Creemos que cada casa de la comarca tiene una
+                historia que contar, y nuestro trabajo es preservarla
+                mientras la adaptamos a las necesidades actuales.
               </p>
             </div>
 

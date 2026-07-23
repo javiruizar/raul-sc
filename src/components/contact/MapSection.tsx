@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Navigation } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export function MapSection() {
   return (
@@ -38,17 +39,17 @@ export function MapSection() {
           <div className="space-y-6 text-left">
             <div>
               <h3 className="font-heading text-2xl font-bold text-secondary mb-4">
-                Cobertura en Los Pedroches
+                Zona de Trabajo: Pozoblanco y Los Pedroches
               </h3>
               <p className="text-neutral-800/80 leading-relaxed mb-4">
-                Nuestro equipo se desplaza por toda la comarca de Los Pedroches y
-                municipios cercanos. Trabajamos principalmente en un radio de
-                30 kilómetros desde Pozoblanco.
+                Nuestro equipo se desplaza por toda la comarca de Los Pedroches.
+                Hacemos reformas en Pozoblanco, Villanueva de Córdoba, Hinojosa
+                del Duque, Alcaracejos, Añora, Dos Torres y municipios cercanos.
               </p>
               <p className="text-neutral-800/80 leading-relaxed">
-                Para proyectos especiales o de mayor envergadura, podemos
-                valorar distancias superiores. No dudes en consultarnos tu
-                ubicación específica.
+                Radio de cobertura de 30 kilómetros desde Pozoblanco. Para
+                proyectos especiales o de mayor envergadura, podemos valorar
+                distancias superiores. Consúltanos tu ubicación.
               </p>
             </div>
 
@@ -61,10 +62,16 @@ export function MapSection() {
                 {[
                   "Pozoblanco",
                   "Villanueva de Córdoba",
+                  "Hinojosa del Duque",
                   "Alcaracejos",
                   "Añora",
                   "Dos Torres",
                   "Pedroche",
+                  "El Viso",
+                  "Villaralto",
+                  "Belalcázar",
+                  "Cardeña",
+                  "Santa Eufemia",
                 ].map((zone, index) => (
                   <div
                     key={index}
@@ -86,10 +93,10 @@ export function MapSection() {
                 Contáctanos y te confirmaremos si podemos trabajar en tu ubicación.
               </p>
               <a
-                href="tel:+34647684443"
+                href={`tel:${siteConfig.contact.phoneLink}`}
                 className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
               >
-                Llamar ahora: 647 684 443 →
+                Llamar ahora: {siteConfig.contact.phoneDisplay} →
               </a>
             </div>
           </div>

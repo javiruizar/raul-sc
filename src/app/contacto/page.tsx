@@ -3,13 +3,17 @@ import { ContactInfo } from "@/components/contact/ContactInfo";
 import { MapSection } from "@/components/contact/MapSection";
 import { BudgetForm } from "@/components/budget/BudgetForm";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Contacto y Presupuestos",
-  description: "Contacta con nosotros directamente o solicita tu presupuesto detallado para tu próxima reforma en Los Pedroches.",
+  title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Albañil",
+  description: `Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito sin compromiso para tu reforma en Los Pedroches. Respuesta en 24-48h. Llama al ${siteConfig.contact.phoneDisplay}.`,
+  alternates: {
+    canonical: "https://raul.javierruiz.org/contacto",
+  },
   openGraph: {
-    title: "Contacto y Presupuestos | Raúl Sánchez Construcciones",
-    description: "Contacta con nosotros directamente o solicita tu presupuesto detallado para tu próxima reforma.",
+    title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Construcciones",
+    description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito para tu reforma en Los Pedroches.",
     url: "https://raul.javierruiz.org/contacto",
   },
 };
@@ -21,10 +25,12 @@ export default function ContactoPage() {
       <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary py-16 md:py-24">
         <div className="container-custom text-center mx-auto max-w-4xl flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Contacto y Presupuestos
+            Contacta con tu Albañil en Pozoblanco
           </h1>
           <p className="text-xl text-white/90">
-            ¿Tienes dudas rápidas? Llámanos o escríbenos directamente. ¿Quieres una valoración para tu obra? Rellena el formulario detallado un poco más abajo.
+            ¿Tienes dudas rápidas? Llámanos o escríbenos. ¿Quieres un presupuesto
+            para tu reforma en Pozoblanco o Los Pedroches? Rellena el formulario
+            y te respondemos en 24-48h.
           </p>
         </div>
       </section>

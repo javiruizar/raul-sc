@@ -9,21 +9,15 @@ import { CoverageSection } from "@/components/about/CoverageSection";
 import { ArrowRight, Award, Target, Handshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros",
+  title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez",
   description:
-    "Conoce nuestra historia, valores y compromiso. Más de 20 años especializados en reformas y restauración de casas antiguas en Pozoblanco y Los Pedroches.",
-  keywords: [
-    "sobre nosotros",
-    "historia",
-    "albañil Pozoblanco",
-    "albañil Los Pedroches",
-    "empresa reformas Córdoba",
-    "valores",
-    "experiencia",
-  ],
+    "Conoce a Raúl Sánchez, albañil profesional en Pozoblanco y Los Pedroches con más de 20 años de experiencia. Especialista en reformas, restauración de casas antiguas y construcción tradicional en la comarca de Córdoba.",
+  alternates: {
+    canonical: "https://raul.javierruiz.org/sobre-nosotros",
+  },
   openGraph: {
-    title: "Sobre Nosotros | Raúl Sánchez Construcciones",
-    description: "Conoce nuestra historia y compromiso con más de 20 años en el sector de las reformas.",
+    title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez Construcciones",
+    description: "Raúl Sánchez, albañil en Pozoblanco y Los Pedroches con más de 20 años de experiencia en reformas y restauración de casas antiguas.",
     url: "https://raul.javierruiz.org/sobre-nosotros",
   },
 };
@@ -39,12 +33,13 @@ export default function SobreNosotrosPage() {
               Sobre Nosotros
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Construyendo Confianza Desde Hace Más de 20 Años
+              Tu Albañil en Pozoblanco con Más de 20 Años de Experiencia
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Somos especialistas en reformas y restauración de casas antiguas.
-              Cada proyecto es una oportunidad para demostrar nuestra pasión por
-              la construcción y el respeto por la arquitectura tradicional.
+              Somos especialistas en reformas integrales y restauración de casas
+              antiguas en Pozoblanco y toda la comarca de Los Pedroches.
+              Cada proyecto refleja nuestra pasión por la construcción y el
+              respeto por la arquitectura tradicional de la zona.
             </p>
           </div>
         </div>
