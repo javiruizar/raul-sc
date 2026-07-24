@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "Reformas de Baños y Cocinas en Pozoblanco | Raúl Sánchez",
@@ -14,8 +15,28 @@ export const metadata: Metadata = {
 };
 
 export default function ReformasBanosCocinasPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Reformas de Baños y Cocinas",
+    serviceType: "Reformas de Baños y Cocinas",
+    description:
+      "Reformamos y modernizamos tu baño o cocina en Pozoblanco y Los Pedroches. Alicatados, cambios de bañera por ducha y fontanería.",
+    provider: {
+      "@type": "HomeAndConstructionBusiness",
+      name: "Raúl Sánchez Construcciones",
+      url: "https://raul.javierruiz.org",
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Los Pedroches, Córdoba",
+    },
+    url: "https://raul.javierruiz.org/servicios/reformas-banos-cocinas",
+  };
+
   return (
     <>
+      <JsonLd data={serviceSchema} />
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-20 md:py-28">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center">

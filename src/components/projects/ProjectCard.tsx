@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 import type { Project } from "@/types";
@@ -13,19 +14,18 @@ const categoryLabels: Record<string, string> = {
 
 interface ProjectCardProps {
   project: Project;
-  onClick: () => void;
 }
 
-export function ProjectCard({ project, onClick }: ProjectCardProps) {
-  const formattedDate = new Date(project.date).toLocaleDateString("es-ES", {
+export function ProjectCard({ project }: ProjectCardProps) {
+  const formattedDate = new Date(project.date + "-01").toLocaleDateString("es-ES", {
     year: "numeric",
     month: "long",
   });
 
   return (
-    <div
-      onClick={onClick}
-      className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer"
+    <Link
+      href={`/proyectos/${project.id}`}
+      className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-2xl transition-all duration-300 block"
     >
       {/* Contenedor de la imagen */}
       <div className="relative h-64 bg-neutral-200 overflow-hidden">
@@ -83,6 +83,6 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
