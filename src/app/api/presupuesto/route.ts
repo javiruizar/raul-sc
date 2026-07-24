@@ -3,9 +3,7 @@ import { budgetFormSchema } from "@/lib/validations";
 import prisma from "@/lib/prisma";
 import { appendToSheet } from "@/lib/google-sheets";
 import { z } from "zod";
-import { writeFile, mkdir, readdir, stat } from "fs/promises"; // Añadidos readdir y stat
-import path from "path";
-
+import { uploadImageToCloudinary } from "@/lib/cloudinary";
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -24,50 +22,9 @@ export async function POST(request: Request) {
 
     const validatedData = budgetFormSchema.parse(rawData);
 
-// 2. Procesar archivos
-    const files = formData.getAll("files") as File[];
-    const uploadedFilePaths: string[] = [];
-    const MAX_FILE_SIZE = 60 * 1024 * 1024;
-    const MAX_SERVER_STORAGE = 100 * 1024 * 1024;
-    let uploadWarning: string | null = null; // Variable para la advertencia
-
-    if (files.length > 0 && files[0].name !== "undefined") {
-      const uploadDir = path.join(process.cwd(), "public/uploads");
-      const currentStorageSize = await getDirectorySize(uploadDir);
-      const incomingSize = files.reduce((acc, file) => acc + file.size, 0);
-
-      if (currentStorageSize + incomingSize > MAX_SERVER_STORAGE) {
-        // Asignamos la advertencia y saltamos el guardado físico de archivos
-        uploadWarning = "No hemos podido guardar los archivos adjuntos. Por favor, envíelos por email indicando el código de referencia facilitado.";
-      } else {
-        try { await mkdir(uploadDir, { recursive: true }); } catch (e) {
-          console.error("Error al crear el directorio de uploads:", e);
-        }
-
-        for (const file of files) {
-          if (file.size === 0) continue;
-          
-          if (file.size > MAX_FILE_SIZE) {
-            return NextResponse.json(
-              { error: `El archivo ${file.name} supera el límite de 60MB` },
-              { status: 400 }
-            );
-          }
-
-          const bytes = await file.arrayBuffer();
-          const buffer = Buffer.from(bytes);
-          const fileName = `${Date.now()}-${file.name.replaceAll(" ", "_")}`;
-          const filePath = path.join(uploadDir, fileName);
-          
-          await writeFile(filePath, buffer);
-          uploadedFilePaths.push(`/uploads/${fileName}`);
-        }
-      }
-    }
-
-    // 3. Guardar en PostgreSQL
+    // 2. Crear registro inicial en PostgreSQL para obtener el ID
     const newRequest = await prisma.budgetRequest.create({
-     data: {
+      data: {
         serviceType: validatedData.serviceType,
         description: validatedData.description,
         name: validatedData.name,
@@ -75,10 +32,59 @@ export async function POST(request: Request) {
         phone: validatedData.phone,
         address: validatedData.address || null,
         preferredDate: validatedData.preferredDate || null,
-        fileUrls: uploadedFilePaths,
+        fileUrls: [], // Se actualizará luego
         status: "PENDIENTE",
       },
     });
+
+    // 3. Procesar archivos y subirlos a Cloudinary en subcarpeta
+    const files = formData.getAll("files") as File[];
+    const uploadedFilePaths: string[] = [];
+    const MAX_FILE_SIZE = 60 * 1024 * 1024; // Límite individual de 60MB
+    const MAX_REQUEST_STORAGE = 300 * 1024 * 1024; // Límite de 300MB por petición
+    let uploadWarning: string | null = null;
+
+    if (files.length > 0 && files[0].name !== "undefined") {
+      if (!process.env.CLOUDINARY_CLOUD_NAME && !process.env.CLOUDINARY_URL) {
+        console.error("Cloudinary no está configurado.");
+        uploadWarning = "No hemos podido guardar los archivos adjuntos debido a un error de configuración. Por favor, envíelos por email.";
+      } else {
+        const incomingSize = files.reduce((acc, file) => acc + file.size, 0);
+
+        if (incomingSize > MAX_REQUEST_STORAGE) {
+          uploadWarning = "El tamaño total de los archivos supera los 300MB permitidos. Por favor, envíelos por email o use archivos más pequeños.";
+        } else {
+          for (const file of files) {
+            if (file.size === 0) continue;
+            
+            if (file.size > MAX_FILE_SIZE) {
+              return NextResponse.json(
+                { error: `El archivo ${file.name} supera el límite individual de 60MB` },
+                { status: 400 }
+              );
+            }
+
+            try {
+              // Subir a carpeta especifica con el ID del presupuesto
+              const folderName = `presupuestos/${newRequest.id}`;
+              const cloudinaryUrl = await uploadImageToCloudinary(file, folderName);
+              uploadedFilePaths.push(cloudinaryUrl);
+            } catch (err) {
+              console.error(`Error subiendo ${file.name} a Cloudinary:`, err);
+              uploadWarning = "Hubo un problema guardando uno o más archivos. Puede que algunos no se hayan adjuntado correctamente.";
+            }
+          }
+        }
+      }
+    }
+
+    // Actualizar registro con las URLs si se subieron archivos
+    if (uploadedFilePaths.length > 0) {
+      await prisma.budgetRequest.update({
+        where: { id: newRequest.id },
+        data: { fileUrls: uploadedFilePaths }
+      });
+    }
 
     // 4. Guardar en Google Sheets
     const sheetData = [
@@ -112,24 +118,5 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Datos de entrada inválidos", details: error.issues }, { status: 400 });
     }
     return NextResponse.json({ error: "Error interno del servidor al procesar la solicitud" }, { status: 500 });
-  }
-}
-
-async function getDirectorySize(dirPath: string): Promise<number> {
-  try {
-    let totalSize = 0;
-    const files = await readdir(dirPath);
-    for (const file of files) {
-      const filePath = path.join(dirPath, file);
-      const fileStat = await stat(filePath);
-      if (fileStat.isFile()) {
-        totalSize += fileStat.size;
-      }
-    }
-    return totalSize;
-  } catch (error: unknown) {
-    const fsError = error as NodeJS.ErrnoException;
-    if (fsError.code === 'ENOENT') return 0;
-    throw error;
   }
 }
