@@ -9,25 +9,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${BASE_URL}/servicios`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/presupuesto`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/contacto`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/sobre-nosotros`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.7,
     },
@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Rutas dinámicas de servicios — generadas desde services.ts (DRY)
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${BASE_URL}/servicios/${service.id}`,
-    lastModified: new Date("2025-01-01"),
+    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
