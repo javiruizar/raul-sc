@@ -22,7 +22,11 @@ export async function POST(request: Request) {
 
     const validatedData = budgetFormSchema.parse(rawData);
 
-    // 2. Crear registro inicial en PostgreSQL para obtener el ID
+    // 2. Generar un ID único para la solicitud
+    const requestId = crypto.randomUUID();
+
+    /* 
+    // Mantenemos el código de Prisma comentado por si se retoma el servicio en el futuro
     const newRequest = await prisma.budgetRequest.create({
       data: {
         serviceType: validatedData.serviceType,
@@ -36,6 +40,7 @@ export async function POST(request: Request) {
         status: "PENDIENTE",
       },
     });
+    */
 
     // 3. Procesar archivos y subirlos a Cloudinary en subcarpeta
     const files = formData.getAll("files") as File[];
@@ -66,7 +71,7 @@ export async function POST(request: Request) {
 
             try {
               // Subir a carpeta especifica con el ID del presupuesto
-              const folderName = `presupuestos/${newRequest.id}`;
+              const folderName = `presupuestos/${requestId}`;
               const cloudinaryUrl = await uploadImageToCloudinary(file, folderName);
               uploadedFilePaths.push(cloudinaryUrl);
             } catch (err) {
@@ -78,17 +83,19 @@ export async function POST(request: Request) {
       }
     }
 
+    /*
     // Actualizar registro con las URLs si se subieron archivos
     if (uploadedFilePaths.length > 0) {
       await prisma.budgetRequest.update({
-        where: { id: newRequest.id },
+        where: { id: requestId }, // Antes era newRequest.id
         data: { fileUrls: uploadedFilePaths }
       });
     }
+    */
 
     // 4. Guardar en Google Sheets
     const sheetData = [
-     newRequest.id,
+     requestId,
       validatedData.preferredDate || "N/A",
       validatedData.serviceType,
       validatedData.name,
@@ -98,7 +105,7 @@ export async function POST(request: Request) {
       validatedData.description,
       uploadedFilePaths.join(", "),
       validatedData.preferredDate || "N/A",
-      newRequest.createdAt.toISOString(),
+      new Date().toISOString(), // Fecha actual
     ];
 
     await appendToSheet(sheetData);
@@ -106,7 +113,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { 
         message: "Presupuesto recibido y procesado correctamente", 
-        id: newRequest.id,
+        id: requestId,
         warning: uploadWarning // Se envía al frontend
       },
       { status: 200 }
