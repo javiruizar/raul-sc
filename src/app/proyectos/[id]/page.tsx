@@ -128,7 +128,7 @@ export default async function ProyectoDetailPage({
       {/* Hero del proyecto */}
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-14 md:py-20">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
+          <div>
             {/* Breadcrumb */}
             <nav aria-label="Migas de pan" className="mb-6">
               <ol className="flex items-center gap-2 text-sm text-white/70">
@@ -181,7 +181,7 @@ export default async function ProyectoDetailPage({
 
       {/* Galería de imágenes */}
       <section className="section-padding bg-white">
-        <div className="container-custom max-w-4xl mx-auto">
+        <div className="container-custom">
           <ProjectCarousel images={project.images} title={project.title} />
 
           {/* Detalles del proyecto */}
