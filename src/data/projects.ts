@@ -12,7 +12,7 @@ export const projects: Project[] = [
       "/images/projects/IMG_5113.webp",
       "/images/projects/IMG_9591.webp",
     ],
-    date: "2024-03",
+    date: "2026-07",
     location: "Pozoblanco",
   },
   {
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     images: [
       "/images/projects/IMG_5113.webp",
     ],
-    date: "2024-02",
+    date: "2026-07",
   },
   {
     id: "muro-piedra-jardin",
@@ -34,9 +34,9 @@ export const projects: Project[] = [
     category: "albanileria",
     images: [
       "/images/projects/IMG_9591.webp",
-     
+
     ],
-    date: "2024-01",
+    date: "2026-07",
   },
 
 ];
