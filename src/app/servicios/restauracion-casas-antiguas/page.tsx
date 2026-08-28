@@ -23,7 +23,8 @@ export default function RestauracionCasasPage() {
     description:
       "Expertos en restauración y rehabilitación de casas antiguas y rústicas en Los Pedroches. Conservamos bóvedas, muros de piedra y el encanto original.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },
