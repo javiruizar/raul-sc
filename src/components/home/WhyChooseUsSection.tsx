@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 
 export function WhyChooseUsSection() {
   return (
@@ -15,7 +15,10 @@ export function WhyChooseUsSection() {
         <div className="grid md:grid-cols-3 gap-8">
           <Card>
             <CardHeader>
-              <CardTitle>Experiencia Comprobada</CardTitle>
+              {/* h3 explícito: CardTitle renderiza un div sin semántica heading */}
+              <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                Experiencia Comprobada
+              </h3>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">
@@ -26,7 +29,9 @@ export function WhyChooseUsSection() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Calidad garantizada</CardTitle>
+              <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                Calidad garantizada
+              </h3>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">
@@ -37,7 +42,9 @@ export function WhyChooseUsSection() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Compromiso Total</CardTitle>
+              <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                Compromiso Total
+              </h3>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">

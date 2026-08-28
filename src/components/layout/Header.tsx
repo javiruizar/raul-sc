@@ -29,13 +29,18 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3" aria-label="Ir a la página de inicio de Construcciones y Reformas Raúl Sánchez">
-            <div className="relative h-12 w-12 overflow-hidden rounded-lg">
+            <div className="relative h-12 w-12 overflow-hidden rounded-lg flex-shrink-0">
+              {/*
+               * LCP fix: el logo NO es el elemento LCP, así que NO debe llevar priority.
+               * Usar logo.webp con dimensiones fijas evita el preload de favicon.ico
+               * (que competía con las imágenes hero en el critical path).
+               */}
               <Image
-                src="/icons/favicon.ico"
-                alt="Logo Raúl Sánchez"
-                fill
-                className="object-contain"
-                priority
+                src="/logo.webp"
+                alt="Logo Raúl Sánchez Construcciones"
+                width={48}
+                height={48}
+                className="object-contain h-full w-full"
               />
             </div>
             <div className="hidden sm:block">
