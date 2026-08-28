@@ -23,7 +23,8 @@ export default function AlbanileriaGeneralPage() {
     description:
       "Trabajos de albañilería general en Pozoblanco y comarca. Construcción de muros, solados, tabiquería y pequeñas reparaciones por profesionales.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },

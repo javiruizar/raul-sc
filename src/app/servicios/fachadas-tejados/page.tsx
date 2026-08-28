@@ -23,7 +23,8 @@ export default function FachadasTejadosPage() {
     description:
       "Reparación de goteras, rehabilitación de tejados e impermeabilización de fachadas en Pozoblanco y Los Pedroches. Especialistas en altura.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },

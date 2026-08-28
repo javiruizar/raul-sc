@@ -23,7 +23,8 @@ export default function TrabajosPiedraPage() {
     description:
       "Especialistas en la construcción y restauración de muros de piedra, revestimientos rústicos y mampostería tradicional en la comarca de Los Pedroches.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },

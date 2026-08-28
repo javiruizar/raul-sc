@@ -76,6 +76,7 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
+    "@id": "https://raul.javierruiz.org/#localbusiness",
     "name": "Raúl Sánchez Construcciones",
     "alternateName": "Raúl Albañil Pozoblanco",
     "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",

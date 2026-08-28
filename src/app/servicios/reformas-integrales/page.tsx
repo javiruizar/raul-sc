@@ -23,7 +23,8 @@ export default function ReformasIntegralesPage() {
     description:
       "Especialistas en reformas integrales de viviendas y locales en Pozoblanco, Villanueva de Córdoba y toda la comarca de Los Pedroches. Presupuesto sin compromiso.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },

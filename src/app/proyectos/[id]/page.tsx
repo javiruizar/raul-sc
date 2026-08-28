@@ -113,7 +113,8 @@ export default async function ProyectoDetailPage({
       },
     }),
     creator: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: BASE_URL,
     },

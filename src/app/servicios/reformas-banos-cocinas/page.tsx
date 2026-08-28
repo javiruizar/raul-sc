@@ -23,7 +23,8 @@ export default function ReformasBanosCocinasPage() {
     description:
       "Reformamos y modernizamos tu baño o cocina en Pozoblanco y Los Pedroches. Alicatados, cambios de bañera por ducha y fontanería.",
     provider: {
-      "@type": "HomeAndConstructionBusiness",
+      "@type": "Organization",
+      "@id": "https://raul.javierruiz.org/#localbusiness",
       name: "Raúl Sánchez Construcciones",
       url: "https://raul.javierruiz.org",
     },
