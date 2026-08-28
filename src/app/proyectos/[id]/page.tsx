@@ -121,9 +121,36 @@ export default async function ProyectoDetailPage({
     url: `${BASE_URL}/proyectos/${project.id}`,
   };
 
+  // BreadcrumbList — permite a Google mostrar el rich snippet de migas de pan en SERPs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Proyectos",
+        item: `${BASE_URL}/proyectos`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `${BASE_URL}/proyectos/${project.id}`,
+      },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={projectSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       {/* Hero del proyecto */}
       <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary py-14 md:py-20">

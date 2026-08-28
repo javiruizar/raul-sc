@@ -6,13 +6,13 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { ArrowRight, ChevronRight } from "lucide-react"; // Importado ChevronRight
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { ProjectModal } from "@/components/projects/ProjectModal";
 import type { Project } from "@/types";
 
 export function ProjectsSection() {
-  // Estado para controlar qué proyecto está seleccionado
+  // Estado para controlar qué proyecto está seleccionado (modal UX)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   // Solo mostramos los primeros 3 proyectos en la home
@@ -43,7 +43,16 @@ export function ProjectsSection() {
               key={project.id}
               className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-neutral-100 flex flex-col"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 shrink-0">
+              {/*
+               * SEO: el área de imagen abre el modal (UX rápida).
+               * El botón inferior es un <Link> crawleable para que Googlebot
+               * descubra y pueda indexar /proyectos/[id].
+               */}
+              <button
+                className="relative aspect-[4/3] overflow-hidden bg-neutral-100 shrink-0 text-left w-full"
+                onClick={() => setSelectedProject(project)}
+                aria-label={`Ver modal de ${project.title}`}
+              >
                 <Image
                   src={project.images[0]}
                   alt={`${project.title} - Reforma en ${project.location || 'Los Pedroches'}`}
@@ -56,7 +65,7 @@ export function ProjectsSection() {
                     <p className="text-white font-semibold text-lg">Ver detalles →</p>
                   </div>
                 </div>
-              </div>
+              </button>
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3 gap-2">
                   <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none capitalize text-xs px-2.5 py-0.5 rounded-full font-medium">
@@ -72,17 +81,16 @@ export function ProjectsSection() {
                 <p className="text-neutral-700 text-sm line-clamp-2 leading-relaxed flex-1">
                   {project.description}
                 </p>
-                
-                {/* Botón inferior de 'Ver Más' (mismos estilos que en la galería) */}
+
+                {/* Enlace crawleable — Googlebot sigue este href para indexar /proyectos/[id] */}
                 <div className="mt-5 pt-4 border-t border-neutral-100">
-                  <Button 
-                    variant="ghost" 
-                    className="w-full text-primary hover:text-primary-dark hover:bg-primary/5 text-sm font-semibold justify-between px-2 h-9"
-                    onClick={() => setSelectedProject(project)}
+                  <Link
+                    href={`/proyectos/${project.id}`}
+                    className="inline-flex items-center w-full text-primary hover:text-primary-dark hover:bg-primary/5 text-sm font-semibold justify-between px-2 h-9 rounded-md transition-colors"
                   >
                     Ver Detalles
                     <ChevronRight aria-hidden="true" className="ml-2 h-4 w-4" />
-                  </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -90,7 +98,7 @@ export function ProjectsSection() {
         </div>
       </div>
 
-      {/* Integración del Modal */}
+      {/* Integración del Modal — UX enhancement, invisible para Googlebot */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

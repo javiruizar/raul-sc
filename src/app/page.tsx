@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Albañil de confianza en Pozoblanco con más de 20 años de experiencia. Reformas integrales, restauración de casas antiguas y construcción en Los Pedroches. Presupuesto gratuito sin compromiso.",
   alternates: {
-    canonical: "https://raul.javierruiz.org",
+    canonical: "https://raul.javierruiz.org/",
   },
 };
 
