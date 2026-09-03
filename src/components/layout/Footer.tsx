@@ -126,8 +126,7 @@ export function Footer() {
             </h3>
             <div className="space-y-2 text-sm text-neutral-100/80 mb-6">
               <p>Lunes - Viernes: 8:00 - 18:00</p>
-              <p>Sábados: 9:00 - 14:00</p>
-              <p>Domingos: Cerrado</p>
+              <p>Sábados y Domingos: Cerrado</p>
             </div>
             <h4 className="font-heading text-sm font-semibold mb-3">
               Síguenos
@@ -145,7 +144,7 @@ export function Footer() {
                     <Icon className="h-5 w-5" />
                   </a>
                 );
-              })}
+              })}  
             </div>
           </div>
         </div>
@@ -155,7 +154,7 @@ export function Footer() {
         {/* Copyright y Legal */}
         <div className="flex flex-col items-center justify-between space-y-4 text-sm text-neutral-100/80 md:flex-row md:space-y-0">
           <p>
-            © {currentYear} Raúl Albañil. Todos los derechos reservados.
+            © {currentYear} Raúl Sanchez Albañileria y reformas. Todos los derechos reservados.
           </p>
           <div className="flex space-x-4">
             {navigation.legal.map((item) => (
