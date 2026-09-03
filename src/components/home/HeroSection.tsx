@@ -55,12 +55,12 @@ export function HeroSection() {
             id="hero-heading"
             className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6"
           >
-            Reformas y Construcción en Pozoblanco y Los Pedroches
+            Albañileria y Reformas en Pozoblanco y Los Pedroches
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
             Más de 20 años reformando viviendas en la comarca de Los Pedroches.
             Especialistas en restauración de casas antiguas, reformas integrales
-            y construcción tradicional en Pozoblanco, Villanueva de Córdoba,
+            y albañileria en Pozoblanco, Villanueva de Córdoba,
             Hinojosa del Duque y toda la comarca.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
