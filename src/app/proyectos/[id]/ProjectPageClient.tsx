@@ -21,7 +21,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
 
   return (
-    <div className="relative h-72 sm:h-96 md:h-[480px] w-full bg-neutral-100 rounded-xl overflow-hidden shadow-inner">
+    <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] md:aspect-video lg:h-[600px] bg-neutral-100 rounded-xl overflow-hidden shadow-inner">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -35,7 +35,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
             src={images[currentIndex]}
             alt={`${title} — imagen ${currentIndex + 1} de ${images.length}`}
             fill
-            className="object-cover"
+            className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 85vw, 900px"
             priority={currentIndex === 0}
           />
@@ -68,11 +68,10 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
                 key={i}
                 onClick={() => setCurrentIndex(i)}
                 aria-label={`Ir a imagen ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === currentIndex
-                    ? "w-5 sm:w-8 bg-white"
-                    : "w-1.5 sm:w-2 bg-white/50 hover:bg-white/80"
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${i === currentIndex
+                  ? "w-5 sm:w-8 bg-white"
+                  : "w-1.5 sm:w-2 bg-white/50 hover:bg-white/80"
+                  }`}
               />
             ))}
           </div>
