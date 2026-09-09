@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Raúl Sánchez Construcciones",
+  name: "Raul Sanchez Albañileria y reformas",
   contact: {
     email: "javiruizar@gmail.com",
     // Teléfono para visualización (con espacios)
@@ -18,5 +18,6 @@ export const siteConfig = {
   },
   socials: {
     whatsapp: "https://wa.me/34617847211",
+    googleBusiness: "https://share.google/7TwkkekNdQ3aqzUpL",
   },
 };

@@ -18,7 +18,7 @@ export function MapSection() {
           {/* Mapa Real Embebido de Google Maps */}
           <div className="relative aspect-[4/3] bg-neutral-200 rounded-xl overflow-hidden shadow-md border border-neutral-200">
             <iframe
-              src="https://maps.google.com/maps?q=Pozoblanco,Cordoba,Spain&t=&z=10&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Raul+Sanchez+Alba%C3%B1ileria+y+reformas,Pozoblanco&t=&z=14&ie=UTF8&iwloc=&output=embed"
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={false}
               loading="lazy"

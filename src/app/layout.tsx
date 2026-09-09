@@ -21,8 +21,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://raul.javierruiz.org"),
   title: {
-    default: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches | Raúl Sánchez",
-    template: "%s | Raúl Sánchez Construcciones",
+    default: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches | Raul Sanchez Albañileria y reformas",
+    template: "%s | Raul Sanchez Albañileria y reformas",
   },
   verification: {
     google: "rb8aGSb9nqhSL_M_GfiV29-R-CirCWfU0Am9kyhiV_4",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches",
     description: "Albañil profesional en Pozoblanco y Los Pedroches. Reformas integrales, restauración de casas antiguas y construcción. Presupuesto gratuito y sin compromiso.",
     url: "https://raul.javierruiz.org",
-    siteName: "Raúl Sánchez Construcciones",
+    siteName: "Raul Sanchez Albañileria y reformas",
     locale: "es_ES",
     type: "website",
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   // 3. TWITTER CARD
   twitter: {
     card: "summary_large_image",
-    title: "Albañil en Pozoblanco · Reformas en Los Pedroches | Raúl Sánchez",
+    title: "Albañil en Pozoblanco · Reformas en Los Pedroches | Raul Sanchez Albañileria y reformas",
     description: "Reformas integrales, restauración de casas antiguas y albañilería en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia.",
     images: ["/og-image.webp"],
   },
@@ -69,7 +69,7 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Raúl Sánchez Construcciones",
+    "name": "Raul Sanchez Albañileria y reformas",
     "url": "https://raul.javierruiz.org"
   };
 
@@ -77,7 +77,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": "https://raul.javierruiz.org/#localbusiness",
-    "name": "Raúl Sánchez Construcciones",
+    "name": "Raul Sanchez Albañileria y reformas",
     "alternateName": "Raúl Albañil Pozoblanco",
     "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",
     "image": "https://raul.javierruiz.org/og-image.webp",
@@ -99,7 +99,7 @@ export default function RootLayout({
       "latitude": "38.1855",
       "longitude": "-4.8495"
     },
-    "hasMap": "https://maps.google.com/maps?q=Pozoblanco,Cordoba,Spain",
+    "hasMap": "https://share.google/7TwkkekNdQ3aqzUpL",
     "areaServed": [
       { "@type": "City", "name": "Pozoblanco" },
       { "@type": "City", "name": "Villanueva de Córdoba" },
