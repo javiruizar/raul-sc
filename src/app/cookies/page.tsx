@@ -3,6 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Política de Cookies",
   description: "Información sobre el uso de cookies en nuestra página web.",
+  alternates: {
+    canonical: "https://raul.javierruiz.org/cookies",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function CookiesPage() {

@@ -3,6 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Aviso Legal",
   description: "Aviso legal e información sobre las condiciones de uso de la web.",
+  alternates: {
+    canonical: "https://raul.javierruiz.org/aviso-legal",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function AvisoLegalPage() {
