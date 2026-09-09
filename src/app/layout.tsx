@@ -156,50 +156,11 @@ export default function RootLayout({
     "priceRange": "$$",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash, Bank Transfer",
-    // Reseñas individuales que respaldan el aggregateRating.
-    // Google requiere reviews verificables para mostrar rich snippets de estrellas.
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "María González" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Raúl restauró nuestra casa rural del siglo XIX con un cuidado excepcional. Respetó cada detalle original mientras modernizaba las instalaciones. Un trabajo impecable.",
-        "datePublished": "2024-03-01"
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Carlos Martínez" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Profesionalidad y calidad en cada detalle. La reforma de nuestro baño superó todas nuestras expectativas. Muy recomendable.",
-        "datePublished": "2024-02-01"
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Ana Rodríguez" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "He trabajado con Raúl en varios proyectos de restauración. Su conocimiento de técnicas tradicionales y su atención al detalle son excepcionales.",
-        "datePublished": "2024-01-01"
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "José Luis Fernández" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Reformó nuestra cocina y el resultado es espectacular. Cumplió con los plazos y el presupuesto acordado. Un profesional de confianza.",
-        "datePublished": "2023-12-01"
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Laura Sánchez" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "La rehabilitación de la fachada de nuestro edificio fue un éxito total. Trabajo limpio, rápido y de gran calidad.",
-        "datePublished": "2023-11-01"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "5"
-    }
+    // Reviews y aggregateRating eliminados.
+    // Google requiere reviews verificables (p.ej. Google Business Profile).
+    // Añadir reviews aquí sin fuente verificable puede provocar una acción manual
+    // o que Google ignore completamente los rich snippets de estrellas.
+    // TODO: Volver a añadir cuando haya reseñas reales en Google Business Profile.
   };
 
   return (

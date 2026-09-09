@@ -7,7 +7,7 @@ const BASE_URL = "https://raul.javierruiz.org";
 // Fecha de referencia del último despliegue con cambios de contenido.
 // Actualizar manualmente cuando se modifique contenido estático significativo.
 // NO usar new Date() — causaría que Google vea cambios en cada build.
-const LAST_CONTENT_UPDATE = new Date("2026-07-24");
+const LAST_CONTENT_UPDATE = new Date("2026-09-09");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Rutas estáticas principales
@@ -54,25 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.7,
     },
-    // Páginas legales — incluidas para que el crawler las encuentre fácilmente
-    {
-      url: `${BASE_URL}/aviso-legal`,
-      lastModified: new Date("2026-07-01"),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${BASE_URL}/privacidad`,
-      lastModified: new Date("2026-07-01"),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${BASE_URL}/cookies`,
-      lastModified: new Date("2026-07-01"),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    // Páginas legales eliminadas del sitemap.
+    // Tienen robots noindex → incluirlas aquí envía señales contradictorias a Google.
+    // Google las descubrirá igualmente vía enlaces internos (footer).
   ];
 
   // Rutas dinámicas de servicios — generadas desde services.ts (DRY)

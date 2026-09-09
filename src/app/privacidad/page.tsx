@@ -3,6 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description: "Política de privacidad y protección de datos.",
+  alternates: {
+    canonical: "https://raul.javierruiz.org/privacidad",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PrivacidadPage() {
@@ -22,7 +29,7 @@ export default function PrivacidadPage() {
 
           <h2 className="text-xl font-semibold text-secondary mt-8 mb-2">3. Derechos de los usuarios</h2>
           <p>En tanto en cuanto los datos del usuario son objeto de tratamiento por parte de Raúl Sánchez Construcciones, los usuarios podrán ejercer los derechos de acceso, rectificación, cancelación y oposición de acuerdo con lo previsto en la normativa legal vigente en materia de protección de datos personales.</p>
-          <p>Para ejercer estos derechos, el usuario deberá dirigirse mediante comunicación escrita a la siguiente dirección de correo electrónico: javiruizar@gmailcom.</p>
+          <p>Para ejercer estos derechos, el usuario deberá dirigirse mediante comunicación escrita a la siguiente dirección de correo electrónico: javiruizar@gmail.com.</p>
         </div>
       </div>
     </section>
