@@ -28,7 +28,7 @@ export function Header() {
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3" aria-label="Ir a la página de inicio de Construcciones y Reformas Raúl Sánchez">
+          <Link href="/" className="flex items-center space-x-3" aria-label="Ir a la página de inicio de Raul Sanchez Albañileria y reformas">
             <div className="relative h-12 w-12 overflow-hidden rounded-lg flex-shrink-0">
               {/*
                * LCP fix: el logo NO es el elemento LCP, así que NO debe llevar priority.
@@ -36,8 +36,8 @@ export function Header() {
                * (que competía con las imágenes hero en el critical path).
                */}
               <Image
-                src="/logo.webp"
-                alt="Logo Raúl Sánchez Construcciones"
+                src="/icons/favicon.ico"
+                alt="Logo Raul Sanchez Albañileria y reformas"
                 width={48}
                 height={48}
                 className="object-contain h-full w-full"
@@ -45,7 +45,7 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <span className="font-heading text-xl font-bold text-secondary">
-                Raúl Sánchez
+                Raul Sanchez Albañileria y reformas
               </span>
             </div>
           </Link>

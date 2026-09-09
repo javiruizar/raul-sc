@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image"; // Importado para el logo
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Star } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { siteConfig } from "@/config/site";
 
 const navigation = {
   servicios: [
@@ -24,9 +25,7 @@ const navigation = {
 };
 
 const socialLinks = [
-  { name: "Facebook", href: "https://facebook.com/[TU_PERFIL]", icon: Facebook },
-  { name: "Instagram", href: "https://instagram.com/[TU_PERFIL]", icon: Instagram },
-  { name: "LinkedIn", href: "https://linkedin.com/in/[TU_PERFIL]", icon: Linkedin },
+  { name: "Google Reseñas", href: siteConfig.socials.googleBusiness, icon: Star },
 ];
 
 export function Footer() {
@@ -50,7 +49,7 @@ export function Footer() {
                 />
               </div>
               <span className="font-heading text-xl font-bold">
-                Raúl Sanchez Calero
+                Raul Sanchez Albañileria y reformas
               </span>
             </div>
             <p className="text-sm text-neutral-100/80">
@@ -154,7 +153,7 @@ export function Footer() {
         {/* Copyright y Legal */}
         <div className="flex flex-col items-center justify-between space-y-4 text-sm text-neutral-100/80 md:flex-row md:space-y-0">
           <p>
-            © {currentYear} Raúl Sanchez Albañileria y reformas. Todos los derechos reservados.
+            © {currentYear} Raul Sanchez Albañileria y reformas. Todos los derechos reservados.
           </p>
           <div className="flex space-x-4">
             {navigation.legal.map((item) => (
