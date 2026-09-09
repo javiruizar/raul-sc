@@ -36,7 +36,7 @@ export function Header() {
                * (que competía con las imágenes hero en el critical path).
                */}
               <Image
-                src="/logo.webp"
+                src="/icons/favicon.ico"
                 alt="Logo Raul Sanchez Albañileria y reformas"
                 width={48}
                 height={48}
