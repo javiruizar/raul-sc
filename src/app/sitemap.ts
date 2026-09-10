@@ -22,14 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/servicios`,
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       // /presupuesto: contenido mayormente formulario → priority reducida a 0.7
       url: `${BASE_URL}/presupuesto`,
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.9,
     },
     {
       url: `${BASE_URL}/contacto`,
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           .reduce((a, b) => Math.max(a, b), 0)
       ),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/sobre-nosotros`,
@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/proyectos/${project.id}`,
     lastModified: new Date(project.date + "-01"),
     changeFrequency: "yearly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
