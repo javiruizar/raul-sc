@@ -45,7 +45,8 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <span className="font-heading text-xl font-bold text-secondary">
-                Raul Sanchez Albañileria y reformas
+                Raul Sanchez Albañileria 
+                <span className="sr-only"> y reformas</span>
               </span>
             </div>
           </Link>
