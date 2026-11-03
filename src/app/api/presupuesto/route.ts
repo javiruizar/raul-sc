@@ -96,7 +96,6 @@ export async function POST(request: Request) {
     // 4. Guardar en Google Sheets
     const sheetData = [
      requestId,
-      validatedData.preferredDate || "N/A",
       validatedData.serviceType,
       validatedData.name,
       validatedData.email,
