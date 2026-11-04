@@ -20,8 +20,11 @@ export async function appendToSheet(data: string[]) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Presupuestos!A:K', // Apunta a la pestaña "Presupuestos"
-      valueInputOption: 'USER_ENTERED',
+      range: 'Presupuestos!A:J', // Apunta a la pestaña "Presupuestos"
+      // RAW: los valores se guardan como texto literal, sin interpretarlos.
+      // Evita la inyección de fórmulas (p. ej. una descripción que empiece por "=")
+      // y que Sheets convierta el teléfono "+34..." en número.
+      valueInputOption: 'RAW',
       requestBody: {
         values: [data],
       },
