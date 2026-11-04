@@ -94,8 +94,16 @@ export async function POST(request: Request) {
     */
 
     // 4. Guardar en Google Sheets
+    // Fecha en hora de Madrid con formato "AAAA-MM-DD HH:mm:ss": con RAW se guarda como texto,
+    // y este formato es legible y se ordena correctamente
+    const requestDate = new Intl.DateTimeFormat("sv-SE", {
+      timeZone: "Europe/Madrid",
+      dateStyle: "short",
+      timeStyle: "medium",
+    }).format(new Date());
+
     const sheetData = [
-     requestId,
+      requestId,
       validatedData.serviceType,
       validatedData.name,
       validatedData.email,
@@ -104,7 +112,7 @@ export async function POST(request: Request) {
       validatedData.description,
       uploadedFilePaths.join(", "),
       validatedData.preferredDate || "N/A",
-      new Date().toISOString(), // Fecha actual
+      requestDate, // Fecha de la solicitud
     ];
 
     await appendToSheet(sheetData);
