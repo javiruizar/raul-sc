@@ -156,7 +156,7 @@ export function QuickContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="617 847 211"
+                    placeholder="600 000 000"
                     required
                   />
                 </div>

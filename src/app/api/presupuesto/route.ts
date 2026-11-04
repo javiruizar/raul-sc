@@ -4,6 +4,7 @@ import { budgetFormSchema } from "@/lib/validations";
 import { appendToSheet } from "@/lib/google-sheets";
 import { z } from "zod";
 import { uploadImageToCloudinary } from "@/lib/cloudinary";
+import { sendBudgetConfirmation, sendBudgetNotification } from "@/lib/email";
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
@@ -116,6 +117,34 @@ export async function POST(request: Request) {
     ];
 
     await appendToSheet(sheetData);
+
+    // 5. Emails: aviso al negocio y confirmación al cliente, en paralelo.
+    // Si alguno falla, la solicitud ya está guardada en Sheets, así que no se
+    // devuelve error al cliente: solo se registra en el log
+    const emailData = {
+      requestId,
+      serviceType: validatedData.serviceType,
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      address: validatedData.address,
+      description: validatedData.description,
+      preferredDate: validatedData.preferredDate,
+      fileUrls: uploadedFilePaths,
+      requestDate,
+    };
+
+    const [notificationResult, confirmationResult] = await Promise.allSettled([
+      sendBudgetNotification(emailData),
+      sendBudgetConfirmation(emailData),
+    ]);
+
+    if (notificationResult.status === "rejected") {
+      console.error("Error enviando el email de aviso:", notificationResult.reason);
+    }
+    if (confirmationResult.status === "rejected") {
+      console.error("Error enviando el email de confirmación al cliente:", confirmationResult.reason);
+    }
 
     return NextResponse.json(
       { 

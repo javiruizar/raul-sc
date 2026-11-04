@@ -2,16 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Mail, Phone, MapPin, Calendar, FileText } from "lucide-react";
 import type { BudgetFormData } from "@/lib/validations";
-
-const serviceNames: Record<string, string> = {
-  "reformas-integrales": "Reformas Integrales",
-  "restauracion": "Restauración de Casas Antiguas",
-  "albanileria": "Albañilería General",
-  "banos-cocinas": "Baños y Cocinas",
-  "fachadas-tejados": "Fachadas y Tejados",
-  "trabajos-piedra": "Trabajos en Piedra",
-  "otro": "Otro",
-};
+import { budgetServiceNames as serviceNames } from "@/data/budget-services";
 
 interface SummaryStepProps {
   formData: Partial<BudgetFormData>;
