@@ -6,17 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ProjectCarousel } from "./ProjectPageClient";
 import { projects } from "@/data/projects";
+import { categoryLabels } from "@/data/project-categories";
+import { services } from "@/data/services";
+import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 import { MapPin, Calendar, ArrowRight, ArrowLeft } from "lucide-react";
 
-const BASE_URL = "https://raul.javierruiz.org";
-
-const categoryLabels: Record<string, string> = {
-  reformas: "Reformas",
-  albanileria: "Albañilería",
-  restauracion: "Restauración",
-  construccion: "Construcción",
-  otros: "Otros",
-};
+const BASE_URL = siteConfig.url;
 
 // ---------------------------------------------------------------------------
 // generateStaticParams — pre-renderiza todas las rutas en build time
@@ -49,27 +45,21 @@ export async function generateMetadata({
     ? ` en ${project.location}`
     : " en Los Pedroches";
 
-  const title = `${project.title}${locationSuffix} | Raúl Sánchez Construcciones`;
-  const description = `${project.description} Trabajo de ${categoryLabels[project.category] ?? project.category} realizado${locationSuffix} en ${formattedDate}. Raúl Sánchez Construcciones, albañil en Pozoblanco.`;
+  const title = project.seoTitle ?? `${project.title}${locationSuffix}`;
+  const withContext = `${project.description} Trabajo de ${categoryLabels[project.category]} realizado${locationSuffix} en ${formattedDate}.`;
+  const description = withContext.length <= 155 ? withContext : project.description;
 
-  return {
+  return pageMetadata({
     title,
     description,
-    alternates: {
-      canonical: `${BASE_URL}/proyectos/${project.id}`,
+    path: `/proyectos/${project.id}`,
+    image: {
+      url: project.images[0],
+      width: 1200,
+      height: 800,
+      alt: title,
     },
-    openGraph: {
-      title,
-      description,
-      url: `${BASE_URL}/proyectos/${project.id}`,
-      images: project.images.slice(0, 1).map((img) => ({
-        url: img,
-        width: 1200,
-        height: 800,
-        alt: `${project.title} — Raúl Sánchez Construcciones`,
-      })),
-    },
-  };
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -89,6 +79,9 @@ export default async function ProyectoDetailPage({
     "es-ES",
     { year: "numeric", month: "long" }
   );
+
+  const relatedServices = services.filter((service) => project.serviceIds.includes(service.id));
+  const relatedProjects = projects.filter((other) => project.relatedProjectIds.includes(other.id));
 
   // Schema.org CreativeWork para el proyecto individual
   const projectSchema = {
@@ -112,13 +105,8 @@ export default async function ProyectoDetailPage({
         },
       },
     }),
-    creator: {
-      "@type": "Organization",
-      "@id": "https://raul.javierruiz.org/#localbusiness",
-      name: "Raúl Sánchez Construcciones",
-      url: BASE_URL,
-    },
-    genre: categoryLabels[project.category] ?? project.category,
+    creator: { "@id": siteConfig.businessId },
+    genre: categoryLabels[project.category],
     url: `${BASE_URL}/proyectos/${project.id}`,
   };
 
@@ -199,6 +187,7 @@ export default async function ProyectoDetailPage({
 
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4 leading-tight">
               {project.title}
+              {project.location && ` en ${project.location}`}
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl">
               {project.description}
@@ -211,6 +200,59 @@ export default async function ProyectoDetailPage({
       <section className="section-padding bg-white">
         <div className="container-custom">
           <ProjectCarousel images={project.images} title={project.title} />
+
+          {/* La obra: estado inicial, solución, materiales y duración */}
+          <div className="mt-10 grid md:grid-cols-2 gap-8 text-neutral-800/80 leading-relaxed">
+            <div className="space-y-6">
+              {project.story.map((part) => (
+                <div key={part.heading}>
+                  <h2 className="font-heading text-xl font-semibold text-secondary mb-2">
+                    {part.heading}
+                  </h2>
+                  <p>{part.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-6">
+              {project.materials && (
+                <div>
+                  <h2 className="font-heading text-xl font-semibold text-secondary mb-2">
+                    Materiales
+                  </h2>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {project.materials.map((material) => (
+                      <li key={material}>{material}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {project.duration && (
+                <div>
+                  <h2 className="font-heading text-xl font-semibold text-secondary mb-2">
+                    Duración
+                  </h2>
+                  <p>{project.duration}</p>
+                </div>
+              )}
+              <div>
+                <h2 className="font-heading text-xl font-semibold text-secondary mb-2">
+                  Parte de la misma obra
+                </h2>
+                <ul className="space-y-1">
+                  {relatedProjects.map((related) => (
+                    <li key={related.id}>
+                      <Link
+                        href={`/proyectos/${related.id}`}
+                        className="text-primary font-medium hover:underline"
+                      >
+                        {related.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
 
           {/* Detalles del proyecto */}
           <div className="mt-10 p-6 bg-neutral-50 border border-neutral-100 rounded-xl">
@@ -236,6 +278,19 @@ export default async function ProyectoDetailPage({
                   </dd>
                 </div>
               )}
+              <div>
+                <dt className="text-neutral-500 mb-1">Servicios</dt>
+                {relatedServices.map((service) => (
+                  <dd key={service.id} className="font-medium">
+                    <Link
+                      href={`/servicios/${service.id}`}
+                      className="text-primary hover:underline"
+                    >
+                      {service.title}
+                    </Link>
+                  </dd>
+                ))}
+              </div>
               <div>
                 <dt className="text-neutral-500 mb-1">Imágenes</dt>
                 <dd className="font-medium text-secondary">

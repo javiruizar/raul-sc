@@ -9,20 +9,14 @@ import { ServicesFAQ } from "@/components/services/ServicesFAQ";
 import { ArrowRight, Phone } from "lucide-react";
 import { services } from "@/data/services";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Servicios de Albañilería y Reformas en Pozoblanco y Los Pedroches",
+export const metadata: Metadata = pageMetadata({
+  title: "Albañilería y reformas en Pozoblanco",
   description:
-    "Albañilería, reformas integrales, restauración de casas antiguas, reformas de baños y cocinas en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia. Presupuesto gratuito.",
-  alternates: {
-    canonical: "https://raul.javierruiz.org/servicios",
-  },
-  openGraph: {
-    title: "Servicios de Albañilería y Reformas en Pozoblanco | Raúl Sánchez Construcciones",
-    description: "Servicios completos de albañilería, reformas integrales y restauración de casas antiguas en Pozoblanco y Los Pedroches. Presupuesto gratis.",
-    url: "https://raul.javierruiz.org/servicios",
-  },
-};
+    "Albañilería, reformas integrales, baños, cocinas y restauración de casas antiguas en Pozoblanco y Los Pedroches. Más de 20 años de experiencia.",
+  path: "/servicios",
+});
 
 export default function ServiciosPage() {
   const featuredServiceIds = [
@@ -41,13 +35,13 @@ export default function ServiciosPage() {
               Servicios Profesionales
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Albañilería y Reformas en Pozoblanco y Los Pedroches
+              Servicios de albañilería y reformas
             </h1>
             <p className="text-xl text-white/90 mb-8">
               Soluciones completas de construcción, reforma y restauración para
               toda la comarca de Los Pedroches. Atendemos en Pozoblanco,
               Villanueva de Córdoba, Hinojosa del Duque y municipios cercanos.
-              Calidad garantizada y más de 20 años de experiencia.
+              Más de 20 años de experiencia.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" variant="secondary" className="text-lg">
@@ -115,7 +109,7 @@ export default function ServiciosPage() {
                 Experiencia Comprobada
               </h3>
               <p className="text-sm text-neutral-800/70">
-                Más de 20 años en el sector con cientos de proyectos exitosos
+                Más de 20 años en el sector y más de 50 proyectos realizados
               </p>
             </div>
 
@@ -126,10 +120,10 @@ export default function ServiciosPage() {
                 </div>
               </div>
               <h3 className="font-heading text-lg font-bold text-secondary mb-2">
-                Calidad Garantizada
+                Materiales de Calidad
               </h3>
               <p className="text-sm text-neutral-800/70">
-                Materiales de primera calidad y garantía de 2 años en todos los trabajos
+                Materiales de primera calidad en todos los trabajos
               </p>
             </div>
 
@@ -174,7 +168,7 @@ export default function ServiciosPage() {
             ¿Listo para empezar tu proyecto?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Solicita un presupuesto gratuito y sin compromiso. Te respondemos en 24-48h.
+            Solicita un presupuesto gratuito y sin compromiso. Te respondemos en 24 horas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary" className="text-lg">

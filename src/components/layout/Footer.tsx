@@ -3,14 +3,13 @@ import Image from "next/image"; // Importado para el logo
 import { Phone, Mail, MapPin, Star } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
+import { services } from "@/data/services";
 
 const navigation = {
-  servicios: [
-    { name: "Reformas Integrales", href: "/servicios#reformas" },
-    { name: "Restauración", href: "/servicios#restauracion" },
-    { name: "Albañilería", href: "/servicios#albanileria" },
-    { name: "Baños y Cocinas", href: "/servicios#banos-cocinas" },
-  ],
+  servicios: services.map((service) => ({
+    name: service.title,
+    href: `/servicios/${service.id}`,
+  })),
   empresa: [
     { name: "Sobre Nosotros", href: "/sobre-nosotros" },
     { name: "Proyectos", href: "/proyectos" },
@@ -41,15 +40,15 @@ export function Footer() {
               {/* Logo con el favicon sobre fondo blanco */}
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white overflow-hidden p-1.5 shadow-sm">
                 <Image
-                  src="/icons/favicon.ico"
-                  alt="Logo Raúl Sánchez"
+                  src="/icons/favicon.webp"
+                  alt={`Logo ${siteConfig.name}`}
                   width={32}
                   height={32}
                   className="object-contain"
                 />
               </div>
               <span className="font-heading text-xl font-bold">
-                Raul Sanchez Albañileria y reformas
+                {siteConfig.name}
               </span>
             </div>
             <p className="text-sm text-neutral-100/80">
@@ -58,18 +57,18 @@ export function Footer() {
             </p>
             <address className="space-y-2 not-italic">
               <a
-                href="tel:+34617847211"
+                href={`tel:${siteConfig.contact.phoneLink}`}
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span>617 847 211</span> {/* Teléfono actualizado */}
+                <span>{siteConfig.contact.phoneDisplay}</span>
               </a>
               <a
-                href="mailto:javiruizar@gmail.com"
+                href={`mailto:${siteConfig.contact.email}`}
                 className="flex items-center space-x-2 text-sm hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span>javiruizar@gmail.com</span>
+                <span>{siteConfig.contact.email}</span>
               </a>
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin className="h-4 w-4" />
@@ -124,8 +123,9 @@ export function Footer() {
               Horario de Atención
             </h3>
             <div className="space-y-2 text-sm text-neutral-100/80 mb-6">
-              <p>Lunes - Viernes: 8:00 - 18:00</p>
-              <p>Sábados y Domingos: Cerrado</p>
+              {siteConfig.hours.map((hours) => (
+                <p key={hours.display}>{hours.display}</p>
+              ))}
             </div>
             <h4 className="font-heading text-sm font-semibold mb-3">
               Síguenos
@@ -153,7 +153,7 @@ export function Footer() {
         {/* Copyright y Legal */}
         <div className="flex flex-col items-center justify-between space-y-4 text-sm text-neutral-100/80 md:flex-row md:space-y-0">
           <p>
-            © {currentYear} Raul Sanchez Albañileria y reformas. Todos los derechos reservados.
+            © {currentYear} {siteConfig.name}. Todos los derechos reservados.
           </p>
           <div className="flex space-x-4">
             {navigation.legal.map((item) => (

@@ -1,19 +1,21 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Award, Users } from "lucide-react";
+import { Award } from "lucide-react";
 export function StorySection() {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Imagen/Placeholder */}
+          {/* Foto de obra: sustituir por una de Raúl o del equipo cuando esté disponible. */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-neutral-200 to-neutral-300 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
-                <div className="text-center">
-                  <div className="text-8xl mb-4">👷</div>
-                  <p className="text-lg">Foto del equipo o fundador</p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/projects/restauracion-casa-senorial/1197.webp"
+                alt="Interior con bóvedas y arcos de una casa de 1950 restaurada en Pozoblanco"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
             {/* Decorative badge */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-xl">
@@ -32,20 +34,20 @@ export function StorySection() {
             
             <div className="space-y-4 text-neutral-800/80 leading-relaxed">
               <p>
-                Raúl Sánchez nació en Pozoblanco y creó su empresa de
-                construcción y reformas con una pasión genuina por la
-                arquitectura tradicional de Los Pedroches. Desde hace más de
-                dos décadas, transforma casas y espacios en la comarca,
-                especializándose en la restauración de edificaciones antiguas
-                propias de esta tierra.
+                Raúl Sánchez es de Villanueva de Córdoba y siente una pasión
+                genuina por la arquitectura tradicional de Los Pedroches. Desde
+                hace más de dos décadas, transforma casas y espacios en
+                Pozoblanco y en toda la comarca, especializándose en la
+                restauración de edificaciones antiguas propias de esta tierra.
               </p>
               
               <p>
-                Lo que comenzó como un pequeño taller familiar en Pozoblanco
-                se ha convertido en un referente de reformas y restauración
-                en toda la comarca de Los Pedroches. Cada proyecto, desde
-                Villanueva de Córdoba hasta Hinojosa del Duque, se aborda
-                con el mismo cuidado y dedicación.
+                Somos un equipo de 6 personas y a cada obra vamos entre 2 y 6,
+                según lo que necesite. No tenemos taller ni local: trabajamos
+                donde está tu obra, y vamos a verla sin coste antes de darte
+                presupuesto. Cada
+                proyecto, desde Villanueva de Córdoba hasta Hinojosa del Duque,
+                se aborda con el mismo cuidado y dedicación.
               </p>
               
               <p>
@@ -65,18 +67,8 @@ export function StorySection() {
                   <Award className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="font-bold text-secondary">500+</div>
+                  <div className="font-bold text-secondary">50+</div>
                   <div className="text-sm text-neutral-800/60">Proyectos</div>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary flex-shrink-0">
-                  <Users className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="font-bold text-secondary">100%</div>
-                  <div className="text-sm text-neutral-800/60">Satisfacción</div>
                 </div>
               </div>
             </div>

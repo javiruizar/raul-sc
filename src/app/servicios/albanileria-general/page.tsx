@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ServiceContent } from "@/components/services/ServiceContent";
+import { RelatedProjects } from "@/components/services/RelatedProjects";
+import { RelatedServices } from "@/components/services/RelatedServices";
+import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Albañilería General en Pozoblanco | Raúl Sánchez",
+export const metadata: Metadata = pageMetadata({
+  title: "Albañilería general en Pozoblanco",
   description: "Trabajos de albañilería general en Pozoblanco y comarca. Construcción de muros, solados, tabiquería y pequeñas reparaciones por profesionales.",
-  alternates: {
-    canonical: "https://raul.javierruiz.org/servicios/albanileria-general",
-  },
-};
+  path: "/servicios/albanileria-general",
+});
 
 export default function AlbanileriaGeneralPage() {
   const serviceSchema = {
@@ -22,12 +21,7 @@ export default function AlbanileriaGeneralPage() {
     serviceType: "Albañilería General",
     description:
       "Trabajos de albañilería general en Pozoblanco y comarca. Construcción de muros, solados, tabiquería y pequeñas reparaciones por profesionales.",
-    provider: {
-      "@type": "Organization",
-      "@id": "https://raul.javierruiz.org/#localbusiness",
-      name: "Raúl Sánchez Construcciones",
-      url: "https://raul.javierruiz.org",
-    },
+    provider: { "@id": siteConfig.businessId },
     areaServed: {
       "@type": "AdministrativeArea",
       name: "Los Pedroches, Córdoba",
@@ -45,61 +39,18 @@ export default function AlbanileriaGeneralPage() {
               Servicio Profesional
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Albañilería General
+              Albañilería general en Pozoblanco
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Realizamos cualquier trabajo de albañilería que necesites, desde pequeños arreglos hasta grandes proyectos estructurales.
+              Realizamos cualquier trabajo de albañilería que necesites, desde pequeños arreglos hasta muros, soleras y patios completos.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <SectionHeading
-            subtitle="Calidad y Eficiencia"
-            title="Todos los Trabajos de Albañilería"
-            description="Soluciones eficaces y duraderas para el mantenimiento o modificación de tu vivienda."
-            className="mb-12"
-          />
-          <div className="grid md:grid-cols-2 gap-8 text-neutral-800">
-            <div>
-              <p className="mb-4 leading-relaxed">
-                Nuestros más de 20 años de oficio en Pozoblanco nos permiten garantizar un acabado excelente en cualquier tarea relacionada con el mortero, el ladrillo o el cemento.
-              </p>
-              <ul className="space-y-4 mt-6">
-                <li className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                  <span><strong>Muros y tabiquería:</strong> Levantamiento de tabiques y modificaciones espaciales.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                  <span><strong>Solados y alicatados:</strong> Colocación de pavimentos, suelos cerámicos y gres porcelánico.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                  <span><strong>Enfoscados y revocos:</strong> Preparación y alisado de paredes interiores y exteriores.</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                  <span><strong>Reparaciones:</strong> Arreglos de humedades, grietas y pequeñas modificaciones estructurales.</span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-neutral-50 p-8 rounded-xl border border-neutral-200 flex flex-col justify-center items-center text-center">
-              <h3 className="text-2xl font-bold font-heading text-secondary mb-4">Pide presupuesto hoy mismo</h3>
-              <p className="text-neutral-600 mb-8">
-                No importa si el trabajo es grande o pequeño, ofrecemos precios competitivos y resultados profesionales.
-              </p>
-              <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link href="/contacto">
-                  Contactar Ahora <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceContent serviceId="albanileria-general" />
+      <RelatedProjects serviceId="albanileria-general" />
+      <RelatedServices currentId="albanileria-general" />
     </>
   );
 }

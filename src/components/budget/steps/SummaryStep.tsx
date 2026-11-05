@@ -118,7 +118,7 @@ export function SummaryStep({ formData }: SummaryStepProps) {
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2 font-bold">2.</span>
-            <span>Revisaremos tu solicitud en las próximas 24-48 horas laborables</span>
+            <span>Revisaremos tu solicitud</span>
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2 font-bold">3.</span>
@@ -126,7 +126,7 @@ export function SummaryStep({ formData }: SummaryStepProps) {
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2 font-bold">4.</span>
-            <span>Te enviaremos un presupuesto detallado por email</span>
+            <span>Te enviaremos un presupuesto detallado por email en una semana</span>
           </li>
         </ul>
       </div>

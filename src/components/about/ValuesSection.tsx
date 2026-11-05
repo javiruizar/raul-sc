@@ -18,9 +18,9 @@ const values = [
   },
   {
     icon: Shield,
-    title: "Calidad Garantizada",
+    title: "Materiales de Calidad",
     description:
-      "Utilizamos solo materiales de primera calidad y ofrecemos garantía de 2 años en todos nuestros trabajos.",
+      "Utilizamos solo materiales de primera calidad y el oficio que cada trabajo necesita.",
   },
   {
     icon: Users,

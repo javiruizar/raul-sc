@@ -16,11 +16,19 @@ export type ProjectCategory =
 export interface Project {
   id: string;
   title: string;
+  // Título para el buscador, si el normal con la ubicación no cabe en 60 caracteres.
+  seoTitle?: string;
   description: string;
   category: ProjectCategory;
   images: string[];
   date: string;
   location?: string;
+  // Servicios relacionados; el primero es el principal.
+  serviceIds: string[];
+  story: { heading: string; text: string }[];
+  materials?: string[];
+  duration?: string;
+  relatedProjectIds: string[];
 }
 
 export interface Testimonial {

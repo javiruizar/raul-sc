@@ -22,7 +22,7 @@ export function WhyChooseUsSection() {
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">
-                Más de 25 años realizando proyectos de reforma y restauración de casas
+                Más de 20 años realizando proyectos de reforma y restauración de casas
                 antiguas completas
               </CardDescription>
             </CardContent>
@@ -30,13 +30,13 @@ export function WhyChooseUsSection() {
           <Card>
             <CardHeader>
               <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                Calidad garantizada
+                Materiales y oficio
               </h3>
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base">
                 Utilizamos materiales de primera calidad y técnicas
-                tradicionales. Proyectos realizados visitables.
+                tradicionales. Podemos enseñarte obras terminadas.
               </CardDescription>
             </CardContent>
           </Card>

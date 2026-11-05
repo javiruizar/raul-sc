@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { siteConfig } from "@/config/site";
+import { baseOpenGraph } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,44 +21,29 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://raul.javierruiz.org"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches | Raul Sanchez Albañileria y reformas",
-    template: "%s | Raul Sanchez Albañileria y reformas",
+    default: `Albañil en Pozoblanco y Los Pedroches | ${siteConfig.shortName}`,
+    template: `%s | ${siteConfig.shortName}`,
   },
   verification: {
     google: "rb8aGSb9nqhSL_M_GfiV29-R-CirCWfU0Am9kyhiV_4",
   },
   description:
-    "Albañil en Pozoblanco con más de 20 años de experiencia. Reformas integrales, restauración de casas antiguas y construcción en Los Pedroches, Villanueva de Córdoba, Hinojosa del Duque y toda la comarca. Presupuesto gratis.",
+    "Albañil en Pozoblanco con más de 20 años de experiencia. Reformas integrales y restauración de casas antiguas en Los Pedroches. Presupuesto gratis.",
 
   // 2. OPEN GRAPH (Para WhatsApp, Facebook, LinkedIn)
   openGraph: {
-    title: "Albañil en Pozoblanco · Reformas y Construcción en Los Pedroches",
-    description: "Albañil profesional en Pozoblanco y Los Pedroches. Reformas integrales, restauración de casas antiguas y construcción. Presupuesto gratuito y sin compromiso.",
-    url: "https://raul.javierruiz.org",
-    siteName: "Raul Sanchez Albañileria y reformas",
-    locale: "es_ES",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.webp",
-        width: 1200,
-        height: 630,
-        alt: "Raúl Sánchez - Albañil y Reformas en Pozoblanco, Los Pedroches (Córdoba)",
-      },
-    ],
+    ...baseOpenGraph,
+    title: `Albañil en Pozoblanco y Los Pedroches | ${siteConfig.shortName}`,
+    description: "Albañil en Pozoblanco con más de 20 años de experiencia. Reformas integrales y restauración de casas antiguas en Los Pedroches. Presupuesto gratis.",
+    url: siteConfig.url,
   },
 
-  // 3. TWITTER CARD
+  // 3. TWITTER CARD: el título y la descripción se toman del Open Graph de cada página.
   twitter: {
     card: "summary_large_image",
-    title: "Albañil en Pozoblanco · Reformas en Los Pedroches | Raul Sanchez Albañileria y reformas",
-    description: "Reformas integrales, restauración de casas antiguas y albañilería en Pozoblanco y toda la comarca de Los Pedroches. Más de 20 años de experiencia.",
-    images: ["/og-image.webp"],
   },
-
-
 };
 
 export default function RootLayout({
@@ -69,65 +56,36 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Raul Sanchez Albañileria y reformas",
-    "url": "https://raul.javierruiz.org"
+    "name": siteConfig.name,
+    "url": siteConfig.url
   };
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    "@id": "https://raul.javierruiz.org/#localbusiness",
-    "name": "Raul Sanchez Albañileria y reformas",
-    "alternateName": "Raúl Albañil Pozoblanco",
+    "@id": siteConfig.businessId,
+    "name": siteConfig.name,
     "description": "Albañil profesional en Pozoblanco con más de 20 años de experiencia. Especialistas en reformas integrales, restauración de casas antiguas y construcción en la comarca de Los Pedroches (Córdoba).",
-    "image": "https://raul.javierruiz.org/og-image.webp",
-    "url": "https://raul.javierruiz.org",
-    "telephone": "+34617847211",
-    // TODO: reemplazar por un email profesional del negocio (no personal)
-    "email": "javiruizar@gmail.com",
+    "image": `${siteConfig.url}/og-image.webp`,
+    "url": siteConfig.url,
+    "telephone": siteConfig.contact.phoneLink,
+    "email": siteConfig.contact.email,
     "address": {
       "@type": "PostalAddress",
-      // TODO: completar con la dirección real de la empresa cuando esté disponible
-      "streetAddress": "Pozoblanco",
-      "addressLocality": "Pozoblanco",
-      "addressRegion": "Córdoba",
-      "postalCode": "14400",
-      "addressCountry": "ES"
+      // Sin calle a propósito: no se atiende al público en ningún local.
+      "addressLocality": siteConfig.address.city,
+      "addressRegion": siteConfig.address.province,
+      "postalCode": siteConfig.address.postalCode,
+      "addressCountry": siteConfig.address.country
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "38.1855",
-      "longitude": "-4.8495"
+      "latitude": siteConfig.geo.latitude,
+      "longitude": siteConfig.geo.longitude
     },
-    "hasMap": "https://share.google/7TwkkekNdQ3aqzUpL",
-    "areaServed": [
-      { "@type": "City", "name": "Pozoblanco" },
-      { "@type": "City", "name": "Villanueva de Córdoba" },
-      { "@type": "City", "name": "Hinojosa del Duque" },
-      { "@type": "City", "name": "Alcaracejos" },
-      { "@type": "City", "name": "Añora" },
-      { "@type": "City", "name": "Dos Torres" },
-      { "@type": "City", "name": "Pedroche" },
-      { "@type": "City", "name": "El Viso" },
-      { "@type": "City", "name": "Villaralto" },
-      { "@type": "City", "name": "Belalcázar" },
-      { "@type": "City", "name": "Cardeña" },
-      { "@type": "City", "name": "Santa Eufemia" },
-      { "@type": "City", "name": "Torrecampo" },
-      { "@type": "City", "name": "Fuente la Lancha" },
-      { "@type": "City", "name": "Guijo" },
-      { "@type": "City", "name": "Conquista" },
-      { "@type": "City", "name": "Venta del Charco" }
-    ],
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": "38.1855",
-        "longitude": "-4.8495"
-      },
-      "geoRadius": "30000"
-    },
+    "hasMap": siteConfig.socials.googleBusiness,
+    "sameAs": [siteConfig.socials.googleBusiness],
+    "areaServed": siteConfig.serviceAreas.map((name) => ({ "@type": "City", name })),
     "knowsAbout": [
       "Reformas integrales en Pozoblanco",
       "Restauración de casas antiguas en Los Pedroches",
@@ -139,23 +97,15 @@ export default function RootLayout({
       "Fachadas y revocos en Pozoblanco",
       "Construcción en Los Pedroches"
     ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "14:00"
-      }
-    ],
-    "priceRange": "$$",
+    "openingHoursSpecification": siteConfig.hours.map((hours) => ({
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": hours.days,
+      "opens": hours.opens,
+      "closes": hours.closes
+    })),
+    "priceRange": "€€",
     "currenciesAccepted": "EUR",
-    "paymentAccepted": "Cash, Bank Transfer",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
     // Reviews y aggregateRating eliminados.
     // Google requiere reviews verificables (p.ej. Google Business Profile).
     // Añadir reviews aquí sin fuente verificable puede provocar una acción manual

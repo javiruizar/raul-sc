@@ -2,15 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
+import { categoryLabels } from "@/data/project-categories";
 import type { Project } from "@/types";
 
-const categoryLabels: Record<string, string> = {
-  reformas: "Reformas",
-  albanileria: "Albañilería", // Corregido: clave sin 'ñ' para coincidir con el tipo
-  restauracion: "Restauración",
-  construccion: "Construcción",
-  otros: "Otros",
-};
 
 interface ProjectCardProps {
   project: Project;
@@ -33,7 +27,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <Image
             src={project.images[0]}
             alt={project.location
-              ? `${project.title} en ${project.location} - Raúl Sánchez Construcciones`
+              ? `${project.title} en ${project.location}`
               : `${project.title} - Albañilería y Reformas en Los Pedroches`
             }
             fill
@@ -56,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Badge de categoría */}
         <div className="absolute top-4 left-4 z-10">
           <Badge className="bg-primary hover:bg-primary-dark">
-            {categoryLabels[project.category] || "Proyecto"}
+            {categoryLabels[project.category]}
           </Badge>
         </div>
       </div>

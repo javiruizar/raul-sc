@@ -5,20 +5,14 @@ import { BudgetForm } from "@/components/budget/BudgetForm";
 import { Clock, CheckCircle2, FileText, Shield } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Presupuesto Gratuito de Reformas en Pozoblanco | Sin Compromiso · Raúl Sánchez",
+export const metadata: Metadata = pageMetadata({
+  title: "Presupuesto gratis de reformas en Pozoblanco",
   description:
-    "Solicita tu presupuesto gratuito y sin compromiso para tu reforma o construcción en Pozoblanco y Los Pedroches. Respuesta en 24-48h. Albañil en Pozoblanco con más de 20 años de experiencia.",
-  alternates: {
-    canonical: "https://raul.javierruiz.org/presupuesto",
-  },
-  openGraph: {
-    title: "Presupuesto Gratuito de Reformas en Pozoblanco | Raúl Sánchez Construcciones",
-    description: "Solicita un presupuesto gratuito y sin compromiso para tu reforma en Pozoblanco y Los Pedroches. Respuesta en 24-48h.",
-    url: "https://raul.javierruiz.org/presupuesto",
-  },
-};
+    "Pide presupuesto gratis y sin compromiso para tu reforma en Pozoblanco y Los Pedroches. Respuesta en 24 horas y presupuesto en una semana.",
+  path: "/presupuesto",
+});
 
 export default function PresupuestoPage() {
   const faqSchema = {
@@ -30,15 +24,7 @@ export default function PresupuestoPage() {
         name: "¿Cuánto tarda en llegar el presupuesto?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Normalmente enviamos los presupuestos en 24-48 horas laborables. Para proyectos más complejos podría tardar un poco más, pero siempre te mantendremos informado."
-        }
-      },
-      {
-        "@type": "Question",
-        name: "¿El presupuesto es realmente gratuito?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sí, completamente gratuito y sin compromiso. Incluye visita a domicilio para valoración si es necesario."
+          text: "Normalmente enviamos los presupuestos en una semana. Para proyectos más complejos podría tardar un poco más, pero siempre te mantendremos informado."
         }
       },
       {
@@ -76,13 +62,13 @@ export default function PresupuestoPage() {
             <p className="text-xl text-white/90 mb-8">
               ¿Necesitas reforma o construcción en Pozoblanco, Villanueva de
               Córdoba, Hinojosa del Duque o municipios cercanos? Completa el
-              formulario y te enviamos un presupuesto detallado en 24-48 horas.
+              formulario y te enviamos un presupuesto detallado en una semana.
               Gratis y sin compromiso.
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-white">
               <div className="flex items-center">
                 <Clock className="h-6 w-6 mr-2 text-accent" />
-                <span className="font-semibold">Respuesta en 24-48h</span>
+                <span className="font-semibold">Respuesta en 24 horas</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle2 className="h-6 w-6 mr-2 text-accent" />
@@ -164,7 +150,7 @@ export default function PresupuestoPage() {
                         Respuesta Rápida
                       </h3>
                       <p className="text-sm text-neutral-800/70">
-                        Te respondemos en 24-48 horas laborables. Si es urgente,
+                        Te respondemos en 24 horas. Si es urgente,
                         llámanos al {siteConfig.contact.phoneDisplay}.
                       </p>
                     </div>
@@ -212,21 +198,9 @@ export default function PresupuestoPage() {
                     ¿Cuánto tarda en llegar el presupuesto?
                   </h3>
                   <p className="text-sm text-neutral-800/70">
-                    Normalmente enviamos los presupuestos en 24-48 horas
-                    laborables. Para proyectos más complejos podría tardar un
+                    Normalmente enviamos los presupuestos en una semana.
+                    Para proyectos más complejos podría tardar un
                     poco más, pero siempre te mantendremos informado.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-secondary mb-2">
-                    ¿El presupuesto es realmente gratuito?
-                  </h3>
-                  <p className="text-sm text-neutral-800/70">
-                    Sí, completamente gratuito y sin compromiso. Incluye visita a
-                    domicilio para valoración si es necesario.
                   </p>
                 </CardContent>
               </Card>

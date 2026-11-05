@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import { categoryLabels } from "@/data/project-categories";
 import { ProjectModal } from "@/components/projects/ProjectModal";
 import type { Project } from "@/types";
 
@@ -68,8 +69,8 @@ export function ProjectsSection() {
               </button>
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-3 gap-2">
-                  <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none capitalize text-xs px-2.5 py-0.5 rounded-full font-medium">
-                    {project.category}
+                  <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none text-xs px-2.5 py-0.5 rounded-full font-medium">
+                    {categoryLabels[project.category]}
                   </Badge>
                   <span className="text-xs text-neutral-500 font-medium">
                     {new Date(project.date).getFullYear()}

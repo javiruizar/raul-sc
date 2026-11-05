@@ -4,22 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
-import { ArrowRight, Award, CheckCircle2, Users } from "lucide-react";
+import { ArrowRight, Award, Users } from "lucide-react";
 import { projects } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Proyectos de Reformas Realizados en Los Pedroches y Pozoblanco | Raúl Sánchez",
+export const metadata: Metadata = pageMetadata({
+  title: "Obras y reformas en Los Pedroches",
   description:
-    "Galería de obras y reformas realizadas en Pozoblanco, Villanueva de Córdoba, Hinojosa del Duque y toda la comarca de Los Pedroches. Reformas integrales, restauración de casas antiguas, fachadas y más.",
-  alternates: {
-    canonical: "https://raul.javierruiz.org/proyectos",
-  },
-  openGraph: {
-    title: "Proyectos de Reformas Realizados en Pozoblanco y Los Pedroches | Raúl Sánchez Construcciones",
-    description: "Descubre nuestra galería de reformas completadas en Pozoblanco y Los Pedroches: reformas integrales, restauración de casas antiguas y más.",
-    url: "https://raul.javierruiz.org/proyectos",
-  },
-};
+    "Obras y reformas realizadas en Pozoblanco y Los Pedroches: reformas integrales, restauración de casas antiguas, patios y tejados. Más de 50 proyectos.",
+  path: "/proyectos",
+});
 
 export default function ProyectosPage() {
   return (
@@ -31,7 +25,7 @@ export default function ProyectosPage() {
               Nuestros Trabajos
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Proyectos Realizados
+              Obras y reformas en Los Pedroches
             </h1>
             <p className="text-xl text-white/90 mb-8">
               Explora nuestra galería de proyectos completados con éxito. Cada
@@ -41,11 +35,7 @@ export default function ProyectosPage() {
             <div className="flex flex-wrap gap-6 text-white">
               <div className="flex items-center">
                 <Award className="h-6 w-6 mr-2 text-accent" />
-                <span className="font-semibold">500+ Proyectos</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle2 className="h-6 w-6 mr-2 text-accent" />
-                <span className="font-semibold">100% Satisfacción</span>
+                <span className="font-semibold">50+ Proyectos</span>
               </div>
               <div className="flex items-center">
                 <Users className="h-6 w-6 mr-2 text-accent" />
@@ -74,9 +64,9 @@ export default function ProyectosPage() {
       {/* Stats Section */}
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid md:grid-cols-2 gap-8 text-center max-w-3xl mx-auto">
             <div className="p-8 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-primary mb-2">500+</div>
+              <div className="text-4xl font-bold text-primary mb-2">50+</div>
               <h3 className="font-heading text-lg font-semibold text-secondary mb-2">
                 Proyectos Completados
               </h3>
@@ -86,51 +76,14 @@ export default function ProyectosPage() {
             </div>
 
             <div className="p-8 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-primary mb-2">100%</div>
+              <div className="text-4xl font-bold text-primary mb-2">20+</div>
               <h3 className="font-heading text-lg font-semibold text-secondary mb-2">
-                Clientes Satisfechos
+                Años de Experiencia
               </h3>
               <p className="text-sm text-neutral-800/70">
-                Valoración perfecta en todos nuestros trabajos
+                Podemos enseñarte obras terminadas que ya usan sus propietarios
               </p>
             </div>
-
-            <div className="p-8 bg-white rounded-xl shadow-sm">
-              <div className="text-4xl font-bold text-primary mb-2">2 años</div>
-              <h3 className="font-heading text-lg font-semibold text-secondary mb-2">
-                Garantía Incluida
-              </h3>
-              <p className="text-sm text-neutral-800/70">
-                Respaldamos la calidad de nuestro trabajo
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8">
-              <div className="flex justify-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-accent text-2xl">★</span>
-                ))}
-              </div>
-              <blockquote className="text-xl md:text-2xl text-neutral-800 italic leading-relaxed mb-6">
-  &quot;Raúl restauró nuestra casa rural del siglo XIX con un cuidado
-  excepcional. Respetó cada detalle original mientras modernizaba
-  las instalaciones. Un trabajo impecable.&quot;
-</blockquote>
-              <div>
-                <p className="font-semibold text-secondary">María González</p>
-                <p className="text-sm text-neutral-800/60">Propietaria Casa Rural</p>
-              </div>
-            </div>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contacto">Ver Más Testimonios</Link>
-            </Button>
           </div>
         </div>
       </section>

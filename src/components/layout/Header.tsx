@@ -28,25 +28,21 @@ export function Header() {
       <div className="container-custom">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3" aria-label="Ir a la página de inicio de Raul Sanchez Albañileria y reformas">
+          <Link href="/" className="flex items-center space-x-3" aria-label={`Ir a la página de inicio de ${siteConfig.name}`}>
             <div className="relative h-12 w-12 overflow-hidden rounded-lg flex-shrink-0">
-              {/*
-               * LCP fix: el logo NO es el elemento LCP, así que NO debe llevar priority.
-               * Usar logo.webp con dimensiones fijas evita el preload de favicon.ico
-               * (que competía con las imágenes hero en el critical path).
-               */}
+              {/* Sin priority: el logo no es el elemento LCP y no debe competir con el hero. */}
               <Image
-                src="/icons/favicon.ico"
-                alt="Logo Raul Sanchez Albañileria y reformas"
+                src="/icons/favicon.webp"
+                alt={`Logo ${siteConfig.name}`}
                 width={48}
                 height={48}
                 className="object-contain h-full w-full"
               />
             </div>
-            <div className="hidden sm:block">
-              <span className="font-heading text-xl font-bold text-secondary">
-                Raul Sanchez Albañileria 
-                <span className="sr-only"> y reformas</span>
+            {/* Entre md y xl el nombre completo no cabe junto al menú: se muestra solo el logo. */}
+            <div className="hidden sm:block md:hidden xl:block">
+              <span className="font-heading text-xl font-bold text-secondary whitespace-nowrap">
+                {siteConfig.name}
               </span>
             </div>
           </Link>
@@ -95,7 +91,7 @@ export function Header() {
           <div className="hidden md:flex md:items-center md:space-x-4">
             <a
               href={`tel:${siteConfig.contact.phoneLink}`}
-              className="flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary"
+              className="hidden lg:flex items-center space-x-2 text-sm text-neutral-800 hover:text-primary whitespace-nowrap"
               aria-label="Llamar por teléfono"
             >
               <Phone className="h-4 w-4" />
