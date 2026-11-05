@@ -8,9 +8,9 @@ export const services: Service[] = [
       "Transformamos completamente tu hogar, desde la planificación hasta el acabado final.",
     icon: "home",
     features: [
-      "Diseño y planificación personalizada",
+      "Redistribución de espacios",
       "Demolición y construcción",
-      "Instalaciones eléctricas y fontanería",
+      "Coordinación de todos los oficios",
       "Acabados de calidad",
     ],
   },
@@ -23,7 +23,7 @@ export const services: Service[] = [
     features: [
       "Conservación de elementos originales",
       "Técnicas tradicionales de construcción",
-      "Materiales de época",
+      "Morteros de cal y materiales tradicionales",
       "Respeto por la arquitectura original",
     ],
   },
@@ -37,7 +37,7 @@ export const services: Service[] = [
       "Construcción de muros y tabiques",
       "Solados y alicatados",
       "Enfoscados y revocos",
-      "Reparaciones estructurales",
+      "Pequeñas reparaciones y mantenimiento",
     ],
   },
   {
@@ -47,10 +47,10 @@ export const services: Service[] = [
       "Renovamos los espacios más importantes de tu hogar con diseños modernos y funcionales.",
     icon: "droplet",
     features: [
-      "Diseño personalizado",
-      "Instalación de sanitarios",
+      "Redistribución del espacio",
+      "Cambio de bañera por plato de ducha",
       "Alicatado y pavimento",
-      "Muebles a medida",
+      "Coordinación con fontanero y electricista",
     ],
   },
   {

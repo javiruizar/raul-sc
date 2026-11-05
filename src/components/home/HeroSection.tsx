@@ -1,8 +1,20 @@
 import Link from "next/link";
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
+
+const heroImage = {
+  alt: "Albañil realizando reforma en Pozoblanco, Los Pedroches",
+  fill: true,
+  sizes: "100vw",
+  quality: 85,
+} as const;
+
+// Un solo <img> con <picture>: cada dispositivo descarga solo su imagen. Con dos
+// <Image priority> ocultas por CSS, el navegador precargaba las dos en móvil.
+const { props: desktopImage } = getImageProps({ ...heroImage, src: "/images/hero-image-pool.webp" });
+const { props: mobileImage } = getImageProps({ ...heroImage, src: "/images/hero-image.webp" });
 
 export function HeroSection() {
   return (
@@ -10,38 +22,11 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="relative flex items-center min-h-[80vh] py-20 md:py-32 overflow-hidden"
     >
-      {/*
-       * LCP optimizado: Next.js <Image priority> emite automáticamente
-       * <link rel="preload" as="image"> en el <head>, garantizando que
-       * el browser descargue la imagen Hero antes de renderizar.
-       *
-       * Dos imágenes: mobile (hero-image) / desktop (hero-image-pool).
-       * Se ocultan con Tailwind para respetar el diseño responsive original.
-       */}
-
-      {/* Imagen móvil / tablet — oculta en lg */}
-      <Image
-        src="/images/hero-image.webp"
-        alt="Albañil realizando reforma en Pozoblanco — Raúl Sánchez Construcciones"
-        fill
-        priority
-        fetchPriority="high"
-        quality={85}
-        sizes="100vw"
-        className="object-cover object-center block lg:hidden"
-      />
-
-      {/* Imagen desktop — visible solo en lg+ */}
-      <Image
-        src="/images/hero-image-pool.webp"
-        alt="Obra de construcción en Los Pedroches — Raúl Sánchez Construcciones"
-        fill
-        priority
-        fetchPriority="high"
-        quality={85}
-        sizes="100vw"
-        className="object-cover object-center hidden lg:block"
-      />
+      <picture>
+        <source media="(min-width: 1024px)" srcSet={desktopImage.srcSet} sizes={heroImage.sizes} />
+        {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element -- el alt llega en mobileImage */}
+        <img {...mobileImage} loading="eager" fetchPriority="high" className="object-cover object-center" />
+      </picture>
 
       {/* Overlay: mantiene el gradiente del diseño original */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-black/80" />
@@ -55,12 +40,12 @@ export function HeroSection() {
             id="hero-heading"
             className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6"
           >
-            Albañileria y Reformas en Pozoblanco y Los Pedroches
+            Albañil en Pozoblanco y Los Pedroches
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
             Más de 20 años reformando viviendas en la comarca de Los Pedroches.
             Especialistas en restauración de casas antiguas, reformas integrales
-            y albañileria en Pozoblanco, Villanueva de Córdoba,
+            y albañilería en Pozoblanco, Villanueva de Córdoba,
             Hinojosa del Duque y toda la comarca.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

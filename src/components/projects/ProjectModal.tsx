@@ -13,15 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ChevronRight, MapPin, Calendar } from "lucide-react";
+import { categoryLabels } from "@/data/project-categories";
 import type { Project } from "@/types";
 
-const categoryLabels = {
-  reformas: "Reformas",
-  albanileria: "Albañilería",
-  restauracion: "Restauración",
-  construccion: "Construcción",
-  otros: "Otros",
-};
 
 interface ProjectModalProps {
   project: Project | null;

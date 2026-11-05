@@ -1,47 +1,11 @@
-"use client";
-
-import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowDown, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { BudgetForm } from "@/components/budget/BudgetForm";
+import { siteConfig } from "@/config/site";
 
 export function QuickContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simular envío (implementar API route más adelante)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", phone: "", message: "" });
-
-      // Reset status después de 3 segundos
-      setTimeout(() => setSubmitStatus("idle"), 3000);
-    }, 1000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
-    <section className="section-padding bg-neutral-50">
+    <section id="formulario" className="section-padding bg-neutral-50">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Información de contacto */}
@@ -54,8 +18,12 @@ export function QuickContactSection() {
                 ¿Tienes un proyecto en mente?
               </h2>
               <p className="text-lg text-neutral-800/80">
-                Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos
-                lo antes posible.
+                Cuéntanos qué necesitas y te preparamos un presupuesto gratis y
+                sin compromiso. Si lo prefieres, llámanos o escríbenos o rellena
+                el formulario que te facilitamos para agilizar el proceso.
+                {/* La flecha apunta al formulario: a la derecha en escritorio y debajo en móvil. */}
+                <ArrowRight aria-hidden="true" className="hidden lg:inline-block h-7 w-7 ml-2 align-middle text-primary" />
+                <ArrowDown aria-hidden="true" className="lg:hidden inline-block h-7 w-7 ml-2 align-middle text-primary" />
               </p>
             </div>
 
@@ -68,14 +36,16 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Teléfono</h3>
                     <a
-                      href="tel:+34617847211"
+                      href={`tel:${siteConfig.contact.phoneLink}`}
                       className="text-neutral-800/70 hover:text-primary transition-colors"
                     >
-                      617 847 211
+                      {siteConfig.contact.phoneDisplay}
                     </a>
-                    <p className="text-sm text-neutral-800/60 mt-1">
-                      Lun - Vie: 8:00 - 18:00
-                    </p>
+                    {siteConfig.hours.map((hours) => (
+                      <p key={hours.display} className="text-sm text-neutral-800/60 mt-1">
+                        {hours.display}
+                      </p>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -88,13 +58,13 @@ export function QuickContactSection() {
                   <div>
                     <h3 className="font-semibold text-secondary mb-1">Email</h3>
                     <a
-                      href="mailto:javiruizar@gmail.com"
-                      className="text-neutral-800/70 hover:text-primary transition-colors"
+                      href={`mailto:${siteConfig.contact.email}`}
+                      className="text-neutral-800/70 hover:text-primary transition-colors break-all"
                     >
-                      javiruizar@gmail.com
+                      {siteConfig.contact.email}
                     </a>
                     <p className="text-sm text-neutral-800/60 mt-1">
-                      Respuesta en 24-48h
+                      Respuesta en 24 horas
                     </p>
                   </div>
                 </CardContent>
@@ -106,111 +76,18 @@ export function QuickContactSection() {
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-secondary mb-1">Ubicación</h3>
+                    <h3 className="font-semibold text-secondary mb-1">Zona de trabajo</h3>
                     <p className="text-neutral-800/70">Pozoblanco y Los Pedroches</p>
                     <p className="text-sm text-neutral-800/60 mt-1">
-                      Zona de cobertura: Valle de los Pedroches
+                      Visita gratuita a domicilio para valorar la obra
                     </p>
                   </div>
                 </CardContent>
               </Card>
             </div>
-
-            <div className="mt-8">
-              <p className="text-sm text-neutral-800/70 mb-4">
-                ¿Necesitas un presupuesto detallado?
-              </p>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/presupuesto">Solicitar Presupuesto Completo</Link>
-              </Button>
-            </div>
           </div>
 
-          {/* Formulario de contacto rápido */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Envíanos un mensaje</CardTitle>
-              <CardDescription>
-                Completa el formulario y nos pondremos en contacto contigo
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nombre *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Tu nombre completo"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Teléfono *</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="600 000 000"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Mensaje *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Cuéntanos sobre tu proyecto..."
-                    rows={5}
-                    required
-                  />
-                </div>
-
-                {submitStatus === "success" && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-                    ✓ Mensaje enviado correctamente. Te contactaremos pronto.
-                  </div>
-                )}
-
-                {submitStatus === "error" && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
-                    ✗ Error al enviar el mensaje. Por favor, inténtalo de nuevo.
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      Enviar Mensaje
-                      <Send className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
-
-                <p className="text-xs text-neutral-800/60 text-center">
-                  Al enviar este formulario, aceptas nuestra{" "}
-                  <Link href="/privacidad" className="text-primary hover:underline">
-                    política de privacidad
-                  </Link>
-                </p>
-              </form>
-            </CardContent>
-          </Card>
+          <BudgetForm compact />
         </div>
       </div>
     </section>

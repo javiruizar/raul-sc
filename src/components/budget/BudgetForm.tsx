@@ -21,7 +21,8 @@ const steps = [
   { id: 4, name: "Resumen", component: SummaryStep },
 ];
 
-export function BudgetForm() {
+// `compact` ajusta el formulario a una columna estrecha, como la de la home.
+export function BudgetForm({ compact = false }: { compact?: boolean }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -156,8 +157,8 @@ export function BudgetForm() {
 
   if (submitSuccess) {
     return (
-      <Card ref={scrollAnchorRef} className="max-w-2xl mx-auto scroll-mt-10">
-        <CardContent className="p-12 text-center">
+      <Card ref={scrollAnchorRef} className="max-w-2xl mx-auto scroll-mt-24">
+        <CardContent className={`${compact ? "p-6" : "p-12"} text-center`}>
           <div className="flex justify-center mb-6">
             <div className="h-20 w-20 rounded-full bg-green-100 flex items-center justify-center">
               <CheckCircle2 className="h-12 w-12 text-green-600" />
@@ -188,7 +189,7 @@ export function BudgetForm() {
             <ul className="text-sm text-neutral-800/70 space-y-2 text-left">
               <li className="flex items-start">
                 <span className="text-primary mr-2">1.</span>
-                <span>Revisaremos tu solicitud en las próximas 24-48 horas</span>
+                <span>Revisaremos tu solicitud</span>
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">2.</span>
@@ -196,7 +197,7 @@ export function BudgetForm() {
               </li>
               <li className="flex items-start">
                 <span className="text-primary mr-2">3.</span>
-                <span>Te enviaremos un presupuesto detallado</span>
+                <span>Te enviaremos un presupuesto detallado en una semana</span>
               </li>
             </ul>
           </div>
@@ -214,7 +215,7 @@ export function BudgetForm() {
   }
 
   return (
-    <div ref={scrollAnchorRef} className="max-w-3xl mx-auto scroll-mt-10">
+    <div ref={scrollAnchorRef} className="w-full max-w-3xl mx-auto scroll-mt-24">
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
@@ -271,7 +272,7 @@ export function BudgetForm() {
       {/* Form */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card>
-          <CardContent className="p-8">
+          <CardContent className={compact ? "p-5" : "p-8"}>
             <CurrentStepComponent
               register={register}
               errors={errors}

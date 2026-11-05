@@ -7,9 +7,9 @@ export function MapSection() {
     <section className="section-padding bg-neutral-50">
       <div className="container-custom">
         <SectionHeading
-          subtitle="Dónde Estamos"
+          subtitle="Dónde Trabajamos"
           title="Nuestra Zona de Trabajo"
-          description="Trabajamos en Pozoblanco y la comarca de Los Pedroches con un radio de cobertura de 30km"
+          description="Trabajamos en Pozoblanco, Villanueva de Córdoba y los pueblos de alrededor, en todo el Valle de Los Pedroches"
           centered
           className="mb-12"
         />
@@ -18,7 +18,7 @@ export function MapSection() {
           {/* Mapa Real Embebido de Google Maps */}
           <div className="relative aspect-[4/3] bg-neutral-200 rounded-xl overflow-hidden shadow-md border border-neutral-200">
             <iframe
-              src="https://maps.google.com/maps?q=Raul+Sanchez+Alba%C3%B1ileria+y+reformas,Pozoblanco&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(`${siteConfig.address.city}, ${siteConfig.address.province}`)}&t=&z=10&ie=UTF8&iwloc=&output=embed`}
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={false}
               loading="lazy"
@@ -26,11 +26,11 @@ export function MapSection() {
               title="Mapa de cobertura en Pozoblanco"
             ></iframe>
 
-            {/* Etiqueta de radio flotante sobre el mapa */}
+            {/* Etiqueta de zona flotante sobre el mapa */}
             <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md pointer-events-none z-10 border border-neutral-100">
               <div className="flex items-center text-sm">
                 <Navigation className="h-4 w-4 text-primary mr-2" />
-                <span className="font-semibold text-secondary">Radio: 30km</span>
+                <span className="font-semibold text-secondary">Los Pedroches</span>
               </div>
             </div>
           </div>
@@ -47,9 +47,8 @@ export function MapSection() {
                 del Duque, Alcaracejos, Añora, Dos Torres y municipios cercanos.
               </p>
               <p className="text-neutral-800/80 leading-relaxed">
-                Radio de cobertura de 30 kilómetros desde Pozoblanco. Para
-                proyectos especiales o de mayor envergadura, podemos valorar
-                distancias superiores. Consúltanos tu ubicación.
+                Cubrimos todo el Valle de Los Pedroches. Consúltanos tu
+                ubicación.
               </p>
             </div>
 
@@ -59,20 +58,7 @@ export function MapSection() {
                 Principales Zonas de Servicio:
               </h4>
               <div className="grid grid-cols-2 gap-2">
-                {[
-                  "Pozoblanco",
-                  "Villanueva de Córdoba",
-                  "Hinojosa del Duque",
-                  "Alcaracejos",
-                  "Añora",
-                  "Dos Torres",
-                  "Pedroche",
-                  "El Viso",
-                  "Villaralto",
-                  "Belalcázar",
-                  "Cardeña",
-                  "Santa Eufemia",
-                ].map((zone, index) => (
+                {siteConfig.serviceAreas.slice(0, 12).map((zone, index) => (
                   <div
                     key={index}
                     className="flex items-center text-sm text-neutral-800/70 bg-white p-3 rounded-lg shadow-sm border border-neutral-100"

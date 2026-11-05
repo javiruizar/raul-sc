@@ -15,23 +15,22 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     primary: siteConfig.contact.email,
-    secondary: "Respuesta en 24-48h",
+    secondary: "Respuesta en 24 horas",
     link: `mailto:${siteConfig.contact.email}`,
     color: "text-blue-600",
   },
   {
     icon: MapPin,
-    title: "Ubicación",
-    primary: "Los Pedroches y Alrededores",
-    secondary: "Radio de 50km, pregunta sin compromiso",
+    title: "Zona de trabajo",
+    primary: "Valle de Los Pedroches",
+    secondary: "Pozoblanco, Villanueva de Córdoba y los pueblos de alrededor",
     link: null,
     color: "text-red-600",
   },
   {
     icon: Clock,
     title: "Horario",
-    primary: "Lun - Vie: 8:00 - 18:00",
-    secondary: "Sáb: 9:00 - 14:00",
+    primary: siteConfig.hours[0].display,
     link: null,
     color: "text-orange-600",
   },
@@ -71,9 +70,11 @@ export function ContactInfo() {
                   <p className="text-neutral-800 font-medium break-words">
                     {method.primary}
                   </p>
-                  <p className="text-sm text-neutral-800/60 mt-1">
-                    {method.secondary}
-                  </p>
+                  {method.secondary && (
+                    <p className="text-sm text-neutral-800/60 mt-1">
+                      {method.secondary}
+                    </p>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -128,11 +129,11 @@ export function ContactInfo() {
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2">•</span>
-            <span>Respuesta en 24-48 horas laborables</span>
+            <span>Respuesta en 24 horas</span>
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2">•</span>
-            <span>Visitas a domicilio para valoración</span>
+            <span>Visitas a domicilio gratuitas para valorar la obra</span>
           </li>
           <li className="flex items-start">
             <span className="text-primary mr-2">•</span>

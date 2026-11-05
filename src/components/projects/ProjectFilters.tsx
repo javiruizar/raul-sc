@@ -2,15 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { categoryLabels } from "@/data/project-categories";
 import type { ProjectCategory } from "@/types";
 
 const categories: { value: ProjectCategory | "all"; label: string }[] = [
   { value: "all", label: "Todos" },
-  { value: "reformas", label: "Reformas" },
-  { value: "albanileria", label: "Albañilería" },
-  { value: "restauracion", label: "Restauración" },
-  { value: "construccion", label: "Construcción" },
-  { value: "otros", label: "Otros" },
+  { value: "reformas", label: categoryLabels.reformas },
+  { value: "albanileria", label: categoryLabels.albanileria },
+  { value: "restauracion", label: categoryLabels.restauracion },
+  { value: "construccion", label: categoryLabels.construccion },
+  { value: "otros", label: categoryLabels.otros },
 ];
 
 interface ProjectFiltersProps {

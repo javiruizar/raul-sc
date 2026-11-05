@@ -22,7 +22,7 @@ export function ProjectCarousel({ images, title }: ProjectCarouselProps) {
 
   return (
     <div className="relative w-full aspect-[4/5] sm:aspect-[4/3] md:aspect-video lg:h-[600px] bg-neutral-100 rounded-xl overflow-hidden shadow-inner">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={currentIndex}
           initial={{ opacity: 0 }}

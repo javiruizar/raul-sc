@@ -13,13 +13,13 @@ const processSteps = [
   {
     number: 1,
     title: "Consulta Inicial",
-    description: "Nos ponemos en contacto contigo para entender tus necesidades y visitar el lugar.",
+    description: "Nos ponemos en contacto contigo para entender tus necesidades y visitar el lugar, sin coste.",
     icon: MessageSquare,
   },
   {
     number: 2,
     title: "Presupuesto Detallado",
-    description: "Elaboramos un presupuesto completo y detallado sin compromiso en 24-48h.",
+    description: "Elaboramos un presupuesto detallado sin compromiso en una semana. Si prefieres trabajar por horas, te damos una estimación de tiempos.",
     icon: FileText,
   },
   {
@@ -37,13 +37,13 @@ const processSteps = [
   {
     number: 5,
     title: "Supervisión",
-    description: "Control de calidad continuo durante todo el proceso para garantizar resultados óptimos.",
+    description: "Revisamos el trabajo durante todo el proceso para que el resultado sea el acordado.",
     icon: ClipboardCheck,
   },
   {
     number: 6,
     title: "Entrega Final",
-    description: "Revisión final contigo, entrega de garantías y seguimiento post-obra.",
+    description: "Revisamos contigo el resultado antes de dar la obra por terminada.",
     icon: CheckCircle2,
   },
 ];

@@ -1,26 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Phone, Mail, Clock, Navigation } from "lucide-react";
-
-const coverageAreas = [
-  "Pozoblanco",
-  "Villanueva de Córdoba",
-  "Hinojosa del Duque",
-  "Alcaracejos",
-  "Añora",
-  "Dos Torres",
-  "Pedroche",
-  "El Viso",
-  "Villaralto",
-  "Belalcázar",
-  "Cardeña",
-  "Santa Eufemia",
-  "Torrecampo",
-  "Fuente la Lancha",
-  "Guijo",
-  "Conquista",
-  "Venta del Charco",
-];
+import { siteConfig } from "@/config/site";
 
 export function CoverageSection() {
   return (
@@ -51,7 +32,7 @@ export function CoverageSection() {
               <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md pointer-events-none z-10 border border-neutral-100">
                 <div className="flex items-center text-sm">
                   <Navigation className="h-4 w-4 text-primary mr-2" />
-                  <span className="font-semibold text-secondary">Radio: 30km</span>
+                  <span className="font-semibold text-secondary">Los Pedroches</span>
                 </div>
               </div>
             </div>
@@ -63,17 +44,15 @@ export function CoverageSection() {
               Albañilería y Reformas en toda la Comarca de Los Pedroches
             </h3>
             <p className="text-neutral-800/80 mb-6">
-              Trabajamos como albañiles y constructores en Pozoblanco y todos los
-              municipios de la comarca de Los Pedroches. Si buscas reformas en
-              Villanueva de Córdoba, un albañil en Hinojosa del Duque o
-              construcción en Alcaracejos, aquí estamos. Cubrimos un radio de
-              aproximadamente 30 kilómetros desde Pozoblanco y, para proyectos
-              especiales, valoramos distancias mayores.
+              Trabajamos como albañiles y constructores en Pozoblanco, Villanueva
+              de Córdoba y los pueblos de alrededor, en todo el Valle de Los
+              Pedroches. Si buscas reformas en Villanueva de Córdoba, un albañil
+              en Hinojosa del Duque o construcción en Alcaracejos, aquí estamos.
             </p>
 
             {/* Lista de áreas */}
             <div className="grid grid-cols-2 gap-3 mb-8">
-              {coverageAreas.map((area, index) => (
+              {siteConfig.serviceAreas.map((area, index) => (
                 <div
                   key={index}
                   className="flex items-center text-sm text-neutral-800/70"
@@ -97,23 +76,25 @@ export function CoverageSection() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+34617847211"
+                    href={`tel:${siteConfig.contact.phoneLink}`}
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Phone className="h-4 w-4 mr-2" />
-                    617 847 211
+                    {siteConfig.contact.phoneDisplay}
                   </a>
                   <a
-                    href="mailto:javiruizar@gmail.com"
+                    href={`mailto:${siteConfig.contact.email}`}
                     className="flex items-center text-sm text-primary hover:text-primary-dark transition-colors"
                   >
                     <Mail className="h-4 w-4 mr-2" />
-                    javiruizar@gmail.com
+                    {siteConfig.contact.email}
                   </a>
-                  <div className="flex items-center text-sm text-neutral-800/60">
-                    <Clock className="h-4 w-4 mr-2" />
-                    Lun - Vie: 8:00 - 18:00
-                  </div>
+                  {siteConfig.hours.map((hours) => (
+                    <div key={hours.display} className="flex items-center text-sm text-neutral-800/60">
+                      <Clock className="h-4 w-4 mr-2" />
+                      {hours.display}
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

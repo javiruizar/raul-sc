@@ -7,20 +7,14 @@ import { StorySection } from "@/components/about/StorySection";
 import { ValuesSection } from "@/components/about/ValuesSection";
 import { CoverageSection } from "@/components/about/CoverageSection";
 import { ArrowRight, Award, Target, Handshake } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez",
+export const metadata: Metadata = pageMetadata({
+  title: "Nuestra historia en Los Pedroches",
   description:
-    "Conoce a Raúl Sánchez, albañil profesional en Pozoblanco y Los Pedroches con más de 20 años de experiencia. Especialista en reformas, restauración de casas antiguas y construcción tradicional en la comarca de Córdoba.",
-  alternates: {
-    canonical: "https://raul.javierruiz.org/sobre-nosotros",
-  },
-  openGraph: {
-    title: "Albañil en Pozoblanco con 20 Años de Experiencia | Raúl Sánchez Construcciones",
-    description: "Raúl Sánchez, albañil en Pozoblanco y Los Pedroches con más de 20 años de experiencia en reformas y restauración de casas antiguas.",
-    url: "https://raul.javierruiz.org/sobre-nosotros",
-  },
-};
+    "Conoce a Raúl Sánchez, albañil en Pozoblanco y Los Pedroches con más de 20 años de experiencia en reformas y restauración de casas antiguas.",
+  path: "/sobre-nosotros",
+});
 
 export default function SobreNosotrosPage() {
   return (
@@ -33,7 +27,7 @@ export default function SobreNosotrosPage() {
               Sobre Nosotros
             </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Tu Albañil en Pozoblanco con Más de 20 Años de Experiencia
+              Raúl Sánchez: más de 20 años de oficio en Los Pedroches
             </h1>
             <p className="text-xl text-white/90 mb-8">
               Somos especialistas en reformas integrales y restauración de casas
@@ -99,9 +93,8 @@ export default function SobreNosotrosPage() {
                   Nuestro Compromiso
                 </h3>
                 <p className="text-neutral-800/70">
-                  Garantizar la satisfacción total de nuestros clientes,
-                  cumpliendo plazos, respetando presupuestos y manteniendo una
-                  comunicación transparente.
+                  Cumplir lo que acordamos contigo, respetando plazos y
+                  presupuestos y manteniendo una comunicación transparente.
                 </p>
               </CardContent>
             </Card>
@@ -115,7 +108,7 @@ export default function SobreNosotrosPage() {
       {/* Coverage Section */}
       <CoverageSection />
 
-      {/* Certifications/Awards Section */}
+      {/* Experiencia */}
       <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
@@ -123,46 +116,33 @@ export default function SobreNosotrosPage() {
               Experiencia y Profesionalidad
             </h2>
             <p className="text-lg text-neutral-800/80 mb-8">
-              Contamos con todas las certificaciones necesarias y trabajamos
-              cumpliendo estrictamente la normativa vigente. Nuestra experiencia
-              y profesionalidad nos avalan.
+              Más de dos décadas de oficio en Los Pedroches nos avalan. Si
+              quieres, podemos enseñarte obras terminadas.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary mb-1">20+</div>
                 <div className="text-sm text-neutral-800/60">Años de experiencia</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                <div className="text-3xl font-bold text-primary mb-1">50+</div>
                 <div className="text-sm text-neutral-800/60">Proyectos completados</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">100%</div>
-                <div className="text-sm text-neutral-800/60">Clientes satisfechos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-1">2</div>
-                <div className="text-sm text-neutral-800/60">Años de garantía</div>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-neutral-800/60">
               <div className="flex items-center">
                 <div className="h-2 w-2 bg-primary rounded-full mr-2"></div>
-                Certificado profesional
+                Visita y presupuesto gratis
               </div>
               <div className="flex items-center">
                 <div className="h-2 w-2 bg-primary rounded-full mr-2"></div>
-                Seguro de responsabilidad civil
+                Escombros a gestor autorizado
               </div>
               <div className="flex items-center">
                 <div className="h-2 w-2 bg-primary rounded-full mr-2"></div>
-                Gestor autorizado de residuos
-              </div>
-              <div className="flex items-center">
-                <div className="h-2 w-2 bg-primary rounded-full mr-2"></div>
-                Normativa vigente
+                Obras que se pueden visitar
               </div>
             </div>
           </div>

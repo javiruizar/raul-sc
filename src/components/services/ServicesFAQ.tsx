@@ -1,83 +1,34 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import Link from "next/link";
+import { FaqAccordion, type Faq } from "@/components/shared/FaqAccordion";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
-const faqs = [
+// Solo dudas comunes a todos los servicios: las de cada uno están en su página
+// y las generales, en la home. No repetir la misma pregunta en varias páginas.
+const faqs: Faq[] = [
   {
-    question: "¿Cuánto tiempo tarda una reforma integral?",
+    question: "¿Trabajáis a presupuesto o por horas?",
     answer:
-      "El tiempo depende del tamaño y complejidad del proyecto. Una reforma integral de un piso de 80-100m² suele tardar entre 2 y 3 meses. Siempre proporcionamos un cronograma detallado antes de comenzar.",
+      "De las dos formas, a tu conveniencia, y lo acordamos antes de empezar. A presupuesto, te damos un precio detallado por partidas. Por horas no damos presupuesto, sino una estimación de tiempos y de cuántos profesionales estaremos en la obra.",
   },
   {
-    question: "¿Ofrecen garantía en sus trabajos?",
+    question: "¿Cuántas personas vais a la obra?",
     answer:
-      "Sí, ofrecemos garantía de 2 años en todos nuestros trabajos de albañilería y reformas. Además, los materiales que utilizamos cuentan con sus propias garantías del fabricante.",
+      "Somos un equipo de 6 personas. A cada obra vamos entre 2 y 6, según lo que necesite el trabajo y la situación de ese momento.",
   },
   {
-    question: "¿Necesito permisos para hacer una reforma?",
+    question: "¿Trabajáis con arquitectos o necesito contratar uno?",
     answer:
-      "Depende del tipo de reforma. Las obras menores generalmente no requieren licencia, pero las reformas que afecten a la estructura, fachada o distribución sí necesitan permisos. Te asesoramos en todo el proceso de tramitación.",
+      "Si la obra requiere proyecto técnico, trabajamos con el técnico que elijas o te recomendamos uno de confianza. Para trabajos menores no suele hacer falta.",
   },
   {
-    question: "¿Trabajan con arquitectos o necesito contratar uno?",
-    answer:
-      "Para proyectos que requieran proyecto técnico, trabajamos con arquitectos de confianza. Para reformas menores, nosotros nos encargamos de todo el proceso sin necesidad de arquitecto.",
-  },
-  {
-    question: "¿Cómo se realiza el pago?",
-    answer:
-      "Normalmente trabajamos con un sistema de pagos por fases: un anticipo al inicio (30%), pagos intermedios según avance de obra (40%), y el pago final al terminar (30%). Todo queda especificado en el contrato.",
-  },
-  {
-    question: "¿Qué incluye el presupuesto?",
-    answer:
-      "Nuestros presupuestos incluyen mano de obra, materiales, gestión de residuos, limpieza y IVA. Todo está detallado para que no haya sorpresas. Los únicos extras serían modificaciones que solicites durante la obra.",
-  },
-  {
-    question: "¿Trabajan en fines de semana?",
-    answer:
-      "Normalmente trabajamos de lunes a viernes, pero para proyectos urgentes o por necesidades específicas del cliente, podemos trabajar los sábados. Los domingos no trabajamos.",
-  },
-  {
-    question: "¿Se encargan de la gestión de residuos?",
-    answer:
-      "Sí, incluimos en nuestro servicio la retirada y gestión legal de todos los escombros y residuos generados durante la obra. Trabajamos con gestores autorizados.",
-  },
-  {
-    question: "¿Puedo vivir en casa durante la reforma?",
-    answer:
-      "Depende del tipo de reforma. En reformas parciales (baño, cocina) es posible con algunas molestias. En reformas integrales, recomendamos buscar alojamiento alternativo por comodidad y para agilizar los trabajos.",
-  },
-  {
-    question: "¿Qué zona de trabajo cubren?",
-    answer:
-      "Trabajamos principalmente en Pozoblanco y la comarca de Los Pedroches. Para proyectos especiales podemos valorar desplazamientos a otras zonas de Córdoba.",
+    question: "¿Trabajáis los fines de semana?",
+    answer: "No. Trabajamos de lunes a viernes, de 8:00 a 18:00.",
   },
 ];
 
-import { JsonLd } from "@/components/seo/JsonLd";
-
 export function ServicesFAQ() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <section className="section-padding bg-white">
-      <JsonLd data={faqSchema} />
       <div className="container-custom">
         <SectionHeading
           subtitle="Preguntas Frecuentes"
@@ -88,22 +39,7 @@ export function ServicesFAQ() {
         />
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border rounded-lg px-6 bg-white hover:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="text-left font-semibold text-secondary hover:text-primary">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-neutral-800/80 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <FaqAccordion faqs={faqs} name="faq-servicios" />
 
           <div className="mt-12 text-center p-8 bg-neutral-50 rounded-xl">
             <h3 className="font-heading text-xl font-bold text-secondary mb-2">
@@ -112,12 +48,12 @@ export function ServicesFAQ() {
             <p className="text-neutral-800/80 mb-4">
               Estamos aquí para ayudarte. Contáctanos y resolveremos todas tus dudas.
             </p>
-            <a
+            <Link
               href="/contacto"
               className="inline-flex items-center text-primary font-semibold hover:underline"
             >
               Contactar con nosotros →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

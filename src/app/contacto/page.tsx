@@ -4,19 +4,14 @@ import { MapSection } from "@/components/contact/MapSection";
 import { BudgetForm } from "@/components/budget/BudgetForm";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Albañil",
-  description: `Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito sin compromiso para tu reforma en Los Pedroches. Respuesta en 24-48h. Llama al ${siteConfig.contact.phoneDisplay}.`,
-  alternates: {
-    canonical: "https://raul.javierruiz.org/contacto",
-  },
-  openGraph: {
-    title: "Contacto y Presupuesto Gratuito en Pozoblanco | Raúl Sánchez Construcciones",
-    description: "Contacta con tu albañil en Pozoblanco o solicita un presupuesto gratuito para tu reforma en Los Pedroches.",
-    url: "https://raul.javierruiz.org/contacto",
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contacto y teléfono en Pozoblanco",
+  description:
+    `Contacta con tu albañil en Pozoblanco y Los Pedroches. Presupuesto gratis y respuesta en 24 horas. Llama al ${siteConfig.contact.phoneDisplay}.`,
+  path: "/contacto",
+});
 
 export default function ContactoPage() {
   return (
@@ -25,12 +20,12 @@ export default function ContactoPage() {
       <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary py-16 md:py-24">
         <div className="container-custom text-center mx-auto max-w-4xl flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            Contacta con tu Albañil en Pozoblanco
+            Contacta con {siteConfig.shortName}
           </h1>
           <p className="text-xl text-white/90">
             ¿Tienes dudas rápidas? Llámanos o escríbenos. ¿Quieres un presupuesto
             para tu reforma en Pozoblanco o Los Pedroches? Rellena el formulario
-            y te respondemos en 24-48h.
+            y te respondemos en 24 horas.
           </p>
         </div>
       </section>
