@@ -216,6 +216,13 @@ export function BudgetForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <div ref={scrollAnchorRef} className="w-full max-w-3xl mx-auto scroll-mt-24">
+      {/* En la home el texto de al lado habla de "el formulario": el título lo identifica. */}
+      {compact && (
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-secondary mb-6">
+          Formulario
+        </h3>
+      )}
+
       {/* Progress Bar */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">

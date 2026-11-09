@@ -19,7 +19,7 @@ export function QuickContactSection() {
               </h2>
               <p className="text-lg text-neutral-800/80">
                 Cuéntanos qué necesitas y te preparamos un presupuesto gratis y
-                sin compromiso. Si lo prefieres, llámanos o escríbenos o rellena
+                sin compromiso. Si lo prefieres, llámanos, escríbenos o rellena
                 el formulario que te facilitamos para agilizar el proceso.
                 {/* La flecha apunta al formulario: a la derecha en escritorio y debajo en móvil. */}
                 <ArrowRight aria-hidden="true" className="hidden lg:inline-block h-7 w-7 ml-2 align-middle text-primary" />
