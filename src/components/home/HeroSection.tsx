@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 
 const heroImage = {
-  alt: "Albañil realizando reforma en Pozoblanco, Los Pedroches",
+  alt: "Muro de mamposteria",
   fill: true,
   sizes: "100vw",
   quality: 85,
@@ -13,8 +13,8 @@ const heroImage = {
 
 // Un solo <img> con <picture>: cada dispositivo descarga solo su imagen. Con dos
 // <Image priority> ocultas por CSS, el navegador precargaba las dos en móvil.
-const { props: desktopImage } = getImageProps({ ...heroImage, src: "/images/hero-image-pool.webp" });
-const { props: mobileImage } = getImageProps({ ...heroImage, src: "/images/hero-image.webp" });
+const { props: desktopImage } = getImageProps({ ...heroImage, src: "/images/hero-muro-de-piedra.webp" });
+const { props: mobileImage } = getImageProps({ ...heroImage, src: "/images/hero-muro-de-piedra.webp" });
 
 export function HeroSection() {
   return (
