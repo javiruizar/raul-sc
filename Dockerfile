@@ -15,11 +15,13 @@ RUN pnpm install --frozen-lockfile
 # Copiamos el resto del código fuente
 COPY . .
 
+# Prisma desactivado (2026-11-19): sus dependencias no están en package.json.
+# Para reactivarlo, ver la nota de src/lib/prisma.ts y descomentar esta línea.
 # Generamos el cliente de Prisma proporcionando una URL ficticia para pasar la validación
-RUN DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" pnpm exec prisma generate
+# RUN DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" pnpm exec prisma generate
 
 # Compilamos la aplicación de Next.js
-RUN DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" pnpm run build
+RUN pnpm run build
 
 # Exponemos el puerto de la aplicación
 EXPOSE 3000
