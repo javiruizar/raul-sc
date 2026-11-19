@@ -82,6 +82,13 @@ export async function sendBudgetNotification(data: BudgetNotification) {
     ["Referencia", data.requestId],
   ];
 
+  // Enlace al panel con el destinatario y el saludo ya rellenos
+  const replyUrl = `${BASE_URL}/admin?${new URLSearchParams({
+    to: data.email,
+    name: data.name,
+    ref: data.requestId,
+  }).toString()}`;
+
   const filesHtml = data.fileUrls.length
     ? `<ul>${data.fileUrls
         .map((url) => `<li><a href="${escapeHtml(url)}">${escapeHtml(url)}</a></li>`)
@@ -102,6 +109,7 @@ export async function sendBudgetNotification(data: BudgetNotification) {
     <p style="white-space:pre-wrap">${escapeHtml(data.description)}</p>
     <h3>Archivos adjuntos</h3>
     ${filesHtml}
+    <p style="margin-top:24px"><a href="${escapeHtml(replyUrl)}" style="background:#D4581E;color:#ffffff;padding:10px 16px;border-radius:6px;text-decoration:none">Responder desde el panel</a></p>
   `;
 
   const text = [
@@ -114,6 +122,8 @@ export async function sendBudgetNotification(data: BudgetNotification) {
     "",
     "Archivos adjuntos:",
     ...(data.fileUrls.length ? data.fileUrls : ["Sin archivos adjuntos."]),
+    "",
+    `Responder desde el panel: ${replyUrl}`,
   ].join("\n");
 
   await sendEmail({
