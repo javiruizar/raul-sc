@@ -53,8 +53,9 @@ docker compose up -d
 echo "Esperando a que la base de datos esté lista..."
 sleep 10
 
-echo "Ejecutando migraciones de base de datos..."
-docker exec raul-albanil-web pnpm exec prisma migrate deploy
+# Prisma desactivado (2026-11-19): ver la nota de src/lib/prisma.ts
+# echo "Ejecutando migraciones de base de datos..."
+# docker exec raul-albanil-web pnpm exec prisma migrate deploy
 
 echo "------------------------------------------------"
 echo "¡Despliegue de la v\$VERSION completado con éxito!"
