@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
 import { baseOpenGraph } from "@/lib/seo";
@@ -118,9 +119,9 @@ export default function RootLayout({
       <body className="font-sans antialiased flex min-h-screen flex-col">
         <JsonLd data={websiteSchema} />
         <JsonLd data={localBusinessSchema} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteChrome header={<Header />} footer={<Footer />}>
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

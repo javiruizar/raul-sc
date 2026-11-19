@@ -5,6 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      // Panel de administración privado (además lleva noindex)
+      disallow: ["/admin", "/api/admin"],
     },
     sitemap: "https://raul.javierruiz.org/sitemap.xml",
   };
