@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image"; // Importado para el logo
-import { Phone, Mail, MapPin, Star } from "lucide-react";
+import { Phone, Mail, MapPin, Star, Heart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/services";
@@ -167,6 +167,21 @@ export function Footer() {
             ))}
           </div>
         </div>
+
+        {/* Crédito del desarrollador */}
+        <p className="mt-6 flex items-center justify-center gap-1.5 text-xs text-neutral-100/70">
+          Web hecha con
+          <Heart className="h-3.5 w-3.5 fill-primary text-primary" aria-label="amor" />
+          por{" "}
+          <a
+            href="https://javierruiz.org"
+            target="_blank"
+            rel="noopener"
+            className="font-medium text-white underline-offset-4 hover:text-primary hover:underline transition-colors"
+          >
+            Javier Ruiz
+          </a>
+        </p>
       </div>
     </footer>
   );
