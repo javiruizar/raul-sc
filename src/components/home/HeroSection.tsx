@@ -1,20 +1,8 @@
 import Link from "next/link";
-import { getImageProps } from "next/image";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-
-const heroImage = {
-  alt: "Muro de mamposteria",
-  fill: true,
-  sizes: "100vw",
-  quality: 85,
-} as const;
-
-// Un solo <img> con <picture>: cada dispositivo descarga solo su imagen. Con dos
-// <Image priority> ocultas por CSS, el navegador precargaba las dos en móvil.
-const { props: desktopImage } = getImageProps({ ...heroImage, src: "/images/hero-muro-de-piedra.webp" });
-const { props: mobileImage } = getImageProps({ ...heroImage, src: "/images/hero-muro-de-piedra.webp" });
 
 export function HeroSection() {
   return (
@@ -22,11 +10,17 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="relative flex items-center min-h-[80vh] py-20 md:py-32 overflow-hidden"
     >
-      <picture>
-        <source media="(min-width: 1024px)" srcSet={desktopImage.srcSet} sizes={heroImage.sizes} />
-        {/* eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element -- el alt llega en mobileImage */}
-        <img {...mobileImage} loading="eager" fetchPriority="high" className="object-cover object-center" />
-      </picture>
+      {/* Misma imagen en móvil y escritorio: con sizes="100vw" cada dispositivo
+          descarga el ancho que necesita. priority la precarga (es el LCP). */}
+      <Image
+        src="/images/hero-muro-piedra.webp"
+        alt="Muro de mampostería de piedra"
+        fill
+        priority
+        sizes="100vw"
+        quality={85}
+        className="object-cover object-center"
+      />
 
       {/* Overlay: mantiene el gradiente del diseño original */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-black/80" />
