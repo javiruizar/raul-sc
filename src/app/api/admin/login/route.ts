@@ -4,6 +4,7 @@ import {
   ADMIN_SESSION_SECONDS,
   checkAdminPassword,
   createSessionToken,
+  describeAdminConfigProblems,
   isAdminConfigured,
   isSameOrigin,
 } from "@/lib/admin-auth";
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
   }
 
   if (!isAdminConfigured()) {
-    console.warn("Panel de administración desactivado: faltan ADMIN_PASSWORD o ADMIN_SESSION_SECRET (mín. 12 caracteres).");
+    console.warn(`Panel de administración desactivado: ${describeAdminConfigProblems().join("; ")}.`);
     return NextResponse.json({ error: "El panel no está configurado" }, { status: 503 });
   }
 

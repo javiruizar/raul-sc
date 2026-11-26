@@ -24,6 +24,17 @@ export function isAdminConfigured(): boolean {
   return Boolean(getSecret() && getPassword());
 }
 
+// Explica qué variable falla (sin mostrar su valor), para el log del servidor
+export function describeAdminConfigProblems(): string[] {
+  const problems: string[] = [];
+  for (const name of ["ADMIN_PASSWORD", "ADMIN_SESSION_SECRET"]) {
+    const value = process.env[name];
+    if (!value) problems.push(`${name} no está definida`);
+    else if (value.length < MIN_SECRET_LENGTH) problems.push(`${name} tiene ${value.length} caracteres (mínimo ${MIN_SECRET_LENGTH})`);
+  }
+  return problems;
+}
+
 function toHex(buffer: ArrayBuffer): string {
   return Array.from(new Uint8Array(buffer), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
