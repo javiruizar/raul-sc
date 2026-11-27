@@ -7,7 +7,7 @@ const BASE_URL = "https://raul.javierruiz.org";
 // Fecha de referencia del último despliegue con cambios de contenido.
 // Actualizar manualmente cuando se modifique contenido estático significativo.
 // NO usar new Date() — causaría que Google vea cambios en cada build.
-const LAST_CONTENT_UPDATE = new Date("2026-11-05");
+const LAST_CONTENT_UPDATE = new Date("2026-11-27");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Rutas estáticas principales

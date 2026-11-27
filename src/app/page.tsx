@@ -7,6 +7,7 @@ import { WhyChooseUsSection } from "@/components/home/WhyChooseUsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
 // import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { GoogleReviewsSection } from "@/components/reviews/GoogleReviewsSection";
 import { HomeFaqSection } from "@/components/home/HomeFaqSection";
 import { QuickContactSection } from "@/components/home/QuickContactSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsSection />
       {/* <TestimonialsSection /> */}
+      <GoogleReviewsSection className="bg-white border-b border-neutral-100" />
       <HomeFaqSection />
       <QuickContactSection />
       <FinalCtaSection />

@@ -107,11 +107,13 @@ export default function RootLayout({
     "priceRange": "€€",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-    // Reviews y aggregateRating eliminados.
-    // Google requiere reviews verificables (p.ej. Google Business Profile).
-    // Añadir reviews aquí sin fuente verificable puede provocar una acción manual
-    // o que Google ignore completamente los rich snippets de estrellas.
-    // TODO: Volver a añadir cuando haya reseñas reales en Google Business Profile.
+    // Sin review ni aggregateRating, a propósito, aunque la web muestre las reseñas
+    // reales de Google (components/reviews):
+    // - Desde 2019 Google no muestra estrellas de reseñas "self-serving" de un
+    //   LocalBusiness/Organization en su propia web.
+    // - Sus directrices prohíben marcar reseñas copiadas de otra plataforma, y hacerlo
+    //   puede provocar una acción manual.
+    // Las reseñas aportan contenido real e indexable y confianza al visitante.
   };
 
   return (

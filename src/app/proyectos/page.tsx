@@ -7,6 +7,8 @@ import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ArrowRight, Award, Users } from "lucide-react";
 import { projects } from "@/data/projects";
 import { pageMetadata } from "@/lib/seo";
+import { GoogleReviewsSection } from "@/components/reviews/GoogleReviewsSection";
+import { GoogleRatingBadge } from "@/components/reviews/GoogleRatingBadge";
 
 export const metadata: Metadata = pageMetadata({
   title: "Obras y reformas en Los Pedroches",
@@ -42,6 +44,7 @@ export default function ProyectosPage() {
                 <span className="font-semibold">20+ Años</span>
               </div>
             </div>
+            <GoogleRatingBadge variant="dark" className="mt-6" />
           </div>
         </div>
       </section>
@@ -87,6 +90,9 @@ export default function ProyectosPage() {
           </div>
         </div>
       </section>
+
+      {/* Reseñas reales de Google (no se muestra si no hay datos) */}
+      <GoogleReviewsSection className="bg-white" />
 
       {/* CTA Section */}
       <section className="bg-primary py-16 md:py-20">
